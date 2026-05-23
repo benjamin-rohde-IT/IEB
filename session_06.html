@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 6 — Using Smart Data for Digital Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1915;
+    --ink2: #3d3d39;
+    --ink3: #6b6b65;
+    --paper: #faf8f3;
+    --paper2: #f2efe8;
+    --paper3: #e8e4d8;
+    --accent: #c04a22;
+    --accent2: #e8a44a;
+    --accent3: #2a6b5c;
+    --blue: #1e4f8c;
+    --border: rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink);
+    padding: 0 2rem;
+    display: flex; align-items: center; gap: 0; height: 52px;
+    overflow-x: auto;
+  }
+  nav a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0 14px; height: 52px;
+    display: flex; align-items: center;
+    white-space: nowrap;
+    transition: color .2s;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover { color: #fff; }
+  nav a.active { color: #fff; border-bottom-color: var(--accent2); }
+  nav .brand { color: rgba(255,255,255,0.3); font-size: 12px; margin-right: 24px; font-family: 'Lora', serif; font-style: italic; white-space: nowrap; flex-shrink: 0; }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+  }
+  .hero .session-tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--accent2);
+    text-transform: uppercase; margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600; line-height: 1.2;
+    margin-bottom: 1rem;
+    max-width: 700px; margin-left: auto; margin-right: auto;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.55);
+    font-size: 15px; max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+  .kq-grid {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    max-width: 640px; margin: 0 auto;
+  }
+  .kq {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px; color: rgba(255,255,255,0.75);
+    text-align: left; line-height: 1.4;
+  }
+  .kq strong { display: block; color: var(--accent2); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
+
+  /* LAYOUT */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+  section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+
+  /* SECTION HEADERS */
+  .sec-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 2.5rem;
+  }
+  .sec-num {
+    font-family: 'Lora', serif; font-style: italic;
+    color: var(--accent); font-size: 2rem; line-height: 1;
+    flex-shrink: 0;
+  }
+  .sec-head h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem; font-weight: 600; line-height: 1.2;
+  }
+  .sec-sub { color: var(--ink3); font-size: 14px; margin-top: 4px; font-weight: 400; }
+
+  /* CONCEPT CARDS */
+  .concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 2rem; }
+  .concept-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .concept-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .concept-card.blue::before { background: var(--blue); }
+  .concept-card.red::before { background: var(--accent); }
+  .concept-card.green::before { background: var(--accent3); }
+  .concept-card.amber::before { background: var(--accent2); }
+  .concept-card h3 {
+    font-size: 15px; font-weight: 600; margin-bottom: 8px; line-height: 1.3;
+  }
+  .concept-card p { font-size: 14px; color: var(--ink2); line-height: 1.6; }
+  .concept-tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px; border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .tag-blue { background: #dce8f8; color: var(--blue); }
+  .tag-red { background: #f8e0d8; color: var(--accent); }
+  .tag-green { background: #d8ece6; color: var(--accent3); }
+  .tag-amber { background: #faecd0; color: #a06820; }
+
+  /* FIGURE AREA */
+  .fig-wrap {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  .fig-label {
+    background: var(--paper2);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--ink3);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .fig-label .fig-num {
+    background: var(--ink);
+    color: #fff; border-radius: 3px;
+    font-size: 10px; padding: 1px 6px;
+  }
+
+  /* DIAGRAM wrapper */
+  .diagram-pad { padding: 2rem; }
+
+  /* SVG classes mirrored locally */
+  svg text { font-family: 'DM Sans', sans-serif; fill: var(--ink); }
+  svg .ts { font-size: 12px; fill: var(--ink2); }
+  svg .th { font-size: 14px; font-weight: 600; fill: var(--ink); }
+  svg .t { font-size: 14px; fill: var(--ink); }
+
+  /* PROCESS STEP LIST */
+  .step-list { list-style: none; counter-reset: steps; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex; gap: 16px; margin-bottom: 1.2rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .step-list li strong { display: block; font-size: 15px; margin-bottom: 2px; }
+  .step-list li p { font-size: 14px; color: var(--ink2); margin: 0; }
+
+  /* COMPARISON TABLE */
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .compare-table th {
+    background: var(--ink); color: #fff;
+    padding: 12px 16px; text-align: left;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .compare-table th:first-child { border-radius: 8px 0 0 0; }
+  .compare-table th:last-child { border-radius: 0 8px 0 0; }
+  .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: var(--paper2); }
+
+  /* EXAM QUESTIONS */
+  .exam-section {
+    background: linear-gradient(135deg, #1a1915 0%, #2a2825 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    color: #fff;
+    margin: 2rem 0;
+  }
+  .exam-section h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--accent2);
+    margin-bottom: 1.5rem;
+  }
+  .exam-q {
+    display: flex; gap: 14px; margin-bottom: 1.4rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .exam-q:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .q-num {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+  .q-content .q-text { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+  .q-content .q-hint {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    margin-top: 6px; font-style: italic;
+  }
+  .q-content .q-hint em { color: var(--accent2); font-style: normal; }
+
+  /* HIGHLIGHT QUOTE */
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--paper2);
+    border-radius: 0 8px 8px 0;
+  }
+  .pull-quote p { font-family: 'Lora', serif; font-size: 1.05rem; font-style: italic; color: var(--ink2); line-height: 1.6; }
+  .pull-quote cite { display: block; font-size: 12px; color: var(--ink3); margin-top: 8px; font-style: normal; font-family: 'DM Sans', sans-serif; }
+
+  /* READING LIST */
+  .reading-list { list-style: none; }
+  .reading-list li {
+    display: flex; gap: 12px;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+  }
+  .reading-list li:last-child { border-bottom: none; }
+  .reading-icon {
+    width: 36px; height: 36px;
+    background: var(--paper2); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .reading-list li strong { font-size: 14px; display: block; line-height: 1.3; }
+  .reading-list li span { font-size: 13px; color: var(--ink3); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.35);
+    padding: 2rem;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .concept-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.8rem; }
+    .diagram-pad { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">DIGI · Session 06</span>
+  <a href="#concepts" class="active">Core Concepts</a>
+  <a href="#ai-factory">AI Factory</a>
+  <a href="#smart-products">Smart Products</a>
+  <a href="#value-chain">Value Chain</a>
+  <a href="#incumbents">Incumbents</a>
+  <a href="#exam">Exam Q&amp;A</a>
+</nav>
+
+<div class="hero">
+  <div class="session-tag">Session 06 · Using Smart Data for Digital Strategy</div>
+  <h1>How AI and Connected Products Are Reshaping Firms</h1>
+  <p>A structured guide to the core theories, frameworks, and exam questions from Porter &amp; Heppelmann (2015), Iansiti &amp; Lakhani (2021), and Medaglia's lecture.</p>
+  <div class="kq-grid">
+    <div class="kq">
+      <strong>Key Question 1</strong>
+      What are the economic implications of implementing AI in the firm?
+    </div>
+    <div class="kq">
+      <strong>Key Question 2</strong>
+      How does competition change with connected products?
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ CONCEPTS OVERVIEW -->
+<section id="concepts">
+<div class="container">
+  <div class="sec-head">
+    <span class="sec-num">01</span>
+    <div>
+      <h2>Core Concepts at a Glance</h2>
+      <div class="sec-sub">The key building blocks for session 6</div>
+    </div>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card blue">
+      <span class="concept-tag tag-blue">Iansiti &amp; Lakhani</span>
+      <h3>The AI Factory</h3>
+      <p>A scalable decision engine that treats decision-making as an industrial process. Analytics convert data into predictions, which guide or automate operational actions — moving humans off the critical path.</p>
+    </div>
+    <div class="concept-card red">
+      <span class="concept-tag tag-red">Porter &amp; Heppelmann</span>
+      <h3>Smart Connected Products</h3>
+      <p>Products with physical, smart, and connectivity components. They can monitor, control, optimise, and act autonomously — and they fundamentally reshape the value chain of any firm that makes them.</p>
+    </div>
+    <div class="concept-card green">
+      <span class="concept-tag tag-green">Iansiti &amp; Lakhani</span>
+      <h3>Datafication</h3>
+      <p>Systematically extracting data from activities that already occur in any business. The Nest thermostat datafied home climate. Netflix datafied TV watching. Ride-sharing datafied urban transport.</p>
+    </div>
+    <div class="concept-card amber">
+      <span class="concept-tag tag-amber">Medaglia</span>
+      <h3>AI Collision</h3>
+      <p>When an AI-driven firm serves the same customers as a traditional firm with a similar (or better) value proposition but a far more scalable operating model — e.g. Amazon vs retailers, Ant Financial vs banks.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="concept-tag tag-blue">Iansiti &amp; Lakhani</span>
+      <h3>Virtuous Cycle of AI</h3>
+      <p>More usage → more data → better algorithms → better service → more usage. This self-reinforcing loop creates formidable scale and learning advantages that are hard for incumbents to replicate.</p>
+    </div>
+    <div class="concept-card red">
+      <span class="concept-tag tag-red">Porter &amp; Heppelmann</span>
+      <h3>Technology Stack</h3>
+      <p>The new infrastructure smart products require: product hardware/software, connectivity, the product cloud (with analytics engine, app platform, database), plus security and integration with enterprise systems.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════ AI FACTORY -->
+<section id="ai-factory">
+<div class="container">
+  <div class="sec-head">
+    <span class="sec-num">02</span>
+    <div>
+      <h2>The AI Factory</h2>
+      <div class="sec-sub">Iansiti &amp; Lakhani (2021), Chapter 3 — the scalable decision engine of the digital firm</div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>"The AI factory treats decision-making as a science. Analytics systematically convert internal and external data into predictions, insights, and choices."</p>
+    <cite>— Iansiti &amp; Lakhani, Competing in the Age of AI</cite>
+  </div>
+
+  <div class="fig-wrap">
+    <div class="fig-label"><span class="fig-num">Fig 1</span> The virtuous cycle — how the AI factory self-reinforces</div>
+    <div class="diagram-pad">
+      <svg width="100%" viewBox="0 0 680 320" role="img">
+        <title>AI Factory virtuous cycle</title>
+        <desc>A circular diagram showing: more data leads to better algorithms, better algorithms lead to better service, better service leads to more usage, more usage leads to more data.</desc>
+        <defs>
+          <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#c04a22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <!-- Central label -->
+        <text x="340" y="150" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#6b6b65;">AI Factory</text>
+        <text x="340" y="168" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#6b6b65;">virtuous cycle</text>
+
+        <!-- Nodes -->
+        <!-- Top: More Data -->
+        <rect x="275" y="20" width="130" height="48" rx="8" fill="#dce8f8" stroke="#1e4f8c" stroke-width="1"/>
+        <text x="340" y="40" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#1e4f8c;">More data</text>
+        <text x="340" y="57" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#1e4f8c;">from every interaction</text>
+
+        <!-- Right: Better algorithms -->
+        <rect x="505" y="125" width="140" height="48" rx="8" fill="#d8ece6" stroke="#2a6b5c" stroke-width="1"/>
+        <text x="575" y="145" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#2a6b5c;">Better algorithms</text>
+        <text x="575" y="162" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#2a6b5c;">predictions improve</text>
+
+        <!-- Bottom: Better service -->
+        <rect x="275" y="238" width="130" height="48" rx="8" fill="#faecd0" stroke="#a06820" stroke-width="1"/>
+        <text x="340" y="258" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#a06820;">Better service</text>
+        <text x="340" y="275" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#a06820;">value to users</text>
+
+        <!-- Left: More usage -->
+        <rect x="35" y="125" width="130" height="48" rx="8" fill="#f8e0d8" stroke="#c04a22" stroke-width="1"/>
+        <text x="100" y="145" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#c04a22;">More usage</text>
+        <text x="100" y="162" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#c04a22;">platform grows</text>
+
+        <!-- Arrows (curved arcs) -->
+        <!-- Top → Right -->
+        <path d="M405 44 Q520 44 508 130" fill="none" stroke="#c04a22" stroke-width="1.5" marker-end="url(#arr1)"/>
+        <!-- Right → Bottom -->
+        <path d="M510 173 Q510 262 408 262" fill="none" stroke="#c04a22" stroke-width="1.5" marker-end="url(#arr1)"/>
+        <!-- Bottom → Left -->
+        <path d="M275 262 Q170 262 168 173" fill="none" stroke="#c04a22" stroke-width="1.5" marker-end="url(#arr1)"/>
+        <!-- Left → Top -->
+        <path d="M168 130 Q168 44 275 44" fill="none" stroke="#c04a22" stroke-width="1.5" marker-end="url(#arr1)"/>
+      </svg>
+    </div>
+  </div>
+
+  <p style="margin-bottom:2rem;">The four essential components that make the AI factory work:</p>
+
+  <ol class="step-list">
+    <li>
+      <div>
+        <strong>Data pipeline</strong>
+        <p>Gathers, inputs, cleans, integrates, processes, and safeguards data in a systematic, sustainable, and scalable way. Netflix, for example, ingests billions of ratings, stream plays, queues, and search terms. The challenge: data from incumbent firms is often siloed, fragmented, and inconsistent.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Algorithm development</strong>
+        <p>Algorithms generate predictions about future states or actions of the business. Three families: <em>supervised learning</em> (predict from labelled data — e.g. spam filters, churn prediction), <em>unsupervised learning</em> (find hidden groupings — e.g. customer segmentation), <em>reinforcement learning</em> (explore/exploit trade-off — e.g. Netflix artwork personalisation, AlphaGo).</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Experimentation platform</strong>
+        <p>Hypotheses about improvements are tested as randomised controlled trials (A/B tests) to distinguish genuine causal effects from spurious correlation. Google runs over 100,000 experiments per year. Netflix tests every significant product change before release.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Software infrastructure</strong>
+        <p>Embeds the pipeline in a consistent, componentised software and computing environment and connects it to internal and external users via APIs. A well-designed data platform lets an agile team build a new application in days rather than years.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="exam-section">
+    <h3>Exam questions — AI Factory</h3>
+    <div class="exam-q">
+      <div class="q-num">1</div>
+      <div class="q-content">
+        <div class="q-text">What distinguishes an AI factory from traditional data analytics? What makes it "scalable"?</div>
+        <div class="q-hint">Hint: think about the industrial analogy — <em>mass production of decisions</em>, continuous feedback loops, and the elimination of human bottlenecks on the critical path.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">2</div>
+      <div class="q-content">
+        <div class="q-text">Explain the difference between supervised, unsupervised, and reinforcement learning using one business example for each.</div>
+        <div class="q-hint">Hint: supervised = churn prediction / loan default; unsupervised = customer segments / anomaly detection; reinforcement = Netflix artwork selection / dynamic pricing.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">3</div>
+      <div class="q-content">
+        <div class="q-text">Why is the experimentation platform described as a "necessary component" of the AI factory? What goes wrong without it?</div>
+        <div class="q-hint">Hint: correlation ≠ causation. Without A/B testing, an algorithm that correlates with a target metric might just be capturing a pre-existing pattern, not driving change.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">4</div>
+      <div class="q-content">
+        <div class="q-text">Describe "datafication" with an example. Why do incumbent businesses often struggle with this first step?</div>
+        <div class="q-hint">Hint: data exists but is fragmented across silos, lacks common identifiers, has inconsistent formats. Executives consistently underestimate the cleaning and integration investment.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════ SMART PRODUCTS -->
+<section id="smart-products">
+<div class="container">
+  <div class="sec-head">
+    <span class="sec-num">03</span>
+    <div>
+      <h2>Smart Connected Products</h2>
+      <div class="sec-sub">Porter &amp; Heppelmann (2015) — what they are and what they enable</div>
+    </div>
+  </div>
+
+  <div class="fig-wrap">
+    <div class="fig-label"><span class="fig-num">Fig 2</span> Three layers of a smart connected product</div>
+    <div class="diagram-pad">
+      <svg width="100%" viewBox="0 0 680 280" role="img">
+        <title>Three layers of smart connected products</title>
+        <desc>Stacked diagram showing: physical components at the base, smart components in the middle, connectivity components at the top. Arrows show how each layer amplifies the layer below.</desc>
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <!-- Layer 3: Connectivity (top) -->
+        <rect x="40" y="20" width="480" height="64" rx="10" fill="#dce8f8" stroke="#1e4f8c" stroke-width="1"/>
+        <text x="280" y="46" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;fill:#1e4f8c;">Connectivity components</text>
+        <text x="280" y="64" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:12px;fill:#1e4f8c;">Ports, antennae, protocols, networks — enables cloud &amp; product communication</text>
+
+        <!-- Layer 2: Smart -->
+        <rect x="40" y="106" width="480" height="64" rx="10" fill="#faecd0" stroke="#a06820" stroke-width="1"/>
+        <text x="280" y="132" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;fill:#a06820;">Smart components</text>
+        <text x="280" y="150" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:12px;fill:#a06820;">Sensors, microprocessors, data storage, controls, embedded OS, UI</text>
+
+        <!-- Layer 1: Physical (base) -->
+        <rect x="40" y="192" width="480" height="64" rx="10" fill="#e8e4d8" stroke="#6b6b65" stroke-width="1"/>
+        <text x="280" y="218" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;fill:#3d3d39;">Physical components</text>
+        <text x="280" y="236" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:12px;fill:#6b6b65;">Mechanical and electrical parts — the traditional product</text>
+
+        <!-- Upward arrows -->
+        <line x1="560" y1="220" x2="560" y2="134" stroke="#888" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)"/>
+        <line x1="560" y1="134" x2="560" y2="48" stroke="#888" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)"/>
+        <text x="590" y="182" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#6b6b65;writing-mode:unset;" transform="rotate(-90,590,182)">amplifies</text>
+
+        <!-- Four capabilities label -->
+        <text x="620" y="70" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;fill:#c04a22;">Enables:</text>
+        <text x="620" y="88" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#3d3d39;">Monitor</text>
+        <text x="620" y="105" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#3d3d39;">Control</text>
+        <text x="620" y="122" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#3d3d39;">Optimise</text>
+        <text x="620" y="139" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#3d3d39;">Autonomy</text>
+      </svg>
+    </div>
+  </div>
+
+  <p style="margin-bottom:1.5rem;">The four new product capabilities these layers unlock:</p>
+
+  <div class="concept-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+    <div class="concept-card blue" style="padding:1.2rem;">
+      <h3 style="font-size:14px;">① Monitor</h3>
+      <p>Products report on their own condition and environment — generating insights previously unavailable (real-time engine health, soil moisture, usage patterns).</p>
+    </div>
+    <div class="concept-card amber" style="padding:1.2rem;">
+      <h3 style="font-size:14px;">② Control</h3>
+      <p>Users can operate products remotely, customise function and performance, and operate in hazardous or hard-to-reach environments.</p>
+    </div>
+    <div class="concept-card green" style="padding:1.2rem;">
+      <h3 style="font-size:14px;">③ Optimise</h3>
+      <p>Algorithms substantially improve performance, utilisation, and uptime — and how a product works with related products in a broader system (smart building, smart farm).</p>
+    </div>
+    <div class="concept-card red" style="padding:1.2rem;">
+      <h3 style="font-size:14px;">④ Autonomy</h3>
+      <p>Products learn, adapt to users and environment, service themselves, and operate independently — the combination of all three prior capabilities.</p>
+    </div>
+  </div>
+
+  <div class="exam-section" style="margin-top:2rem;">
+    <h3>Exam questions — Smart Connected Products</h3>
+    <div class="exam-q">
+      <div class="q-num">1</div>
+      <div class="q-content">
+        <div class="q-text">Describe the three core components of a smart connected product and explain how connectivity "amplifies" the smart layer.</div>
+        <div class="q-hint">Hint: smart components exist within a product. Connectivity extends them outward to the cloud and back — unlocking remote control, continuous software upgrades, and system-level optimisation.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">2</div>
+      <div class="q-content">
+        <div class="q-text">Porter &amp; Heppelmann say data from smart products is "valuable by itself, yet its value increases exponentially when integrated with other data." Illustrate this with a concrete example.</div>
+        <div class="q-hint">Hint: farm humidity sensor data + weather forecast + commodity prices → optimal irrigation; vehicle location + service needs + parts inventory → predictive maintenance scheduling.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">3</div>
+      <div class="q-content">
+        <div class="q-text">What is "evergreen design" and how does it differ from traditional product development? What competitive advantage does it create?</div>
+        <div class="q-hint">Hint: traditional products are fixed between generations. Smart products continuously improve via software. Tesla's autopilot and suspension updates are the canonical example — no recall required.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════ VALUE CHAIN -->
+<section id="value-chain">
+<div class="container">
+  <div class="sec-head">
+    <span class="sec-num">04</span>
+    <div>
+      <h2>Transforming the Value Chain</h2>
+      <div class="sec-sub">How smart connected products reshape every function in the manufacturing firm</div>
+    </div>
+  </div>
+
+  <div class="fig-wrap">
+    <div class="fig-label"><span class="fig-num">Fig 3</span> Value chain transformation — from function to function</div>
+    <div class="diagram-pad" style="overflow-x:auto;">
+      <table class="compare-table" style="min-width:540px;">
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>Before (traditional product)</th>
+            <th>After (smart connected product)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Product development</strong></td>
+            <td>Mechanical engineering; fixed-generation design; physical testing only</td>
+            <td>Interdisciplinary systems engineering; evergreen design; continuous real-world quality monitoring; low-cost software variability</td>
+          </tr>
+          <tr>
+            <td><strong>Manufacturing</strong></td>
+            <td>Discrete process ending at shipment; standardised physical assembly</td>
+            <td>Continuous process — the cloud stack is part of the product; smart factories with networked machines; software loaded post-shipment</td>
+          </tr>
+          <tr>
+            <td><strong>Logistics</strong></td>
+            <td>RFID/barcode scanning; periodic location tracking</td>
+            <td>Continuous real-time tracking of location, condition, and environment; drone delivery; optimised fleet routing</td>
+          </tr>
+          <tr>
+            <td><strong>Marketing &amp; Sales</strong></td>
+            <td>One-time transaction focus; segment by demographics; customer surveys</td>
+            <td>Continuous value delivery; fine-grained usage-based segmentation; product-as-a-service models; focus on systems not products</td>
+          </tr>
+          <tr>
+            <td><strong>After-sale service</strong></td>
+            <td>Reactive, on-site visits; technician diagnoses on arrival; expensive second trips</td>
+            <td>Remote &amp; preventive service; one-stop visits; AR-assisted repair; predictive analytics (Diebold ATMs); new service revenue streams</td>
+          </tr>
+          <tr>
+            <td><strong>HR</strong></td>
+            <td>Mechanical engineers; traditional sales and service skills</td>
+            <td>Software engineers, data scientists, UX designers; new clock speeds; new compensation norms; co-location with tech hubs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p style="margin: 1.5rem 0 1rem; font-size: 15px; font-weight: 500;">New organisational units that emerge</p>
+
+  <div class="concept-grid">
+    <div class="concept-card blue">
+      <span class="concept-tag tag-blue">New structure</span>
+      <h3>Unified Data Organisation</h3>
+      <p>Led by a Chief Data Officer. Consolidates data collection, aggregation, and analytics across all functions. No single function can manage the volume, complexity, and security of data by itself. (Gartner: 25% of large firms by 2017.)</p>
+    </div>
+    <div class="concept-card green">
+      <span class="concept-tag tag-green">New structure</span>
+      <h3>Dev-Ops</h3>
+      <p>Bridges product development ("dev") with IT and manufacturing operations ("ops"). Manages continuous product operation, software updates, patches, and new post-sale services. Shortens release cycles, runs cloud infrastructure.</p>
+    </div>
+    <div class="concept-card amber">
+      <span class="concept-tag tag-amber">New structure</span>
+      <h3>Customer Success Management</h3>
+      <p>Monitors product use and performance to ensure customers extract maximum value — especially critical in product-as-a-service models to drive renewals. Uses the product's data stream rather than waiting for complaints.</p>
+    </div>
+  </div>
+
+  <div class="exam-section" style="margin-top:2rem;">
+    <h3>Exam questions — Value chain &amp; organisation</h3>
+    <div class="exam-q">
+      <div class="q-num">1</div>
+      <div class="q-content">
+        <div class="q-text">Porter &amp; Heppelmann argue that "manufacturing becomes a permanent process." What do they mean, and why?</div>
+        <div class="q-hint">Hint: smart products can't function without the cloud technology stack. The manufacturer must operate and improve that stack for the product's entire life — it never ends at shipment.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">2</div>
+      <div class="q-content">
+        <div class="q-text">What is a "Customer Success Management" unit? Why can't traditional sales or service units perform this function?</div>
+        <div class="q-hint">Hint: traditional sales is incentivised on the transaction, not ongoing value. Traditional service reacts to failures. CSM proactively monitors usage data to prevent churn and expand value — different incentives and tools.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">3</div>
+      <div class="q-content">
+        <div class="q-text">What is a "data lake" and why are conventional approaches like spreadsheets and database tables inadequate for smart product data?</div>
+        <div class="q-hint">Hint: smart product data is unstructured and heterogeneous — sensor readings, temperatures, GPS coordinates, video, warranty history. A data lake stores data in native formats; conventional tools require structured schemas up front.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════ INCUMBENTS -->
+<section id="incumbents">
+<div class="container">
+  <div class="sec-head">
+    <span class="sec-num">05</span>
+    <div>
+      <h2>How Incumbents Should Respond</h2>
+      <div class="sec-sub">Becoming an AI company — Microsoft, Fidelity, and the five principles</div>
+    </div>
+  </div>
+
+  <div class="fig-wrap">
+    <div class="fig-label"><span class="fig-num">Fig 4</span> Four stages of operating model transformation (Iansiti &amp; Lakhani)</div>
+    <div class="diagram-pad">
+      <svg width="100%" viewBox="0 0 680 200" role="img">
+        <title>Four stages of digital operating model transformation</title>
+        <desc>Four boxes from left to right: Stage 1 Siloed data, Stage 2 Pilot, Stage 3 Data hub, Stage 4 AI factory. An upward-sloping arrow underneath indicates increasing performance impact. Transformation stages are: Improvement, Demonstration, Optimization, Transformation.</desc>
+        <defs>
+          <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#c04a22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <!-- Stage boxes -->
+        <rect x="20" y="30" width="130" height="70" rx="8" fill="#e8e4d8" stroke="#6b6b65" stroke-width="1"/>
+        <text x="85" y="55" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#3d3d39;">Stage 1</text>
+        <text x="85" y="72" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:12px;fill:#6b6b65;">Siloed data</text>
+        <text x="85" y="89" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#6b6b65;">scattered Excel files</text>
+
+        <rect x="180" y="30" width="130" height="70" rx="8" fill="#faecd0" stroke="#a06820" stroke-width="1"/>
+        <text x="245" y="55" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#a06820;">Stage 2</text>
+        <text x="245" y="72" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:12px;fill:#a06820;">Pilots</text>
+        <text x="245" y="89" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#a06820;">analytics demos</text>
+
+        <rect x="340" y="30" width="130" height="70" rx="8" fill="#d8ece6" stroke="#2a6b5c" stroke-width="1"/>
+        <text x="405" y="55" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#2a6b5c;">Stage 3</text>
+        <text x="405" y="72" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:12px;fill:#2a6b5c;">Data hub</text>
+        <text x="405" y="89" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#2a6b5c;">integrated platform</text>
+
+        <rect x="500" y="30" width="160" height="70" rx="8" fill="#dce8f8" stroke="#1e4f8c" stroke-width="2"/>
+        <text x="580" y="55" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;fill:#1e4f8c;">Stage 4</text>
+        <text x="580" y="72" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:12px;fill:#1e4f8c;">AI factory</text>
+        <text x="580" y="89" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#1e4f8c;">automated decisions</text>
+
+        <!-- Arrows between stages -->
+        <line x1="152" y1="65" x2="178" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#arr3)"/>
+        <line x1="312" y1="65" x2="338" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#arr3)"/>
+        <line x1="472" y1="65" x2="498" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+        <!-- Performance axis -->
+        <text x="10" y="140" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#6b6b65;">Low</text>
+        <text x="10" y="185" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#6b6b65;">Performance</text>
+        <line x1="20" y1="170" x2="660" y2="140" stroke="#c04a22" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="50" y="165" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#888;">Improvement</text>
+        <text x="200" y="160" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#888;">Demonstration</text>
+        <text x="370" y="155" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#888;">Optimization</text>
+        <text x="530" y="150" style="font-family:'DM Sans',sans-serif;font-size:11px;fill:#888;">Transformation</text>
+      </svg>
+    </div>
+  </div>
+
+  <p style="margin-bottom:1.5rem;">Iansiti &amp; Lakhani's research shows AI maturity leaders had a <strong>55% gross margin</strong> vs 37% for laggards, and 11% net income vs 7%. The five principles for transformation:</p>
+
+  <ol class="step-list">
+    <li>
+      <div>
+        <strong>One strategy</strong>
+        <p>Strategic clarity and full commitment — no plan B. Not about spinning off an AI division; it requires rebuilding the core. Nadella's "The cloud is our future and we have fundamentally no choice" is the model.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Architectural clarity</strong>
+        <p>Everyone must understand what the future operating architecture looks like. Data must be integrated, not fragmented. Without a consistent data catalog and clear standards, AI is impossible to safeguard and scale.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Agile, product-focused organisation</strong>
+        <p>AI-centric applications must embed a deep understanding of their settings — like any product. Agile teams building on a shared data platform can deploy new applications in days. Gone are the years-long custom IT builds.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Capability foundations</strong>
+        <p>Hire data scientists, software engineers, and — crucially — <em>data and analytics product managers</em> who can bridge business context and technical execution. The market for this talent is hot and competitive.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Clear, multidisciplinary governance</strong>
+        <p>AI's societal impacts (privacy, bias, fairness, cybersecurity) must be governed across legal, engineering, and product functions together. Microsoft's six AI principles (fairness, reliability, privacy, inclusiveness, transparency, accountability) are the benchmark.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="pull-quote">
+    <p>"For traditional firms, becoming a software-based, AI-driven company is about becoming a different kind of organisation — one accustomed to ongoing transformation. This is not about spinning off a new organisation, setting up the occasional skunkworks, or creating an AI department."</p>
+    <cite>— Iansiti &amp; Lakhani, Chapter 5</cite>
+  </div>
+
+  <div class="exam-section">
+    <h3>Exam questions — Incumbents &amp; transformation</h3>
+    <div class="exam-q">
+      <div class="q-num">1</div>
+      <div class="q-content">
+        <div class="q-text">What is an "AI collision"? Use an example to explain why the incumbent is structurally disadvantaged.</div>
+        <div class="q-hint">Hint: Ant Financial vs banks — same service (lending), but Ant has a scalable AI operating model with no branches, no loan officers, and real-time data. The incumbent has fixed costs and siloed legacy data that it can't easily replicate away.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">2</div>
+      <div class="q-content">
+        <div class="q-text">Why does Medaglia suggest that becoming a platform is one viable path for incumbents? What does this achieve?</div>
+        <div class="q-hint">Hint: a platform lets the incumbent interconnect products/services, generate data repositories, use the cloud for storage, and begin building the data pipeline that an AI factory requires. It breaks down product silos.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">3</div>
+      <div class="q-content">
+        <div class="q-text">Compare the AI factory's implications for the firm's operating model with what Porter &amp; Heppelmann say about smart connected products' implications for the value chain. What is common?</div>
+        <div class="q-hint">Hint: both require: centralised data, new cross-functional coordination (IT&amp;R&D, or dev-ops), new roles (CDO, data scientist, customer success), shift from reactive to proactive/predictive, and continuous rather than episodic operations.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">4</div>
+      <div class="q-content">
+        <div class="q-text">Microsoft tripled its stock price in Nadella's first three years as CEO. What specific operational changes drove this, and which of the five transformation principles does each reflect?</div>
+        <div class="q-hint">Hint: embracing open source (architectural clarity + one strategy), moving Azure to the core (one strategy), building supply chain capability for data centres (capability foundations), Core Services Engineering / DelBene's role (agile product-focused org), and AI governance / Brad Smith (multidisciplinary governance).</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════ EXAM SYNTHESIS -->
+<section id="exam">
+<div class="container">
+  <div class="sec-head">
+    <span class="sec-num">06</span>
+    <div>
+      <h2>Synthesis &amp; Cross-Concept Questions</h2>
+      <div class="sec-sub">Questions that require linking frameworks — the hardest and most likely oral exam territory</div>
+    </div>
+  </div>
+
+  <div class="exam-section">
+    <h3>High-difficulty synthesis questions</h3>
+    <div class="exam-q">
+      <div class="q-num">S1</div>
+      <div class="q-content">
+        <div class="q-text">A traditional car manufacturer says: "We have sensors in our cars. We're already a smart connected products company." Critically assess this claim using Porter &amp; Heppelmann's framework and Iansiti &amp; Lakhani's AI factory concept.</div>
+        <div class="q-hint">Hint: having sensors ≠ having a data pipeline, algorithm development capability, or experimentation platform. The manufacturer may have the physical layer but lack the cloud stack, the data organisation, the dev-ops unit, and the analytics feedback loop. Tesla is the comparison.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">S2</div>
+      <div class="q-content">
+        <div class="q-text">Porter &amp; Heppelmann and Iansiti &amp; Lakhani both argue that data is the decisive asset of the 21st century firm. But they emphasise different challenges in generating and using it. Compare their perspectives.</div>
+        <div class="q-hint">Hint: P&amp;H focus on the challenge of integrating product data with enterprise data (the data lake, the new technology stack, the unified data organisation). I&amp;L focus on the pipeline challenge (cleaning, normalisation, bias), the algorithm development process, and experimentation. Both see siloed data as the key barrier for incumbents.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">S3</div>
+      <div class="q-content">
+        <div class="q-text">The Gartner Hype Cycle (referenced in Medaglia's slides) suggests technologies are often over-hyped then under-valued before reaching productive use. How does this concept apply to AI in enterprises today?</div>
+        <div class="q-hint">Hint: relate to the four-stage transformation model (siloed → pilot → hub → factory). Many firms are at the "trough of disillusionment" after failed AI pilots (stage 2 failures) because they haven't addressed the underlying data architecture required for stage 3+.</div>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="q-num">S4</div>
+      <div class="q-content">
+        <div class="q-text">Porter &amp; Heppelmann's 10 strategic decisions for smart connected products include: "Should the company pursue an open or closed system?" How does this decision interact with Iansiti &amp; Lakhani's argument about network effects and data learning loops?</div>
+        <div class="q-hint">Hint: open systems attract more partners and users → more data → better AI → more competitive moat (I&amp;L's logic). But open systems also risk sharing the data advantage with competitors (P&amp;H's concern). SmartThings (open) vs Apple HomeKit (more closed) is a live example.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <p style="font-size:15px;font-weight:500;margin-bottom:1rem;">Session readings</p>
+    <ul class="reading-list">
+      <li>
+        <div class="reading-icon">📄</div>
+        <div>
+          <strong>Porter &amp; Heppelmann (2015) — How Smart, Connected Products Are Transforming Companies</strong>
+          <span>Harvard Business Review, October 2015. Focus: value chain transformation, technology stack, new organisational structures.</span>
+        </div>
+      </li>
+      <li>
+        <div class="reading-icon">📘</div>
+        <div>
+          <strong>Iansiti &amp; Lakhani (2021) — Chapter 3: The AI Factory</strong>
+          <span>Competing in the Age of AI. Focus: data pipeline, algorithm development (supervised / unsupervised / reinforcement), experimentation platform, infrastructure.</span>
+        </div>
+      </li>
+      <li>
+        <div class="reading-icon">📘</div>
+        <div>
+          <strong>Iansiti &amp; Lakhani (2021) — Chapter 5: Becoming an AI Company</strong>
+          <span>Competing in the Age of AI. Focus: Microsoft's transformation, five principles, four stages, AI maturity index, Fidelity case.</span>
+        </div>
+      </li>
+      <li>
+        <div class="reading-icon">🎓</div>
+        <div>
+          <strong>Medaglia — Using Smart Data for Digital Strategies (Session 6 slides)</strong>
+          <span>CBS lecture. Focus: AI/ML definitions, AI factory, datafication, AI collision, smart connected products, incumbents' response.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<footer>
+  Session 06 · DIGI · CBS · Compiled from Porter &amp; Heppelmann (2015), Iansiti &amp; Lakhani (2021), and Medaglia's lecture slides.
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('nav a[href^="#"]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
