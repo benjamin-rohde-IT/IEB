@@ -1,242 +1,1020 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IEB Session 5 — Strategy Formulation & Managerial Cognition</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 05 — Exam Preparation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e17;
+    --paper: #faf9f6;
+    --accent: #c1440e;
+    --accent2: #2563a8;
+    --muted: #6b6b7b;
+    --border: #e2ddd6;
+    --card-bg: #ffffff;
+    --highlight: #fff3ec;
+    --highlight2: #ecf2ff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border: 80px solid rgba(193,68,14,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .header-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .course-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  header h1 span { color: var(--accent); }
+  header p.subtitle {
+    font-size: 1rem;
+    color: rgba(250,249,246,0.65);
+    max-width: 540px;
+  }
+
+  /* ─── NAV PILLS ─── */
+  .nav-pills {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-pills a {
+    font-size: 0.8rem; font-weight: 500;
+    text-decoration: none;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all 0.18s;
+  }
+  .nav-pills a:hover { border-color: var(--accent); color: var(--accent); background: var(--highlight); }
+
+  /* ─── LAYOUT ─── */
+  main { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+
+  section { margin-bottom: 3.5rem; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  p { margin-bottom: 0.9rem; color: #2a2a38; }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .card.accent-left { border-left: 4px solid var(--accent); }
+  .card.accent-left2 { border-left: 4px solid var(--accent2); }
+  .card.highlight-bg { background: var(--highlight); }
+  .card.highlight-bg2 { background: var(--highlight2); }
+
+  /* ─── CONCEPT GRID ─── */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .concept-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    border-top: 3px solid var(--accent);
+  }
+  .concept-card.blue { border-top-color: var(--accent2); }
+  .concept-card .emoji { font-size: 1.6rem; margin-bottom: 0.5rem; display: block; }
+  .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+  .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+  /* ─── SVG FIGURES ─── */
+  .figure-wrap {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.25rem 0;
+    overflow-x: auto;
+  }
+  .figure-wrap figcaption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+  svg text { font-family: 'DM Sans', sans-serif; }
+
+  /* ─── PROCESS STEPS ─── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .step {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 500;
+  }
+  .step-num.orange { background: var(--accent); }
+  .step-num.blue { background: var(--accent2); }
+  .step-body { flex: 1; }
+  .step-body strong { font-size: 0.95rem; }
+  .step-body p { font-size: 0.88rem; margin: 0.2rem 0 0; color: var(--muted); }
+
+  /* ─── EXAM QUESTIONS ─── */
+  .q-list { list-style: none; }
+  .q-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+  .q-item summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    font-weight: 500;
+    font-size: 0.95rem;
+    list-style: none;
+    user-select: none;
+  }
+  .q-item summary::-webkit-details-marker { display: none; }
+  .q-item summary:hover { background: var(--highlight); }
+  .q-badge {
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .q-badge.core { background: #ffece4; color: var(--accent); }
+  .q-badge.apply { background: var(--highlight2); color: var(--accent2); }
+  .q-badge.synth { background: #e9f5e9; color: #256325; }
+  .q-chevron {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 0.75rem; color: var(--muted);
+    transition: transform 0.2s;
+  }
+  details[open] .q-chevron { transform: rotate(90deg); }
+  .q-answer {
+    padding: 0 1.25rem 1.1rem 1.25rem;
+    font-size: 0.88rem;
+    color: #2a2a38;
+    border-top: 1px solid var(--border);
+  }
+  .q-answer ul { margin: 0.5rem 0 0 1rem; }
+  .q-answer ul li { margin-bottom: 0.35rem; }
+  .q-answer strong { color: var(--ink); }
+
+  /* ─── TABLE ─── */
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 0;
+  }
+  .compare-table th {
+    background: var(--ink); color: var(--paper);
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .compare-table th:first-child { border-radius: 6px 0 0 0; }
+  .compare-table th:last-child { border-radius: 0 6px 0 0; }
+  .compare-table td {
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: #f9f8f5; }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    border-left: 4px solid var(--accent2);
+    background: var(--highlight2);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+  }
+  .callout.orange {
+    border-left-color: var(--accent);
+    background: var(--highlight);
+  }
+  .callout strong { display: block; margin-bottom: 0.25rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ─── TAG CLOUD ─── */
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    background: var(--border);
+    color: var(--muted);
+  }
+  .tag.hot { background: #ffece4; color: var(--accent); }
+  .tag.cool { background: var(--highlight2); color: var(--accent2); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .concept-grid { grid-template-columns: 1fr; }
+    header { padding: 2rem 1.25rem; }
+    main { padding: 1.5rem 1.25rem 3rem; }
+    .nav-pills { padding: 1rem 1.25rem; }
+  }
+
+  /* ─── SCROLL ANIMATION ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  section { animation: fadeUp 0.45s ease both; }
+  section:nth-child(2) { animation-delay: 0.07s; }
+  section:nth-child(3) { animation-delay: 0.14s; }
+  section:nth-child(4) { animation-delay: 0.21s; }
+  section:nth-child(5) { animation-delay: 0.28s; }
+  section:nth-child(6) { animation-delay: 0.35s; }
+</style>
 </head>
-<body class="bg-slate-100 text-slate-900 min-h-screen">
+<body>
 
-  <div class="max-w-7xl mx-auto p-8 space-y-8">
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-inner">
+    <p class="course-tag">IEB · Session 05 · Exam Preparation</p>
+    <h1>Strategy, Cognition &<br><span>Digital Transformation</span></h1>
+    <p class="subtitle">Core concepts from Gavetti &amp; Rivkin (2007) and Constantiou et al. (2023/2024) — with illustrative figures and likely exam questions.</p>
+  </div>
+</header>
 
-    <div class="bg-gradient-to-r from-violet-700 to-slate-900 text-white rounded-3xl shadow-2xl p-10 relative">
-      <a href="./index.html" class="absolute top-6 right-6 inline-flex items-center justify-center rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20">
-        Back to Dashboard
-      </a>
-      <div class="flex justify-between items-start flex-wrap gap-4">
-        <div>
-          <p class="uppercase tracking-widest text-violet-200 font-semibold mb-3">
-            Information Economics & Business
-          </p>
+<!-- ══ NAV ══ -->
+<nav class="nav-pills" aria-label="Jump to section">
+  <a href="#search">Strategic Search</a>
+  <a href="#framework">G&R Framework</a>
+  <a href="#dt">Digital Transformation</a>
+  <a href="#des">Digital Enactment</a>
+  <a href="#ai">AI &amp; Decisions</a>
+  <a href="#case">Novo Nordisk Case</a>
+  <a href="#questions">Exam Questions</a>
+</nav>
 
-          <h1 class="text-6xl font-black mb-4 leading-tight">
-            Session 5:<br>
-            Strategy Formulation &<br>
-            Managerial Cognition
-          </h1>
+<main>
 
-          <p class="text-xl max-w-4xl text-slate-200 leading-relaxed">
-            Understanding how managers interpret uncertainty, form mental models, and build strategy under conditions of rapid technological change.
-          </p>
-        </div>
+<!-- ══ 1 · STRATEGIC SEARCH ══ -->
+<section id="search">
+  <p class="section-label">Theory 01</p>
+  <h2>Strategic Search: Two Models</h2>
+  <p>Gavetti &amp; Rivkin (2007) argue that strategy originates from a <em>two-part search process</em> — one unfolding in the <strong>world of cognition</strong> (mental models, values, heuristics) and one in the <strong>world of action</strong> (routines, activities, stocks). Their key insight is that both <em>plasticity</em> (how changeable a firm is) and <em>rationality</em> (how sophisticated the search mechanism is) vary with time.</p>
 
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 min-w-[280px]">
-          <p class="text-sm uppercase tracking-wide text-violet-200 mb-2">
-            Core Exam Theme
-          </p>
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">🧬</span>
+      <h4>Evolutionary Search</h4>
+      <p>Boundedly rational managers. Local search — incremental, trial-and-error change of existing routines and stocks. Limited deliberation.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">🎯</span>
+      <h4>Positioning Search</h4>
+      <p>Highly plastic firm. Rational deduction from economic principles. Focus on distinctive, interconnected <em>activities</em> that differ from rivals.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">🧩</span>
+      <h4>Case-Based Reasoning</h4>
+      <p>The "middle ground" — analogy and imitation. Applying lessons from past cases without fully deductive logic. Falls between local search and deduction.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">📡</span>
+      <h4>Information Sensors</h4>
+      <p>Physical elements of strategy that selectively channel environmental feedback to managers. Data is only meaningful through the lens of representations &amp; values.</p>
+    </div>
+  </div>
 
-          <p class="text-lg font-semibold leading-relaxed">
-            Why strategy is often constrained by cognition, attention, and the way managers perceive the environment.
-          </p>
-        </div>
+  <div class="callout orange" style="margin-top:1.25rem;">
+    <strong>Key Tension</strong>
+    By the time rational search mechanisms become available (as the industry matures), a firm may have already lost the plasticity needed to act on that intelligence.
+  </div>
+</section>
+
+<!-- ══ 2 · G&R FRAMEWORK ══ -->
+<section id="framework">
+  <p class="section-label">Theory 02</p>
+  <h2>The Gavetti &amp; Rivkin Framework</h2>
+  <p>The framework links <em>plasticity of elements</em> to firm age and <em>rationality of search mechanisms</em> to industry maturity.</p>
+
+  <!-- SVG: 2×2 assumption space + trajectory -->
+  <div class="figure-wrap">
+    <figure>
+      <svg viewBox="0 0 520 340" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <!-- axes -->
+        <line x1="70" y1="290" x2="490" y2="290" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="70" y1="290" x2="70" y2="30"  stroke="#ccc" stroke-width="1.5"/>
+        <!-- axis labels -->
+        <text x="270" y="320" text-anchor="middle" font-size="12" fill="#6b6b7b">Rationality of search mechanisms →</text>
+        <text x="22" y="165" text-anchor="middle" font-size="12" fill="#6b6b7b" transform="rotate(-90 22 165)">← Plasticity of elements</text>
+        <!-- quadrant fills -->
+        <rect x="71" y="31" width="209" height="129" fill="#fff3ec" rx="2"/>
+        <rect x="71" y="160" width="209" height="129" fill="#f0f0f0" rx="2"/>
+        <rect x="280" y="31" width="209" height="129" fill="#ecf2ff" rx="2"/>
+        <rect x="280" y="160" width="209" height="129" fill="#f7f7f7" rx="2"/>
+        <!-- quadrant labels -->
+        <text x="175" y="75" text-anchor="middle" font-size="11" font-weight="600" fill="#c1440e">High plasticity</text>
+        <text x="175" y="90" text-anchor="middle" font-size="11" font-weight="600" fill="#c1440e">Low rationality</text>
+        <text x="175" y="110" text-anchor="middle" font-size="10" fill="#888">Young firm, new industry</text>
+        <text x="175" y="125" text-anchor="middle" font-size="10" fill="#888">(local search dominates)</text>
+
+        <text x="385" y="75" text-anchor="middle" font-size="11" font-weight="600" fill="#2563a8">High plasticity</text>
+        <text x="385" y="90" text-anchor="middle" font-size="11" font-weight="600" fill="#2563a8">High rationality</text>
+        <text x="385" y="110" text-anchor="middle" font-size="10" fill="#888">Young firm, mature industry</text>
+        <text x="385" y="125" text-anchor="middle" font-size="10" fill="#888">(positioning possible)</text>
+
+        <text x="175" y="200" text-anchor="middle" font-size="11" font-weight="600" fill="#555">Low plasticity</text>
+        <text x="175" y="215" text-anchor="middle" font-size="11" font-weight="600" fill="#555">Low rationality</text>
+        <text x="175" y="235" text-anchor="middle" font-size="10" fill="#888">Implastic &amp; experiential</text>
+
+        <text x="385" y="200" text-anchor="middle" font-size="11" font-weight="600" fill="#333">Low plasticity</text>
+        <text x="385" y="215" text-anchor="middle" font-size="11" font-weight="600" fill="#333">High rationality</text>
+        <text x="385" y="235" text-anchor="middle" font-size="10" fill="#888">Established firm,</text>
+        <text x="385" y="250" text-anchor="middle" font-size="10" fill="#888">mature industry</text>
+
+        <!-- Typical trajectory arrow -->
+        <defs>
+          <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#c1440e"/>
+          </marker>
+        </defs>
+        <path d="M 175 96 Q 280 96 340 200" stroke="#c1440e" stroke-width="2" stroke-dasharray="6 3" fill="none" marker-end="url(#arrowhead)"/>
+        <text x="245" y="135" font-size="10" fill="#c1440e" font-style="italic">typical path</text>
+
+        <!-- Lycos dot -->
+        <circle cx="175" cy="96" r="6" fill="#c1440e"/>
+        <text x="158" y="60" font-size="10" fill="#c1440e">Lycos 1995</text>
+      </svg>
+      <figcaption>Fig. 1 — The Assumption Space (adapted from Gavetti &amp; Rivkin, 2007, Fig. 1). The typical trajectory moves from high-plasticity/low-rationality (new industry) toward lower plasticity as rationality rises with industry maturity.</figcaption>
+    </figure>
+  </div>
+
+  <!-- Hierarchy of elements SVG -->
+  <div class="figure-wrap">
+    <figure>
+      <svg viewBox="0 0 520 210" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <!-- World of cognition bg -->
+        <rect x="20" y="20" width="480" height="85" rx="8" fill="#fff3ec" stroke="#c1440e" stroke-width="1" stroke-dasharray="4 2"/>
+        <text x="35" y="40" font-size="10" fill="#c1440e" font-weight="600" letter-spacing="0.1em">WORLD OF COGNITION</text>
+        <!-- boxes cognition -->
+        <rect x="40" y="50" width="120" height="40" rx="6" fill="#c1440e"/>
+        <text x="100" y="73" text-anchor="middle" font-size="11" fill="white" font-weight="600">Representations</text>
+        <rect x="180" y="50" width="100" height="40" rx="6" fill="#c1440e" opacity="0.75"/>
+        <text x="230" y="73" text-anchor="middle" font-size="11" fill="white" font-weight="600">Values</text>
+        <rect x="300" y="50" width="100" height="40" rx="6" fill="#c1440e" opacity="0.55"/>
+        <text x="350" y="73" text-anchor="middle" font-size="11" fill="white" font-weight="600">Heuristics</text>
+
+        <!-- World of action bg -->
+        <rect x="20" y="120" width="480" height="70" rx="8" fill="#ecf2ff" stroke="#2563a8" stroke-width="1" stroke-dasharray="4 2"/>
+        <text x="35" y="140" font-size="10" fill="#2563a8" font-weight="600" letter-spacing="0.1em">WORLD OF ACTION</text>
+        <!-- boxes action -->
+        <rect x="40" y="148" width="100" height="32" rx="6" fill="#2563a8"/>
+        <text x="90" y="167" text-anchor="middle" font-size="11" fill="white" font-weight="600">Activities</text>
+        <rect x="160" y="148" width="100" height="32" rx="6" fill="#2563a8" opacity="0.7"/>
+        <text x="210" y="167" text-anchor="middle" font-size="11" fill="white" font-weight="600">Stocks</text>
+        <rect x="280" y="148" width="100" height="32" rx="6" fill="#2563a8" opacity="0.5"/>
+        <text x="330" y="167" text-anchor="middle" font-size="11" fill="white" font-weight="600">Sensors</text>
+
+        <!-- arrows cognition → action -->
+        <line x1="100" y1="90" x2="100" y2="148" stroke="#888" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <line x1="350" y1="90" x2="330" y2="148" stroke="#888" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <defs>
+          <marker id="arr2" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+            <polygon points="0 0, 7 2.5, 0 5" fill="#888"/>
+          </marker>
+        </defs>
+        <!-- feedback arrow -->
+        <path d="M 440 164 Q 490 120 450 70" stroke="#888" stroke-width="1.5" fill="none" stroke-dasharray="4 2" marker-end="url(#arr2)"/>
+        <text x="458" y="118" font-size="9" fill="#888" font-style="italic">feedback</text>
+      </svg>
+      <figcaption>Fig. 2 — Hierarchy of Strategy Elements. Representations and values shape heuristics, which guide activities and stocks. Sensors relay environmental feedback upward through cognitive lenses.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Industry Maturity &amp; Search Mechanisms</h3>
+  <div class="card">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Information Environment</th>
+          <th>Available Search</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1 · Infant / Post-shock</strong></td>
+          <td>Full structural ignorance; states &amp; priors undefined</td>
+          <td>Local search only</td>
+          <td>Lycos 1995 — no model to follow</td>
+        </tr>
+        <tr>
+          <td><strong>2 · Intermediate</strong></td>
+          <td>Cues emerge; winners identifiable</td>
+          <td>Case-based reasoning (analogy, imitation)</td>
+          <td>Lycos adopts "media company" analogy from Time Warner</td>
+        </tr>
+        <tr>
+          <td><strong>3 · Mature</strong></td>
+          <td>Stable; cause-and-effect clear</td>
+          <td>Deductive logic from economic principles</td>
+          <td>Lycos board uses scale economics to justify "get big fast"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ 3 · DIGITAL TRANSFORMATION ══ -->
+<section id="dt">
+  <p class="section-label">Theory 03</p>
+  <h2>Constantiou et al. — Digital Transformation Theory</h2>
+  <p>Building on Daft &amp; Weick's (1984) model of <em>organizations as interpretation systems</em>, Constantiou et al. (2023) theorize DT as the <strong>progressive replacement of humans by digital technologies</strong> in the three core organizational processes: scanning, interpretation, and learning.</p>
+
+  <!-- SVG: Human IS → DES -->
+  <div class="figure-wrap">
+    <figure>
+      <svg viewBox="0 0 560 260" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+          </marker>
+          <marker id="arr4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#c1440e"/>
+          </marker>
+        </defs>
+
+        <!-- TRADITIONAL row -->
+        <text x="10" y="42" font-size="9" fill="#555" font-weight="600" letter-spacing="0.1em">TRADITIONAL</text>
+        <rect x="10" y="50" width="148" height="60" rx="7" fill="#f5f5f5" stroke="#ccc"/>
+        <text x="84" y="73" text-anchor="middle" font-size="11" font-weight="600" fill="#333">SCANNING</text>
+        <text x="84" y="90" text-anchor="middle" font-size="9" fill="#666">Human data collection</text>
+        <text x="84" y="104" text-anchor="middle" font-size="9" fill="#666">Personal contacts &amp; IT</text>
+
+        <line x1="158" y1="80" x2="193" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+        <rect x="193" y="50" width="148" height="60" rx="7" fill="#f5f5f5" stroke="#ccc"/>
+        <text x="267" y="73" text-anchor="middle" font-size="11" font-weight="600" fill="#333">INTERPRETATION</text>
+        <text x="267" y="90" text-anchor="middle" font-size="9" fill="#666">Shared meaning-making</text>
+        <text x="267" y="104" text-anchor="middle" font-size="9" fill="#666">Cognitive maps</text>
+
+        <line x1="341" y1="80" x2="376" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+        <rect x="376" y="50" width="148" height="60" rx="7" fill="#f5f5f5" stroke="#ccc"/>
+        <text x="450" y="73" text-anchor="middle" font-size="11" font-weight="600" fill="#333">LEARNING</text>
+        <text x="450" y="90" text-anchor="middle" font-size="9" fill="#666">Collective action</text>
+        <text x="450" y="104" text-anchor="middle" font-size="9" fill="#666">Theory into practice</text>
+
+        <!-- big downward DT arrow -->
+        <text x="270" y="135" text-anchor="middle" font-size="10" fill="#c1440e" font-weight="600">↓ Digital Transformation ↓</text>
+
+        <!-- DIGITAL row -->
+        <text x="10" y="158" font-size="9" fill="#c1440e" font-weight="600" letter-spacing="0.1em">DIGITALLY TRANSFORMED</text>
+        <rect x="10" y="166" width="148" height="70" rx="7" fill="#fff3ec" stroke="#c1440e" stroke-width="1.5"/>
+        <text x="84" y="188" text-anchor="middle" font-size="11" font-weight="600" fill="#c1440e">DIGITAL SCANNING</text>
+        <text x="84" y="205" text-anchor="middle" font-size="9" fill="#555">Algorithmic data collection</text>
+        <text x="84" y="219" text-anchor="middle" font-size="9" fill="#555">Sensors &amp; behavioral traces</text>
+        <text x="84" y="233" text-anchor="middle" font-size="9" fill="#555">Big data aggregation</text>
+
+        <!-- tight coupling brace -->
+        <rect x="158" y="166" width="230" height="70" rx="7" fill="#ffece4" stroke="#c1440e" stroke-width="1.5" stroke-dasharray="5 2"/>
+        <text x="273" y="190" text-anchor="middle" font-size="10" fill="#c1440e" font-weight="600">TIGHTLY COUPLED</text>
+        <text x="273" y="206" text-anchor="middle" font-size="9" fill="#555">Digital interpretation</text>
+        <text x="273" y="220" text-anchor="middle" font-size="9" fill="#555">&amp; digital learning</text>
+        <text x="273" y="234" text-anchor="middle" font-size="9" fill="#c1440e" font-style="italic">ensemble of algorithms</text>
+
+        <rect x="394" y="166" width="130" height="70" rx="7" fill="#c1440e"/>
+        <text x="459" y="196" text-anchor="middle" font-size="11" font-weight="600" fill="white">DIGITAL</text>
+        <text x="459" y="212" text-anchor="middle" font-size="11" font-weight="600" fill="white">ENACTMENT</text>
+        <text x="459" y="229" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">Nearly autonomous</text>
+        <line x1="388" y1="200" x2="397" y2="200" stroke="white" stroke-width="1.5" marker-end="url(#arr4)"/>
+      </svg>
+      <figcaption>Fig. 3 — From Human Interpretation Systems to Digital Enactment Systems. In DT, the three processes collapse into a tightly integrated, algorithmically driven loop (adapted from Constantiou et al., 2023, Fig. 2).</figcaption>
+    </figure>
+  </div>
+
+  <h3>The Three Digital Processes</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num orange">S</div>
+      <div class="step-body">
+        <strong>Digital Scanning</strong>
+        <p>Sensors and algorithms replace frontline employees in collecting environmental data. Scanning becomes preprogrammed — more precise but narrower. Senior managers must now practice <em>strategic foresight</em> to define what gets scanned.</p>
       </div>
     </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-      <div class="lg:col-span-2 bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-        <h2 class="text-4xl font-bold mb-6">
-          What This Session Is Really About
-        </h2>
-
-        <div class="space-y-6 text-lg leading-relaxed text-slate-700">
-          <p>
-            Session 5 focuses on the cognitive foundations of strategy. The main idea is that managers do not react to the environment in a neutral way; they filter reality through mental models, attention, and prior experience.
-          </p>
-
-          <p>
-            In digital contexts, this matters even more because technological change creates ambiguity. Managers must decide which signals to prioritize, how to interpret emerging opportunities, and when to revise existing strategy.
-          </p>
-
-          <p>
-            The session connects directly to questions about whether incumbents can recognize AI-driven disruption early enough, and whether strategic failure stems from poor analysis or from the limits of managerial cognition itself.
-          </p>
-
-          <div class="bg-violet-50 border border-violet-100 rounded-2xl p-6">
-            <h3 class="text-2xl font-bold mb-4 text-violet-900">
-              Strategic Insight
-            </h3>
-
-            <p class="text-slate-800 leading-relaxed">
-              Strategy is not only a matter of choosing actions. It is also a matter of seeing the right problems, organizing attention, and building enough flexibility to adapt when the environment changes faster than established routines.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-        <h2 class="text-3xl font-bold mb-6">
-          Core Concepts
-        </h2>
-
-        <div class="space-y-4">
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Managerial Cognition</h3>
-            <p class="text-sm text-slate-700">
-              The mental frameworks managers use to interpret the environment, categorize problems, and form decisions.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Mental Models</h3>
-            <p class="text-sm text-slate-700">
-              Internal representations of how markets, technologies, and organizations work.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Search Processes</h3>
-            <p class="text-sm text-slate-700">
-              How firms explore options, learn from experience, and update strategy under uncertainty.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Environmental Uncertainty</h3>
-            <p class="text-sm text-slate-700">
-              The degree to which managers cannot confidently predict outcomes or know which signals matter most.
-            </p>
-          </div>
-        </div>
+    <div class="step">
+      <div class="step-num orange">I</div>
+      <div class="step-body">
+        <strong>Digital Interpretation</strong>
+        <p>ML systems give meaning to data by uncovering statistical patterns autonomously. Interpretations arrive pre-coded, removing shared human sensemaking. Equivocality is resolved ex ante, not socially in real time.</p>
       </div>
     </div>
+    <div class="step">
+      <div class="step-num orange">L</div>
+      <div class="step-body">
+        <strong>Digital Learning</strong>
+        <p>AI systems act on interpretations autonomously — rule-based or ML-based. Human learning (putting cognitive theories into action) is replaced. Senior managers must pre-imagine the range of possible algorithmic actions.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-6">
-        Theories & Core Concepts
-      </h2>
+<!-- ══ 4 · DIGITAL ENACTMENT ══ -->
+<section id="des">
+  <p class="section-label">Theory 04</p>
+  <h2>Digital Enactment Systems</h2>
 
-      <div class="space-y-8 text-slate-700 leading-relaxed text-lg">
-        <div>
-          <h3 class="text-2xl font-bold mb-3 text-violet-900">1. Strategy as a cognitive process</h3>
-          <p>
-            Session 5 argues that strategy is not formed in a vacuum. Managers interpret the environment through prior knowledge, attention, and experience, which means strategic decisions are shaped by how they perceive problems rather than by objective facts alone.
-          </p>
-        </div>
+  <div class="card accent-left">
+    <h3>Proposition 3 (Constantiou et al., 2023)</h3>
+    <p style="margin:0">"Digital transformation results in organizations ceasing to be human interpretation systems and becoming digital enactment systems, whereby they not only interpret information about their environments but also <strong>digitally enact the environments by creating information nearly autonomously</strong>."</p>
+  </div>
 
-        <div>
-          <h3 class="text-2xl font-bold mb-3 text-violet-900">2. Mental models</h3>
-          <p>
-            Mental models are the internal frameworks managers use to understand markets, technologies, and organizational choices. They help managers make sense of uncertainty, but they can also lock firms into outdated assumptions and narrow interpretations.
-          </p>
-        </div>
+  <p>In digital enactment, the causal arrow <em>reverses</em>: Instead of the organization's <em>perception of analyzability</em> driving its mode of interaction, the organization's actions (enabled by digital technologies) now <em>shape</em> perceived analyzability. Organizations don't just read the environment — they construct it.</p>
 
-        <div>
-          <h3 class="text-2xl font-bold mb-3 text-violet-900">3. Search processes</h3>
-          <p>
-            Firms do not discover new strategies automatically. They search for options through routines, experimentation, and learning. The quality of this search process determines whether a firm notices emerging threats early enough and adapts in time.
-          </p>
-        </div>
+  <!-- SVG: Reversal of causality -->
+  <div class="figure-wrap">
+    <figure>
+      <svg viewBox="0 0 520 160" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrL" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+            <polygon points="8 0, 0 3, 8 6" fill="#2563a8"/>
+          </marker>
+          <marker id="arrR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#c1440e"/>
+          </marker>
+        </defs>
+        <!-- Traditional -->
+        <rect x="15" y="30" width="200" height="45" rx="8" fill="#ecf2ff" stroke="#2563a8"/>
+        <text x="115" y="52" text-anchor="middle" font-size="11" font-weight="600" fill="#2563a8">Perceived Analyzability</text>
+        <text x="115" y="67" text-anchor="middle" font-size="9" fill="#555">of environment (perception)</text>
+        <line x1="215" y1="52" x2="290" y2="52" stroke="#2563a8" stroke-width="2" marker-end="url(#arrR)"/>
+        <text x="252" y="44" text-anchor="middle" font-size="9" fill="#2563a8">causes</text>
+        <rect x="290" y="30" width="200" height="45" rx="8" fill="#ecf2ff" stroke="#2563a8"/>
+        <text x="390" y="52" text-anchor="middle" font-size="11" font-weight="600" fill="#2563a8">Organizational Action</text>
+        <text x="390" y="67" text-anchor="middle" font-size="9" fill="#555">(interpretation mode)</text>
+        <text x="252" y="20" text-anchor="middle" font-size="9" fill="#2563a8" font-weight="600">TRADITIONAL LOGIC</text>
 
-        <div>
-          <h3 class="text-2xl font-bold mb-3 text-violet-900">4. Environmental uncertainty</h3>
-          <p>
-            In fast-changing environments, managers often face ambiguity rather than clear risks. This makes it difficult to identify relevant signals, assess their meaning, and choose the right action. Digital transformation increases this challenge because the pace of change is high and the future is hard to predict.
-          </p>
-        </div>
+        <!-- Digital Enactment - reversed -->
+        <rect x="15" y="108" width="200" height="45" rx="8" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="115" y="130" text-anchor="middle" font-size="11" font-weight="600" fill="#c1440e">Perceived Analyzability</text>
+        <text x="115" y="145" text-anchor="middle" font-size="9" fill="#555">is now a consequence</text>
+        <line x1="290" y1="130" x2="216" y2="130" stroke="#c1440e" stroke-width="2" marker-end="url(#arrL)"/>
+        <text x="252" y="123" text-anchor="middle" font-size="9" fill="#c1440e">reversed</text>
+        <rect x="290" y="108" width="200" height="45" rx="8" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="390" y="130" text-anchor="middle" font-size="11" font-weight="600" fill="#c1440e">Digital Enactment</text>
+        <text x="390" y="145" text-anchor="middle" font-size="9" fill="#555">(algorithmic actions)</text>
+        <text x="252" y="100" text-anchor="middle" font-size="9" fill="#c1440e" font-weight="600">DIGITAL ENACTMENT LOGIC</text>
+      </svg>
+      <figcaption>Fig. 4 — Ontological reversal. In traditional organizations, perceived analyzability drives action. In digital enactment systems, algorithmic action constructs the perceived environment.</figcaption>
+    </figure>
+  </div>
 
-        <div>
-          <h3 class="text-2xl font-bold mb-3 text-violet-900">5. Managerial cognition and strategic failure</h3>
-          <p>
-            The session emphasizes that strategic failure can stem not only from poor analysis, but also from cognitive limits: attention constraints, rigid mental models, and overreliance on existing routines. This is especially relevant when firms need to respond to disruptive technologies such as AI.
-          </p>
-        </div>
+  <h3>HFT as the Illustrative Case</h3>
+  <div class="card highlight-bg">
+    <p style="margin-bottom:0.5rem;">High-Frequency Trading organizations are the paper's central example, progressing through three historical periods:</p>
+    <div class="steps" style="gap:0">
+      <div class="step" style="padding:0.6rem 0">
+        <div class="step-num" style="width:28px;height:28px;font-size:0.72rem;background:#555">1</div>
+        <div class="step-body"><strong>Analog Trading (1900–1950)</strong> — phones &amp; telex; human traders; undirected viewing mode</div>
+      </div>
+      <div class="step" style="padding:0.6rem 0">
+        <div class="step-num" style="width:28px;height:28px;font-size:0.72rem;background:#555">2</div>
+        <div class="step-body"><strong>IT-Enabled Trading (1950–2010)</strong> — OMS, EMS, DSS; conditioned/discovering mode; humans still interpret</div>
+      </div>
+      <div class="step" style="padding:0.6rem 0; border-bottom:none">
+        <div class="step-num orange" style="width:28px;height:28px;font-size:0.72rem">3</div>
+        <div class="step-body"><strong>HFT / Digital Enactment (2010–)</strong> — algorithms scan, interpret &amp; learn in nanoseconds; senior managers only set strategic parameters</div>
+      </div>
+    </div>
+  </div>
 
-        <div class="bg-violet-50 border border-violet-100 rounded-3xl p-6">
-          <h3 class="text-2xl font-bold mb-4 text-violet-900">Core concepts to remember</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-800">
-            <li><strong>Managerial cognition:</strong> the way managers perceive and interpret complex environments.</li>
-            <li><strong>Mental models:</strong> internal maps that guide decision-making and shape what managers notice.</li>
-            <li><strong>Search mechanisms:</strong> the processes through which firms explore possibilities and learn.</li>
-            <li><strong>Environmental uncertainty:</strong> ambiguity about what is happening and what future outcomes are likely.</li>
-            <li><strong>Strategic adaptation:</strong> the ability to revise assumptions and action plans when the environment changes.</li>
+  <h3 style="margin-top:1.25rem">Implications for Strategy &amp; Human Roles</h3>
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">📉</span>
+      <h4>Frontline Displacement</h4>
+      <p>Traders, analysts, data collectors replaced by algorithms. Born-digital firms trend toward flat, thin-payroll structures.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">🛠</span>
+      <h4>New Professionals</h4>
+      <p>Data scientists and ML developers emerge to build &amp; maintain systems. Human expertise moves from frontline to backroom.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">🧭</span>
+      <h4>New Senior Manager Role</h4>
+      <p>Senior managers shift to: data vigilance, scenario-based strategizing, leading algorithm developers, digital experimentation.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">⚠️</span>
+      <h4>Residual Equivocality</h4>
+      <p>Managers focus on information that <em>doesn't</em> enter the organization. When things go wrong, the only option is pulling the plug.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5 · AI & DECISIONS ══ -->
+<section id="ai">
+  <p class="section-label">Theory 05</p>
+  <h2>AI &amp; Decision Redistribution</h2>
+  <p>Constantiou, Joshi &amp; Stelmaszak (2024) introduce the concept of <strong>decision redistribution</strong>: AI does not simply eliminate human decision-making — it <em>redistributes</em> it across three interconnected facets.</p>
+
+  <!-- SVG: Triangle framework -->
+  <div class="figure-wrap">
+    <figure>
+      <svg viewBox="0 0 440 260" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <!-- triangle lines -->
+        <line x1="220" y1="35" x2="60" y2="210" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="220" y1="35" x2="380" y2="210" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="60" y1="210" x2="380" y2="210" stroke="#ccc" stroke-width="1.5"/>
+        <!-- center -->
+        <circle cx="220" cy="148" r="52" fill="white" stroke="#e2ddd6" stroke-width="1"/>
+        <text x="220" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0e17">Decision</text>
+        <text x="220" y="159" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0e17">Redistribution</text>
+
+        <!-- Nodes -->
+        <circle cx="220" cy="35" r="44" fill="#2563a8"/>
+        <text x="220" y="28" text-anchor="middle" font-size="10" fill="white" font-weight="600">Making Decisions</text>
+        <text x="220" y="42" text-anchor="middle" font-size="10" fill="white" font-weight="600">about AI</text>
+        <text x="220" y="57" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">(data, algorithms,</text>
+        <text x="220" y="69" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">governance)</text>
+
+        <circle cx="60" cy="210" r="44" fill="#0f0e17"/>
+        <text x="60" y="203" text-anchor="middle" font-size="10" fill="white" font-weight="600">Making Decisions</text>
+        <text x="60" y="217" text-anchor="middle" font-size="10" fill="white" font-weight="600">with AI</text>
+        <text x="60" y="232" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.7)">(using AI outputs)</text>
+
+        <circle cx="380" cy="210" r="44" fill="#c1440e"/>
+        <text x="380" y="203" text-anchor="middle" font-size="10" fill="white" font-weight="600">Implications</text>
+        <text x="380" y="217" text-anchor="middle" font-size="10" fill="white" font-weight="600">of AI decisions</text>
+        <text x="380" y="232" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">(identity, strategy,</text>
+        <text x="380" y="244" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">ethics, macro)</text>
+      </svg>
+      <figcaption>Fig. 5 — Integrative Framework of AI and Organizational Decision Making (Constantiou et al., 2024). Decision redistribution is the central dynamic linking all three facets.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Decision Redistribution — Three Scenarios</h3>
+  <div class="card accent-left2 highlight-bg2">
+    <div class="steps">
+      <div class="step" style="padding:0.65rem 0">
+        <div class="step-num blue" style="width:26px;height:26px;font-size:0.72rem">A</div>
+        <div class="step-body" style="font-size:0.88rem"><strong>AI in → decisions about AI rise.</strong> Zillow had to hire data scientists and make complex decisions about data sourcing after deploying Zestimate.</div>
+      </div>
+      <div class="step" style="padding:0.65rem 0">
+        <div class="step-num blue" style="width:26px;height:26px;font-size:0.72rem">B</div>
+        <div class="step-body" style="font-size:0.88rem"><strong>Decisions about AI shape how AI is used.</strong> Algorithm design choices constrain future decision-making with AI (e.g., which data Zestimate trained on).</div>
+      </div>
+      <div class="step" style="padding:0.65rem 0; border-bottom:none">
+        <div class="step-num blue" style="width:26px;height:26px;font-size:0.72rem">C</div>
+        <div class="step-body" style="font-size:0.88rem"><strong>Leaving implications to AI = high risk.</strong> Zillow's algorithm continued buying houses as market conditions changed — no human oversight corrected the course.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:1.25rem">
+    <strong>Decision Retention</strong>
+    Choosing <em>not</em> to implement AI is also a decision. Organizations may rationally retain human decision-making when they cannot account for the full redistribution AI would cause.
+  </div>
+</section>
+
+<!-- ══ 6 · NOVO NORDISK CASE ══ -->
+<section id="case">
+  <p class="section-label">Case Application</p>
+  <h2>Novo Nordisk × OpenAI — Analytical View</h2>
+  <p>Your synopsis applies the session's frameworks to Novo Nordisk's April 2026 partnership with OpenAI. Here's a structured summary of the key analytical moves:</p>
+
+  <div class="card">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Framework</th>
+          <th>Application to Novo Nordisk</th>
+          <th>Key Tension</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Gavetti &amp; Rivkin</strong></td>
+          <td>Partnership appears evolutionary (efficiency gains) but has a latent <em>positioning</em> dimension if AI accelerates drug discovery in ways rivals cannot match</td>
+          <td>Can they convert efficiency gains into a genuinely different competitive activity before rivals catch up?</td>
+        </tr>
+        <tr>
+          <td><strong>Digital Scanning/Interpretation/Learning</strong></td>
+          <td>AI aggregates genomic datasets, clinical trial data, supply chain metrics — replacing fragmented human data work. OpenAI upskilling = managing digital learning</td>
+          <td>Prop. 1b: constrains ability to capture unexpected signals (e.g. pandemic-like shocks)</td>
+        </tr>
+        <tr>
+          <td><strong>Decision Redistribution</strong></td>
+          <td>Decisions about data sourcing &amp; algorithm design now critical; scientists shift from doing to <em>validating</em> AI outputs</td>
+          <td>Algorithmic bias in clinical datasets could systematically exclude patient subgroups</td>
+        </tr>
+        <tr>
+          <td><strong>AI as Organizing Capability</strong></td>
+          <td>Connectivity across siloed R&amp;D, manufacturing, supply chain. Codependence: scientists train models; models extend analytical reach</td>
+          <td>Emergence: must remain open to unexpected drug-target findings rather than constraining AI to predefined tasks</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout orange">
+    <strong>Zillow Parallel</strong>
+    Like Zillow, Novo Nordisk's AI models will be trained on historical data. If exogenous shocks (e.g. new disease variants, supply disruptions) render that history unrepresentative, the models may fail in exactly the ways the Zestimate did — with much higher stakes.
+  </div>
+
+  <div class="tags" style="margin-top:0.5rem">
+    <span class="tag hot">Drug discovery</span>
+    <span class="tag hot">Supply chain AI</span>
+    <span class="tag cool">Decision redistribution</span>
+    <span class="tag cool">Algorithmic bias</span>
+    <span class="tag hot">Positioning vs. evolutionary</span>
+    <span class="tag cool">AI factory</span>
+    <span class="tag">Data sovereignty</span>
+    <span class="tag">Workforce upskilling</span>
+  </div>
+</section>
+
+<!-- ══ 7 · EXAM QUESTIONS ══ -->
+<section id="questions">
+  <p class="section-label">Exam Preparation</p>
+  <h2>Likely Oral Exam Questions</h2>
+  <p style="margin-bottom:1.25rem">Click each question to reveal the key points examiners expect you to address.</p>
+
+  <ul class="q-list">
+
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          What are the two models of strategic search in Gavetti &amp; Rivkin, and what assumptions differentiate them?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>Evolutionary:</strong> Limited plasticity, boundedly rational managers, local search on routines and stocks. Trial-and-error, incremental change.</li>
+            <li><strong>Positioning:</strong> High plasticity, deductive logic applied to distinctive interactive activities. Highly rational top-down formulation.</li>
+            <li>Key differentiators: <em>plasticity</em> (how changeable elements are) and <em>rationality</em> (how deliberate the search mechanism is).</li>
+            <li>Mention the "middle ground" — Gavetti &amp; Rivkin aim for behavioral plausibility between these extremes, adding case-based reasoning, representations, values, and sensors.</li>
           </ul>
         </div>
-      </div>
-    </div>
+      </details>
+    </li>
 
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-8">
-        How This Connects to Your Synopsis
-      </h2>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="bg-amber-50 border border-amber-100 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4 text-amber-900">
-            Why this matters for Novo Nordisk × OpenAI
-          </h3>
-
-          <p class="text-lg leading-relaxed text-slate-800">
-            Your synopsis can use Session 5 to explain why a firm may recognize the strategic importance of AI yet still struggle to act. The bottleneck may be managerial cognition, not lack of information.
-          </p>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          What is the fundamental tension Gavetti &amp; Rivkin identify regarding time, plasticity and rationality?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Plasticity decreases as a firm ages (routines solidify, commitments accumulate).</li>
+            <li>Rationality of available search mechanisms increases as an industry matures (more information, identifiable winners, deducible principles).</li>
+            <li><strong>The tension:</strong> By the time rational search becomes available, the firm may have already ossified and lost the plasticity to act on its insights.</li>
+            <li>Lycos example: it managed to shift from a technology to a media representation and act on that insight before losing plasticity — but barely.</li>
+          </ul>
         </div>
+      </details>
+    </li>
 
-        <div class="bg-blue-50 border border-blue-100 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4 text-blue-900">
-            Strong analytical angle
-          </h3>
-
-          <p class="text-lg leading-relaxed text-slate-800">
-            A strong answer links strategic decision-making to how managers frame uncertainty, evaluate partnerships, and decide whether AI is an opportunity, a threat, or a capability to build internally.
-          </p>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge apply">Apply</span>
+          How does Constantiou et al. define digital transformation, and how does it differ from prior definitions?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>DT = <em>progressive replacement of humans by digital technologies</em> in performing the fundamental activities of scanning, interpretation, and learning.</li>
+            <li>Prior definitions focus on business model change, value propositions, or IT-enabled organizational change — they do not specify the <em>nature</em> of transformation.</li>
+            <li>Constantiou et al. place digital technologies at the center and focus on the reconfiguration of the organizational "central nervous system."</li>
+            <li>Unique contribution: theorizes DT as ending in a <em>qualitatively different organization</em> — not just the same organization with better tools.</li>
+          </ul>
         </div>
-      </div>
-    </div>
+      </details>
+    </li>
 
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-8">
-        Likely Oral Exam Questions
-      </h2>
-
-      <div class="space-y-6">
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            Why do incumbents struggle with AI transformation?
-          </h3>
-
-          <div class="bg-violet-50 border border-violet-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-violet-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Explain that AI transformation is not only a technical challenge. It requires managers to revise existing assumptions, reallocate attention, and accept uncertainty while building new capabilities.
-            </p>
-          </div>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          Explain the concept of "digital enactment" and the ontological reversal it represents.
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>In digital enactment, organizations do not merely interpret their environment — they <em>construct</em> it through information produced nearly autonomously by algorithms.</li>
+            <li><strong>Ontological reversal:</strong> Traditionally, perceived analyzability causes organizational action mode. In DES, it is reversed — digital actions (algorithmic enactment) shape what the organization perceives as analyzable.</li>
+            <li>HFT example: algorithms don't just react to market prices — they actively generate price movements through high-speed trading, thereby constructing the market environment for everyone.</li>
+            <li>Flash crash (2010): no organization intended to crash markets; yet collectively their DES created the conditions for it.</li>
+          </ul>
         </div>
+      </details>
+    </li>
 
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            How can managerial cognition become a strategic advantage?
-          </h3>
-
-          <div class="bg-violet-50 border border-violet-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-violet-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Discuss how firms can build learning routines, scan emerging signals, and create organizational processes that improve how managers interpret change and translate it into action.
-            </p>
-          </div>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge apply">Apply</span>
+          What are Propositions 1a and 1b in Constantiou et al., and why do they create a strategic paradox?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>Prop. 1a:</strong> Replacing humans with digital technologies may <em>increase efficiency and precision</em> in scanning, interpretation and learning.</li>
+            <li><strong>Prop. 1b:</strong> The same replacement may <em>constrain</em> the organization's ability to function as a human interpretation system.</li>
+            <li>Paradox: efficiency gains come at the cost of adaptability. Digital scanning captures only codifiable information — non-codifiable signals (e.g. weak signals of disruption) are systematically missed.</li>
+            <li>HFT: algorithms are faster but cannot interpret an exogenous economic shock as anything other than a trading opportunity.</li>
+          </ul>
         </div>
+      </details>
+    </li>
 
-      </div>
-    </div>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge apply">Apply</span>
+          How does the Zillow Zestimate case illustrate the concept of decision redistribution?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Zillow deployed AI (Zestimate) to <em>make decisions with AI</em> — pricing houses automatically.</li>
+            <li>Decisions about AI (data sourcing, model design) were not adequately redistributed: engineers decided to train on historical stable-market data, but did not account for pandemic-driven volatility.</li>
+            <li>Implications of AI decisions were also left to the algorithm — no sufficient human oversight corrected the course when conditions changed.</li>
+            <li>Result: $800M loss, 2,000 layoffs. Illustrates why all three facets of the framework must be considered simultaneously.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
 
-  </div>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          Analyze Novo Nordisk's OpenAI partnership using Gavetti &amp; Rivkin's framework. Is this evolutionary or positioning strategy?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>Evolutionary dimension:</strong> Stated focus is on improving existing processes (manufacturing efficiency, supply chain, corporate operations) — incremental enhancement of current activities.</li>
+            <li><strong>Positioning dimension (latent):</strong> If AI accelerates drug discovery pipelines in ways rivals using traditional timelines cannot match, Novo Nordisk would be doing <em>genuinely different activities</em> — a positioning-type competitive advantage.</li>
+            <li>Key question: does the AI factory become a distinctive, hard-to-imitate activity bundle, or is it a commodity tool available to all pharma firms?</li>
+            <li>Bring in G&amp;R's tension: Novo Nordisk is an established firm (low plasticity) entering new AI industry territory (low rationality of search mechanisms available). Matches Proposition 3A: must resist routinized deductive search and allow local/exploratory search in the AI space.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          How does digital transformation change the role of senior managers, according to Constantiou et al.?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>From:</strong> Receiving and synthesizing employee interpretations → interpreting information → deciding strategy.</li>
+            <li><strong>To:</strong> Three new roles — (1) <em>Data vigilance</em>: overseeing information strategy and production; (2) <em>Digital-first strategizing</em>: conceptualizing strategy through digital technologies rather than using digital to support business; (3) <em>Leading algorithm developers</em>: deciding which algorithms to deploy, retire, what data sources to use.</li>
+            <li>Also: expertise in scenario-based strategizing (to intervene when algorithms fail), seeing data in interactions (social scientist mindset), and digital experimentation (distinguishing firm-caused vs. organic customer behavior).</li>
+            <li>Sovereignty paradox: senior managers retain strategic authority but are increasingly dependent on — and constrained by — autonomous digital technologies.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          What is "tight coupling" in the context of digital enactment, and why is it strategically significant?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>When all activities underpinning scanning, interpretation and learning are performed by an integrated ensemble of algorithms, the three processes <em>collapse into one</em> — they cannot be separated, modified individually, or intervened upon by managers in real time.</li>
+            <li>Strategic significance: a minor error in one part (e.g. not scanning a particular environmental dimension) cascades through interpretation and learning — amplified, with limited ability to correct mid-stream.</li>
+            <li>Benefits: efficiency, speed, reduced errors in well-understood domains.</li>
+            <li>Risks: loss of human sovereignty; inability to adapt to novel or unpredictable conditions; the only recourse is the "kill switch" (pulling the plug).</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          Connect Gavetti &amp; Rivkin's concept of "information sensors" to Constantiou et al.'s "digital scanning." What is gained and lost?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>G&amp;R sensors:</strong> Physical elements of strategy that selectively channel environmental feedback to managers. Shaped by representations and values — data only becomes meaningful through cognitive lenses.</li>
+            <li><strong>Digital scanning:</strong> Sensors are algorithmically automated — faster, broader, more precise — but now the "lens" is pre-coded in algorithms rather than enacted by human cognition.</li>
+            <li><strong>Gained:</strong> Scale, speed, consistency; ability to detect patterns humans would miss.</li>
+            <li><strong>Lost:</strong> The human capacity to notice unexpected signals that fall outside predefined scanning parameters; the ability to reinterpret the same data through new cognitive frameworks (like Lycos shifting from technology to media lens).</li>
+            <li>Link this to digital transformation challenging managerial cognition — the <em>what to scan</em> question becomes one of the most critical strategic decisions a senior manager makes.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+
+  </ul>
+</section>
+
+</main>
+
+<footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
+  Based on: Gavetti &amp; Rivkin (2007) · Constantiou, Joshi &amp; Stelmaszak (2023, 2024) · IEB Session 05 Course Materials
+</footer>
 
 </body>
 </html>
