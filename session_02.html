@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 02 — Data, Information & Scale</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Session 02 — Network Effects &amp; Digital Markets</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=DM+Sans:wght@300;400;500&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0f0e17;
@@ -141,6 +141,38 @@
   .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
   .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
 
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+  }
+  .matrix-table th {
+    background: var(--highlight);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.7rem 0.8rem;
+    border-bottom: 2px solid var(--accent);
+  }
+  .matrix-table td {
+    padding: 0.75rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #2a2a38;
+  }
+  .source-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.6rem;
+  }
+
   .figure-wrap {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -217,55 +249,60 @@
 <header>
   <div class="header-inner">
     <p class="course-tag">IEB · Session 02 · Exam Preparation</p>
-    <h1>The Economics of<br><span>Information & Data</span></h1>
-    <p class="subtitle">Exploring the unique properties of information as an economic good and its impact on firm scale and scope.</p>
+    <h1>Network Effects &amp;<br><span>Digital Markets</span></h1>
+    <p class="subtitle">Understanding why digital markets can tip, why platforms subsidize one side, and how network-based competition changes strategic vulnerability.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
-  <a href="#properties">Economic Properties</a>
-  <a href="#value">Information Value Chain</a>
-  <a href="#scale">Scale & Scope</a>
-  <a href="#asymmetry">Information Asymmetry</a>
-  <a href="#case">Novo Nordisk Case</a>
+  <a href="index.html">Back to Dashboard</a>
+  <a href="#network-effects">Network Effects</a>
+  <a href="#feedback">Positive Feedback</a>
+  <a href="#platforms">Digital Platforms</a>
+  <a href="#winner">Winner-Take-All</a>
+  <a href="#strategy">Strategic Responses</a>
+  <a href="#case">Novo Nordisk</a>
   <a href="#questions">Exam Questions</a>
 </nav>
 
 <main>
 
-<section id="properties">
+<section id="network-effects">
   <p class="section-label">Theory 01</p>
-  <h2>Information as an Economic Good</h2>
-  <p>Information differs from physical goods in fundamental ways. Shapiro &amp; Varian (1998) highlight that information is <strong>expensive to produce but cheap to reproduce</strong> (high fixed costs, low marginal costs).</p>
+  <h2>Network Effects: Value Depends on Other Users</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020); IEB Session 2 theme</p>
+  <p>A <strong>network effect</strong> exists when the value of a product or service for one user increases as more users, complementors, or data-producing participants join the same system. This is a demand-side economy of scale: the product becomes more valuable because adoption itself changes the value proposition.</p>
+  <p>This differs from ordinary scale economies. A traditional factory becomes cheaper per unit when it produces more. A digital network becomes <em>more useful</em> when more people, data, or complements participate. That is why digital markets often become strategically fragile: once one firm pulls ahead, the advantage can reinforce itself.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">🍎</span>
-      <h4>Non-Rivalrous</h4>
-      <p>Consumption by one person doesn't prevent consumption by another. Thousands can use the same dataset simultaneously.</p>
+      <span class="emoji">↔</span>
+      <h4>Direct Network Effects</h4>
+      <p>More users on the same side increase value for each other. Messaging, payment networks, and collaboration tools become useful because others are present.</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">🚧</span>
-      <h4>Non-Excludable</h4>
-      <p>Hard to stop others from using it once it's out (unless protected by IP or encryption).</p>
+      <span class="emoji">⇄</span>
+      <h4>Indirect Network Effects</h4>
+      <p>More users on one side attract complementors on another side, which then makes the platform more valuable for the original users.</p>
     </div>
     <div class="concept-card">
-      <span class="emoji">🔍</span>
-      <h4>Experience Good</h4>
-      <p>You don't know the value of information until you have consumed it. (e.g., a movie or a research report).</p>
+      <span class="emoji">◎</span>
+      <h4>Data Network Effects</h4>
+      <p>More usage generates more data, which improves algorithms, which improves the product, which attracts more usage.</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">📉</span>
-      <h4>Zero Marginal Cost</h4>
-      <p>The 1,000,000th copy of a digital file costs virtually nothing to create.</p>
+      <span class="emoji">⛓</span>
+      <h4>Switching Costs</h4>
+      <p>Users may stay because their contacts, history, workflows, integrations, or data are already embedded in the network.</p>
     </div>
   </div>
 </section>
 
-<section id="value">
+<section id="feedback">
   <p class="section-label">Theory 02</p>
-  <h2>The Information Value Chain</h2>
-  <p>Data by itself has no value. Value is created through a transformation process: <strong>Data → Information → Knowledge → Wisdom/Action</strong>.</p>
+  <h2>Positive Feedback and Market Tipping</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020); Shapiro &amp; Varian-style information economics</p>
+  <p>Network markets are shaped by <strong>positive feedback</strong>: success increases the probability of further success. More users generate more value, more complements, more data, and more legitimacy. This can lead to <strong>market tipping</strong>, where one or a few firms capture a disproportionate share of the market.</p>
 
   <div class="figure-wrap">
     <figure>
@@ -275,68 +312,154 @@
             <path d="M0,0 L0,6 L9,3 z" fill="#c1440e" />
           </marker>
         </defs>
-        <rect x="20" y="60" width="80" height="60" rx="8" fill="#f0f0f0" stroke="#ccc"/>
-        <text x="60" y="95" text-anchor="middle" font-size="12" font-weight="700">DATA</text>
-        
-        <line x1="100" y1="90" x2="135" y2="90" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
-        
-        <rect x="145" y="60" width="100" height="60" rx="8" fill="#fff3ec" stroke="#c1440e"/>
-        <text x="195" y="95" text-anchor="middle" font-size="11" font-weight="700">INFORMATION</text>
-        
-        <line x1="245" y1="90" x2="280" y2="90" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="290" y="60" width="100" height="60" rx="8" fill="#ecf2ff" stroke="#2563a8"/>
-        <text x="340" y="95" text-anchor="middle" font-size="12" font-weight="700">KNOWLEDGE</text>
-        
-        <line x1="390" y1="90" x2="425" y2="90" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="435" y="60" width="80" height="60" rx="8" fill="#2563a8" stroke="#2563a8"/>
-        <text x="475" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="white">ACTION</text>
+        <rect x="30" y="55" width="95" height="58" rx="8" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="77" y="88" text-anchor="middle" font-size="11" font-weight="700">MORE USERS</text>
+        <line x1="125" y1="84" x2="185" y2="84" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
+        <rect x="190" y="55" width="105" height="58" rx="8" fill="#ecf2ff" stroke="#2563a8"/>
+        <text x="242" y="80" text-anchor="middle" font-size="10" font-weight="700">MORE DATA &amp;</text>
+        <text x="242" y="96" text-anchor="middle" font-size="10" font-weight="700">COMPLEMENTS</text>
+        <line x1="295" y1="84" x2="355" y2="84" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
+        <rect x="360" y="55" width="120" height="58" rx="8" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="420" y="80" text-anchor="middle" font-size="10" font-weight="700">HIGHER VALUE</text>
+        <text x="420" y="96" text-anchor="middle" font-size="10" font-weight="700">PROPOSITION</text>
+        <path d="M 420 113 Q 260 165 77 113" stroke="#2563a8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+        <text x="260" y="154" text-anchor="middle" font-size="10" fill="#2563a8" font-weight="700">positive feedback loop</text>
       </svg>
-      <figcaption>Fig. 1 — The DIKW Pyramid (simplified). Raw data is contextualized into information, which is internalized as knowledge, enabling strategic action.</figcaption>
+      <figcaption>Fig. 1 — Positive feedback in network markets. Adoption increases value, which then makes further adoption easier.</figcaption>
     </figure>
+  </div>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Critical Mass</h3>
+    <p>A network product may be unattractive before enough users join. Once it passes a threshold, adoption becomes self-reinforcing. This explains why firms may subsidize early users, offer free tiers, spend heavily on acquisition, or tolerate losses during the launch phase.</p>
+  </div>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Stage</th>
+        <th>Strategic Problem</th>
+        <th>Typical Response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pre-critical mass</strong></td>
+        <td>The product lacks value because too few others use it.</td>
+        <td>Subsidies, free access, seeding complements, partnerships, compatibility.</td>
+      </tr>
+      <tr>
+        <td><strong>Growth loop</strong></td>
+        <td>More users improve value, but rivals may copy features.</td>
+        <td>Build data advantage, strengthen complements, reduce friction, improve matching.</td>
+      </tr>
+      <tr>
+        <td><strong>Lock-in</strong></td>
+        <td>Users depend on the installed base and ecosystem.</td>
+        <td>Switching costs, standards, APIs, identity, reputation, workflow integration.</td>
+      </tr>
+      <tr>
+        <td><strong>Tipping</strong></td>
+        <td>A leader can become difficult to displace.</td>
+        <td>Regulatory attention, niche entry, differentiation, multi-homing strategies.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="platforms">
+  <p class="section-label">Theory 03</p>
+  <h2>Platforms and Multi-Sided Digital Markets</h2>
+  <p class="source-note">Origin: IEB digital markets theme; Parker, Van Alstyne &amp; Choudary logic used in later platform sessions</p>
+  <p>A platform creates value by enabling interactions between distinct participant groups. The platform's strategic problem is not only to sell a product, but to <strong>govern participation</strong>: who can join, what they can do, how quality is controlled, and how value is captured without weakening the network.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Platform Element</th>
+        <th>Meaning</th>
+        <th>Strategic Tension</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sides</strong></td>
+        <td>Distinct groups such as users, developers, advertisers, sellers, buyers, or data providers.</td>
+        <td>One side may need subsidies to attract the other side.</td>
+      </tr>
+      <tr>
+        <td><strong>Core interaction</strong></td>
+        <td>The repeated value-creating exchange the platform enables.</td>
+        <td>The platform must reduce search, matching, trust, and transaction friction.</td>
+      </tr>
+      <tr>
+        <td><strong>Governance</strong></td>
+        <td>Rules, standards, moderation, access, pricing, and quality control.</td>
+        <td>Too open can reduce quality; too closed can reduce innovation.</td>
+      </tr>
+      <tr>
+        <td><strong>Value capture</strong></td>
+        <td>How the platform monetizes access, transactions, data, tools, or premium features.</td>
+        <td>Charging too early or on the wrong side can reduce network growth.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="winner">
+  <p class="section-label">Theory 04</p>
+  <h2>Winner-Take-All and Digital Market Vulnerability</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020)</p>
+  <p>Digital markets can become <strong>winner-take-all</strong> or <strong>winner-take-most</strong> when network effects, low marginal costs, learning effects, and switching costs reinforce one another. This is why Iansiti &amp; Lakhani describe traditional markets as newly vulnerable: a digital entrant may not need to own the same physical assets as incumbents to compete at scale.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">1</span>
+      <h4>Low Marginal Cost</h4>
+      <p>Once software is built, serving additional users is often cheap compared with human-heavy firms.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">2</span>
+      <h4>Learning Effects</h4>
+      <p>Usage creates data; data improves algorithms; better algorithms attract more usage.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">3</span>
+      <h4>Complementor Pull</h4>
+      <p>Developers, suppliers, and partners prefer the platform with the most users and strongest growth.</p>
+    </div>
   </div>
 </section>
 
-<section id="scale">
-  <p class="section-label">Theory 03</p>
-  <h2>Scale, Scope & Returns</h2>
-  <p>Information economies exhibit <strong>Increasing Returns</strong>. Iansiti &amp; Lakhani (2020) argue that digital operating models allow firms to grow in <em>Scale</em> and <em>Scope</em> without the traditional diminishing returns of human-centric organizations.</p>
+<section id="strategy">
+  <p class="section-label">Exam Framework</p>
+  <h2>Strategic Responses in Network Markets</h2>
+  <p>A strong exam answer should not simply say "network effects create monopoly." The better answer asks which network effect exists, how strong it is, whether users multi-home, whether switching costs are high, and whether complements are exclusive.</p>
 
-  <div class="card accent-left2 highlight-bg2">
-    <h3>Key Definitions</h3>
+  <div class="card accent-left">
+    <h3>Managerial Levers</h3>
     <ul>
-      <li><strong>Scale:</strong> Ability to serve more customers with minimal cost increase. (Fixed costs are spread thin).</li>
-      <li><strong>Scope:</strong> Ability to enter new business lines by reusing existing data/assets.</li>
-      <li><strong>Learning:</strong> The more the system is used, the more data it generates, making the product better for everyone.</li>
+      <li><strong>Build critical mass:</strong> Use subsidies, partnerships, compatibility, or free access to overcome the cold-start problem.</li>
+      <li><strong>Encourage complements:</strong> APIs, developer tools, data access, or marketplace infrastructure can strengthen indirect network effects.</li>
+      <li><strong>Manage openness:</strong> Open systems grow faster, but closed systems may capture more value and maintain quality.</li>
+      <li><strong>Reduce multi-homing:</strong> Firms may use identity, data history, workflow integration, or exclusive complements to make switching less attractive.</li>
+      <li><strong>Differentiate against giants:</strong> Newcomers can focus on niche communities, trust, regulation, specialized data, or superior domain knowledge.</li>
     </ul>
   </div>
 </section>
 
 <section id="case">
   <p class="section-label">Case Application</p>
-  <h2>Novo Nordisk — Information Arbitrage?</h2>
-  <p>How information economics applies to the pharmaceutical case:</p>
+  <h2>Novo Nordisk — AI Ecosystem Dependency</h2>
+  <p>Network effects matter for Novo because the OpenAI partnership is not just a vendor relationship. It connects Novo to a broader AI ecosystem where model providers, cloud infrastructure, data, developers, and enterprise users reinforce one another.</p>
 
   <div class="card">
-    <table style="width:100%; border-collapse: collapse;">
-      <tr style="border-bottom: 2px solid var(--border);">
-        <th style="text-align:left; padding: 10px;">Concept</th>
-        <th style="text-align:left; padding: 10px;">Application</th>
-      </tr>
-      <tr>
-        <td style="padding: 10px;"><strong>High Fixed Cost</strong></td>
-        <td style="padding: 10px;">Pharma has massive R&D costs (production of info). Distribution is cheap once the formula is known.</td>
-      </tr>
-      <tr style="background: #f9f8f5;">
-        <td style="padding: 10px;"><strong>Scope Economies</strong></td>
-        <td style="padding: 10px;">Data from one obesity trial can potentially inform research in related cardiovascular or kidney diseases.</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;"><strong>Experience Good</strong></td>
-        <td style="padding: 10px;">Clinical trial results are only "known" after the study is complete — hence the high risk of drug development.</td>
-      </tr>
-    </table>
+    <ul>
+      <li><strong>OpenAI's possible network effects:</strong> More enterprise users generate more feedback, integrations, use cases, and developer attention.</li>
+      <li><strong>Novo's counterweight:</strong> Novo owns specialized biomedical data and domain expertise, which may be harder for a general AI platform to replicate.</li>
+      <li><strong>Dependency risk:</strong> If Novo's workflows, prompts, validation routines, and data pipelines become tightly integrated with one AI platform, switching costs rise.</li>
+      <li><strong>Strategic response:</strong> Novo should preserve portability, internal AI competence, and governance over proprietary clinical data.</li>
+    </ul>
   </div>
 </section>
 
@@ -348,14 +471,14 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          Why is information described as "expensive to produce but cheap to reproduce"?
+          What is the difference between direct and indirect network effects?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li><strong>First-copy costs:</strong> Most of the cost is in the initial creation (R&D, writing code, clinical trials).</li>
-            <li><strong>Marginal costs:</strong> Digital reproduction (copying a file) is nearly zero.</li>
-            <li><strong>Implication:</strong> This creates massive economies of scale and encourages "Winner-Take-All" market dynamics.</li>
+            <li><strong>Direct:</strong> More same-side users increase value, such as more people on a messaging app.</li>
+            <li><strong>Indirect:</strong> More users attract complements, such as more apps for a mobile operating system.</li>
+            <li>Data network effects are related but distinct: more use improves model quality through more data.</li>
           </ul>
         </div>
       </details>
@@ -364,15 +487,15 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          How does the DIKW framework help explain the value of AI in firms?
+          Why do network markets sometimes tip toward one dominant firm?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>Firms have lots of **Data** (unstructured clinical logs).</li>
-            <li>AI transforms this into **Information** (patterns of drug response).</li>
-            <li>This builds organizational **Knowledge** (understanding biological pathways).</li>
-            <li>Ultimately, it enables faster/better **Action** (launching the right drug trial).</li>
+            <li>Positive feedback makes success self-reinforcing.</li>
+            <li>Low marginal costs let digital leaders scale quickly.</li>
+            <li>Complementors and users often prefer the largest network.</li>
+            <li>Switching costs and data advantages make late entry harder.</li>
           </ul>
         </div>
       </details>
@@ -381,13 +504,14 @@
       <details>
         <summary>
           <span class="q-badge synth">Synthesis</span>
-          What are the risks of "Increasing Returns" for an incumbent like Novo Nordisk?
+          Could OpenAI become a strategic dependency for Novo Nordisk?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>Increasing returns favor the leader. If a competitor builds a better "AI Learning Loop", they may become unstoppable.</li>
-            <li>Novo must use its current data advantage to secure its position before a more agile digital-first competitor scales.</li>
+            <li>Yes, if Novo's research workflows and data pipelines become deeply tied to OpenAI's ecosystem.</li>
+            <li>The risk is not only technical lock-in but also bargaining power, knowledge leakage, and reduced strategic autonomy.</li>
+            <li>Novo can reduce this by keeping internal AI expertise, preserving data portability, and using governance clauses.</li>
           </ul>
         </div>
       </details>
@@ -398,7 +522,7 @@
 </main>
 
 <footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
-  Based on: Shapiro &amp; Varian (1998) · Iansiti &amp; Lakhani (2020) · IEB Session 02 Course Materials
+  Based on: Iansiti &amp; Lakhani (2020) · Network effects and digital markets · IEB Session 02 Course Materials
 </footer>
 
 </body>

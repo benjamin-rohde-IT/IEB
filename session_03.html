@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 03 — Digital Products & Network Effects</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Session 03 — Pricing &amp; Revenue Models</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=DM+Sans:wght@300;400;500&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0f0e17;
@@ -141,6 +141,38 @@
   .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
   .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
 
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+  }
+  .matrix-table th {
+    background: var(--highlight);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.7rem 0.8rem;
+    border-bottom: 2px solid var(--accent);
+  }
+  .matrix-table td {
+    padding: 0.75rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #2a2a38;
+  }
+  .source-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.6rem;
+  }
+
   .figure-wrap {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -237,16 +269,19 @@
 <header>
   <div class="header-inner">
     <p class="course-tag">IEB · Session 03 · Exam Preparation</p>
-    <h1>Digital Products &<br><span>Network Effects</span></h1>
-    <p class="subtitle">Classifying digital offerings and understanding the demand-side economies of scale that drive market dominance.</p>
+    <h1>Pricing &amp;<br><span>Revenue Models</span></h1>
+    <p class="subtitle">Understanding how digital product characteristics, low marginal costs, platforms, and network effects change pricing strategy.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
+  <a href="index.html">Back to Dashboard</a>
   <a href="#classification">Product Classification</a>
-  <a href="#network">Network Effects</a>
-  <a href="#pricing">Digital Pricing</a>
-  <a href="#dynamics">Scale & Scope</a>
+  <a href="#discrimination">Price Discrimination</a>
+  <a href="#versioning">Versioning</a>
+  <a href="#bundling">Bundling</a>
+  <a href="#platform-pricing">Platform Pricing</a>
+  <a href="#launch">Launch Pricing</a>
   <a href="#case">Novo Nordisk Case</a>
   <a href="#questions">Exam Questions</a>
 </nav>
@@ -256,21 +291,22 @@
 <section id="classification">
   <p class="section-label">Theory 01</p>
   <h2>Classifying Digital Products</h2>
-  <p>Hui &amp; Chau (2002) propose a framework for classifying digital products based on their inherent characteristics. Understanding these attributes is critical for devising appropriate marketing and pricing strategies.</p>
+  <p class="source-note">Origin: Hui &amp; Chau (2002); Session 3 slides</p>
+  <p>Hui &amp; Chau (2002) argue that digital pricing strategy depends on the <strong>intrinsic characteristics</strong> of the product. A software utility, an e-book, and an interactive online service may all be digital, but they differ in how value is delivered, how divisible they are, and whether buyers can try them before paying.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">🛠️</span>
-      <h4>Tools & Utilities</h4>
+      <span class="emoji">T</span>
+      <h4>Tools &amp; Utilities</h4>
       <p>Downloadable software with specific functions (e.g., anti-virus). Generally low granularity and high trialability (Hui &amp; Chau, 2002).</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">📰</span>
+      <span class="emoji">C</span>
       <h4>Content-Based</h4>
       <p>Information goods like news, music, or e-books. High granularity (divisibility), allowing for flexible packaging and pricing (Hui &amp; Chau, 2002).</p>
     </div>
     <div class="concept-card">
-      <span class="emoji">💬</span>
+      <span class="emoji">S</span>
       <h4>Online Services</h4>
       <p>Interactive, real-time solutions (e.g., online therapy). Medium granularity and often charged by usage time or subscription (Hui &amp; Chau, 2002).</p>
     </div>
@@ -303,79 +339,185 @@
   </div>
 </section>
 
-<section id="network">
+<section id="discrimination">
   <p class="section-label">Theory 02</p>
-  <h2>Network Effects (Demand-Side Economies)</h2>
-  <p>Iansiti &amp; Lakhani (2020) and Lee &amp; O'Connor (2003) emphasize that digital value is often <strong>extrinsic</strong> — the value to a user depends on how many <em>other</em> people use the product.</p>
+  <h2>Price Discrimination in Digital Markets</h2>
+  <p class="source-note">Origin: Session 3 slides; Shapiro &amp; Varian-style information goods logic</p>
+  <p>Digital products often have high fixed costs and near-zero marginal costs. That makes pricing less about covering unit cost and more about capturing willingness to pay across heterogeneous customers. The session distinguishes three major forms of price discrimination.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Definition</th>
+        <th>Digital Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Personalized pricing</strong></td>
+        <td>Charging each consumer close to their maximum willingness to pay.</td>
+        <td>Algorithmic offers, individualized discounts, or dynamic subscription offers.</td>
+      </tr>
+      <tr>
+        <td><strong>Versioning</strong></td>
+        <td>Designing versions so users self-select based on needs and willingness to pay.</td>
+        <td>Free, basic, pro, enterprise tiers.</td>
+      </tr>
+      <tr>
+        <td><strong>Group pricing</strong></td>
+        <td>Charging different groups different prices for the same or similar product.</td>
+        <td>Student discounts, enterprise contracts, regional pricing.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>The Digital Pricing Logic</h3>
+    <p>Because the marginal cost of an extra user is often low, firms can profit by serving low-willingness-to-pay users without undermining higher-priced segments. The challenge is to prevent arbitrage and design product differences that make self-selection credible.</p>
+  </div>
+</section>
+
+<section id="versioning">
+  <p class="section-label">Theory 03</p>
+  <h2>Versioning: Designing Self-Selection</h2>
+  <p class="source-note">Origin: Session 3 slides; Hui &amp; Chau (2002)</p>
+  <p><strong>Versioning</strong> means offering variants tailored to different customer needs. The point is not merely to offer "more choices"; it is to create a pricing architecture where users reveal their willingness to pay through the version they choose.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">1</span>
+      <h4>Market Analysis</h4>
+      <p>Ask whether the market naturally subdivides into segments with different needs, behaviors, and willingness to pay.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">2</span>
+      <h4>Product Analysis</h4>
+      <p>Identify dimensions to version: quantity, quality, speed, features, support, usage limits, ads, integrations, or data access.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">3</span>
+      <h4>Rule of Three</h4>
+      <p>The slides emphasize three versions as a practical design: low-end entry, middle default, and high-end premium.</p>
+    </div>
+  </div>
+
+  <div class="card accent-left">
+    <h3>Installed Base, Rival Customers, and New Customers</h3>
+    <p>Pricing can also vary by relationship status. Existing customers may be offered premium services, rival customers may receive switching discounts, and new customers may receive introductory offers. The design depends on lock-in, information about customers, and whether customers can arbitrage across offers.</p>
+  </div>
+</section>
+
+<section id="bundling">
+  <p class="section-label">Theory 04</p>
+  <h2>Bundling: Reducing Dispersion in Willingness to Pay</h2>
+  <p class="source-note">Origin: Session 3 slides</p>
+  <p>Bundling is powerful for digital products because it can increase revenue without much additional marginal cost. The theoretical logic is that bundling can reduce variation in reservation prices across consumers, making total willingness to pay more predictable.</p>
 
   <div class="figure-wrap">
     <figure>
       <svg viewBox="0 0 520 220" width="100%" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="110" r="40" fill="#fff3ec" stroke="#c1440e" stroke-width="2"/>
-        <text x="100" y="115" text-anchor="middle" font-size="10" font-weight="700">USER A</text>
-        
-        <circle cx="420" cy="110" r="40" fill="#fff3ec" stroke="#c1440e" stroke-width="2"/>
-        <text x="420" y="115" text-anchor="middle" font-size="10" font-weight="700">USER B</text>
-        
-        <path d="M 140 110 L 380 110" stroke="#c1440e" stroke-width="2" stroke-dasharray="4 2"/>
-        <text x="260" y="100" text-anchor="middle" font-size="9" fill="#c1440e">Direct Network Effect</text>
+        <rect x="50" y="35" width="110" height="55" rx="8" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="105" y="58" text-anchor="middle" font-size="10" font-weight="700">USER A</text>
+        <text x="105" y="74" text-anchor="middle" font-size="10">$120 Word</text>
+        <rect x="50" y="125" width="110" height="55" rx="8" fill="#ecf2ff" stroke="#2563a8"/>
+        <text x="105" y="148" text-anchor="middle" font-size="10" font-weight="700">USER B</text>
+        <text x="105" y="164" text-anchor="middle" font-size="10">$120 Sheet</text>
 
-        <rect x="210" y="20" width="100" height="40" rx="6" fill="#ecf2ff" stroke="#2563a8" stroke-width="1"/>
-        <text x="260" y="45" text-anchor="middle" font-size="9" font-weight="700">COMPLEMENTS</text>
-        
-        <path d="M 110 70 Q 150 40 210 40" stroke="#2563a8" stroke-width="1" fill="none"/>
-        <path d="M 410 70 Q 370 40 310 40" stroke="#2563a8" stroke-width="1" fill="none"/>
-        <text x="260" y="140" text-anchor="middle" font-size="9" fill="#2563a8">Indirect Network Effect</text>
+        <rect x="210" y="55" width="110" height="110" rx="10" fill="#ffffff" stroke="#e2ddd6"/>
+        <text x="265" y="92" text-anchor="middle" font-size="11" font-weight="700">SEPARATE</text>
+        <text x="265" y="112" text-anchor="middle" font-size="10">Lower total</text>
+        <text x="265" y="130" text-anchor="middle" font-size="10">if each product</text>
+        <text x="265" y="148" text-anchor="middle" font-size="10">priced alone</text>
+
+        <rect x="370" y="55" width="110" height="110" rx="10" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="425" y="90" text-anchor="middle" font-size="11" font-weight="700">BUNDLE</text>
+        <text x="425" y="110" text-anchor="middle" font-size="10">Word + Sheet</text>
+        <text x="425" y="130" text-anchor="middle" font-size="10">captures more</text>
+        <text x="425" y="148" text-anchor="middle" font-size="10">aggregate value</text>
       </svg>
-      <figcaption>Fig. 1 — Network Effects. Direct effects arise from user-to-user interaction. Indirect effects arise when more users attract more third-party complements (e.g., apps for a phone).</figcaption>
+      <figcaption>Fig. 1 — Bundling logic. When willingness to pay differs across products, a bundle can capture more total value than separate sales.</figcaption>
     </figure>
   </div>
 
-  <div class="concept-grid">
-    <div class="concept-card">
-      <span class="emoji">📈</span>
-      <h4>Metcalfe's Law</h4>
-      <p>The value of a network is proportional to the square of the number of users (n²). Growth becomes self-reinforcing.</p>
-    </div>
-    <div class="concept-card blue">
-      <span class="emoji">🔗</span>
-      <h4>Lock-in</h4>
-      <p>High switching costs created by network size. Users stay because "everyone else is there".</p>
-    </div>
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Price Bundles vs. Product/Service Bundles</h3>
+    <ul>
+      <li><strong>Price bundle:</strong> Separate products sold together at a discount. The bundle mainly changes price.</li>
+      <li><strong>Product/service bundle:</strong> Integrated products create additional value together, such as software plus storage plus support.</li>
+      <li><strong>Pure bundling:</strong> Only the bundle is sold.</li>
+      <li><strong>Mixed bundling:</strong> Products are sold both separately and as a bundle.</li>
+    </ul>
   </div>
 </section>
 
-<section id="pricing">
-  <p class="section-label">Theory 03</p>
-  <h2>Digital Revenue Models</h2>
-  <p>The low marginal cost and high granularity of digital products enable novel pricing strategies (IEB Session 3 Slides).</p>
+<section id="platform-pricing">
+  <p class="section-label">Theory 05</p>
+  <h2>Platform Pricing: Subsidy Side and Money Side</h2>
+  <p class="source-note">Origin: Session 3 slides</p>
+  <p>In platforms, the relevant question is not only "what price should we charge?" but <strong>which side should pay?</strong> One side may be subsidized because its participation creates value for the other side. The platform then monetizes the side with higher willingness to pay or stronger value capture potential.</p>
 
-  <div class="steps">
-    <div class="step" style="display:flex; gap:1rem; margin-bottom: 1rem;">
-      <div style="background:var(--accent); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">1</div>
-      <div><strong>Versioning:</strong> Offering different quality levels (e.g., Basic vs. Pro) to induce self-selection.</div>
-    </div>
-    <div class="step" style="display:flex; gap:1rem; margin-bottom: 1rem;">
-      <div style="background:var(--accent); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
-      <div><strong>Bundling:</strong> Selling multiple products together at a single price to reduce dispersion in willingness to pay.</div>
-    </div>
-    <div class="step" style="display:flex; gap:1rem;">
-      <div style="background:var(--accent); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
-      <div><strong>Penetration Pricing:</strong> Low entry price to quickly build a network and trigger positive feedback loops.</div>
-    </div>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Pricing Choice</th>
+        <th>Logic</th>
+        <th>Risk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Free user side</strong></td>
+        <td>Attract users to make the platform valuable for advertisers, sellers, or developers.</td>
+        <td>Hard to transition from free to fee without backlash.</td>
+      </tr>
+      <tr>
+        <td><strong>Charge producer side</strong></td>
+        <td>Producers pay for access to users, tools, curation, or transaction infrastructure.</td>
+        <td>High fees can push producers to rival platforms.</td>
+      </tr>
+      <tr>
+        <td><strong>Transaction fee</strong></td>
+        <td>Platform takes a percentage when value is realized.</td>
+        <td>Participants may disintermediate the platform if governance is weak.</td>
+      </tr>
+      <tr>
+        <td><strong>Premium tools</strong></td>
+        <td>Basic access stays free, but advanced analytics, visibility, or support is paid.</td>
+        <td>The paid layer must add new value, not remove value users already received.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="launch">
+  <p class="section-label">Theory 06</p>
+  <h2>Launch Pricing Under Network Effects</h2>
+  <p class="source-note">Origin: Lee &amp; O'Connor (2003); Session 3 slides</p>
+  <p>When a product has network effects, launch pricing must help the firm reach critical mass. The slides contrast classical markets, where price can signal quality and skimming may work, with network markets, where penetration pricing and bundling often support long-term performance.</p>
+
+  <div class="card accent-left">
+    <h3>Skimming vs. Penetration</h3>
+    <ul>
+      <li><strong>Skimming pricing:</strong> High launch price to monetize early adopters and signal quality. Better for products where intrinsic value dominates.</li>
+      <li><strong>Penetration pricing:</strong> Low price or free access to grow the installed base quickly. Better when extrinsic value and network effects dominate.</li>
+      <li><strong>Lock-in then change prices:</strong> Once users are embedded, firms may shift pricing, but this risks trust and backlash.</li>
+      <li><strong>Bundling, compatibility, variety, and upgrades:</strong> These help build adoption and keep users inside the ecosystem.</li>
+    </ul>
   </div>
 </section>
 
 <section id="case">
   <p class="section-label">Case Application</p>
-  <h2>Novo Nordisk — The AI "Product" Strategy</h2>
-  <p>Analyzing Novo's digital moves through Session 03 lens:</p>
+  <h2>Novo Nordisk — Pricing and Capturing AI Value</h2>
+  <p>Session 03 is less central to the Novo-OpenAI synopsis than dynamic capabilities, but it is useful for explaining how AI vendors and pharma firms can capture value from digital services.</p>
 
   <div class="card">
     <ul>
-      <li><strong>Data as a Network Asset:</strong> In the OpenAI partnership, Novo's massive clinical datasets act as the "network base". As they add more data, the AI models improve, creating a <em>learning network effect</em>.</li>
-      <li><strong>Complementary Innovations:</strong> By using OpenAI as a platform, Novo can develop a <em>bundle</em> of AI-driven tools (research aids, supply chain bots) that reuse the same data backbone (Scope Economies).</li>
-      <li><strong>Lock-in:</strong> If Novo's proprietary research processes become deeply integrated with OpenAI's specific model architecture, they risk <em>technical lock-in</em>.</li>
+      <li><strong>Enterprise versioning:</strong> OpenAI can price different tiers for API access, security, model quality, support, and fine-tuning.</li>
+      <li><strong>Bundling:</strong> Novo may bundle AI tools into research workflows rather than treat them as separate software products.</li>
+      <li><strong>Value-based pricing:</strong> In pharma, the value of faster discovery can be enormous, so pricing may be linked to strategic value rather than marginal compute cost.</li>
+      <li><strong>Switching and lock-in:</strong> If AI tools become embedded in R&amp;D workflows, the vendor may gain pricing power over time.</li>
     </ul>
   </div>
 </section>
@@ -404,13 +546,14 @@
       <details>
         <summary>
           <span class="q-badge apply">Apply</span>
-          What is the difference between direct and indirect network effects? Give an example of each.
+          How does versioning help digital firms capture more value?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li><strong>Direct:</strong> Value increases with the number of similar users (e.g., WhatsApp — more friends to message).</li>
-            <li><strong>Indirect:</strong> Value increases with the availability of complementary goods (e.g., Android — more users attract more app developers, which makes the phone better).</li>
+            <li>Different users have different needs and willingness to pay.</li>
+            <li>Versions make customers self-select: free/basic users reveal low willingness to pay, while pro/enterprise users pay for higher quality, features, or support.</li>
+            <li>The firm captures more consumer surplus without needing perfect personalized pricing.</li>
           </ul>
         </div>
       </details>
@@ -419,7 +562,7 @@
       <details>
         <summary>
           <span class="q-badge synth">Synthesis</span>
-          Should a firm with network effects use "skimming" or "penetration" pricing at launch?
+          When should a digital firm use penetration pricing rather than skimming?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">

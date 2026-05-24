@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 01 — Digitalization, AI & Data</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Session 01 — Digitalization, AI &amp; Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=DM+Sans:wght@300;400;500&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0f0e17;
@@ -141,6 +141,38 @@
   .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
   .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
 
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+  }
+  .matrix-table th {
+    background: var(--highlight);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.7rem 0.8rem;
+    border-bottom: 2px solid var(--accent);
+  }
+  .matrix-table td {
+    padding: 0.75rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #2a2a38;
+  }
+  .source-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.6rem;
+  }
+
   .figure-wrap {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -228,15 +260,18 @@
 <header>
   <div class="header-inner">
     <p class="course-tag">IEB · Session 01 · Exam Preparation</p>
-    <h1>Digitalization, AI &<br><span>Organizational Change</span></h1>
+    <h1>Digitalization, AI &amp;<br><span>Organizational Change</span></h1>
     <p class="subtitle">Core concepts from Iansiti &amp; Lakhani (2020) and general Information Economics — establishing the strategic foundation.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
+  <a href="index.html">Back to Dashboard</a>
   <a href="#digitalization">Digitalization vs. Digitization</a>
   <a href="#collision">The Strategic Collision</a>
   <a href="#prediction">AI as Prediction</a>
+  <a href="#data">Data Advantage</a>
+  <a href="#operating">Digital Operating Model</a>
   <a href="#moat">The Digital Moat</a>
   <a href="#case">Novo Nordisk Case</a>
   <a href="#questions">Exam Questions</a>
@@ -247,6 +282,7 @@
 <section id="digitalization">
   <p class="section-label">Theory 01</p>
   <h2>Digitalization: A Strategic Transformation</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020); IEB Session 1 theme</p>
   <p>Iansiti &amp; Lakhani (2020) differentiate between <em>digitization</em> (converting analog info to digital) and <strong>digitalization</strong> (re-architecting the firm around digital logic). Digitalization isn't about adding IT to a traditional firm; it's about ending the reliance on human labor at the core of the operating model.</p>
 
   <div class="concept-grid">
@@ -276,6 +312,7 @@
 <section id="collision">
   <p class="section-label">Theory 02</p>
   <h2>The Strategic Collision</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020)</p>
   <p>A <strong>Collision</strong> occurs when a firm with a <em>digital operating model</em> enters a space traditionally served by conventional firms. Because digital models exhibit increasing returns to scale, scope, and learning, they eventually overwhelm traditional players.</p>
 
   <div class="figure-wrap">
@@ -315,6 +352,7 @@
 <section id="prediction">
   <p class="section-label">Theory 03</p>
   <h2>AI as Prediction</h2>
+  <p class="source-note">Origin: Agrawal, Gans &amp; Goldfarb (2018)</p>
   <p>The "Economics of AI" (Agrawal et al., 2018) argues that AI is essentially a <strong>drop in the cost of prediction</strong>. When prediction becomes cheap, it is used more frequently, and the value of human <em>judgment</em> and <em>data</em> increases.</p>
 
   <div class="concept-grid">
@@ -339,6 +377,124 @@
       <p>The output of one decision becomes the input (data) for the next prediction, creating a learning loop.</p>
     </div>
   </div>
+</section>
+
+<section id="data">
+  <p class="section-label">Theory 04</p>
+  <h2>Data as a Strategic Asset</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020); Session 1 dashboard theme</p>
+  <p>Data becomes strategically valuable when it is connected to decisions, feedback, and learning. A firm does not gain advantage simply by storing data. It gains advantage when data is proprietary, relevant, high quality, difficult to imitate, and embedded in processes that repeatedly improve products or decisions.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Data Concept</th>
+        <th>Meaning</th>
+        <th>Strategic Implication</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Volume</strong></td>
+        <td>Amount of observations available for training, testing, or optimization.</td>
+        <td>Large datasets can improve prediction, but only if relevant and clean.</td>
+      </tr>
+      <tr>
+        <td><strong>Variety</strong></td>
+        <td>Different forms of data: text, images, transactions, sensor data, clinical records.</td>
+        <td>Broader data can create scope economies across products and functions.</td>
+      </tr>
+      <tr>
+        <td><strong>Velocity</strong></td>
+        <td>How quickly data is generated and fed back into decisions.</td>
+        <td>Fast feedback loops let digital firms learn faster than traditional rivals.</td>
+      </tr>
+      <tr>
+        <td><strong>Validity</strong></td>
+        <td>Whether data measures the phenomenon that matters.</td>
+        <td>Bad proxies can optimize the wrong objective and destroy value.</td>
+      </tr>
+      <tr>
+        <td><strong>Exclusivity</strong></td>
+        <td>Whether competitors can access equivalent data.</td>
+        <td>Proprietary data can become a durable moat if linked to learning effects.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Data Is Not Automatically a Resource-Based Advantage</h3>
+    <p>Data must be valuable, rare, difficult to imitate, and organizationally embedded to produce advantage. Public data can support AI, but it rarely creates a defensible moat on its own. Firm-specific operational, customer, or scientific data is more strategically important.</p>
+  </div>
+</section>
+
+<section id="operating">
+  <p class="section-label">Theory 05</p>
+  <h2>The Digital Operating Model and the AI Factory</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020)</p>
+  <p>The central distinction in Iansiti &amp; Lakhani is between a traditional operating model and a digital operating model. Traditional firms scale by adding people, assets, managerial layers, and coordination routines. Digital firms scale by using software, data, algorithms, APIs, and automated decision systems.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">1</span>
+      <h4>Data Pipeline</h4>
+      <p>Captures, cleans, stores, and makes data available for decision systems.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">2</span>
+      <h4>Algorithms</h4>
+      <p>Turn data into predictions, classifications, recommendations, or automated actions.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">3</span>
+      <h4>Experimentation</h4>
+      <p>A/B tests, pilots, and feedback loops show which digital interventions improve outcomes.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">4</span>
+      <h4>Software Scaling</h4>
+      <p>Once encoded, the process can be replicated across users and contexts at low marginal cost.</p>
+    </div>
+  </div>
+
+  <div class="card accent-left">
+    <h3>Why This Changes Management</h3>
+    <p>The bottleneck shifts from human execution to system design. Managers must ask: what decisions should be automated, what data feeds them, where human judgment remains necessary, and how the organization learns from outcomes.</p>
+  </div>
+</section>
+
+<section id="moat">
+  <p class="section-label">Theory 06</p>
+  <h2>The Digital Moat: Scale, Scope, and Learning</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020)</p>
+  <p>A digital moat is created when scale, scope, and learning reinforce one another. Scale produces more interactions. More interactions produce more data. More data improves learning. Better learning improves products, which increases scale again. The resulting loop can make digital leaders difficult to displace.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Moat Driver</th>
+        <th>Definition</th>
+        <th>Risk for Incumbents</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Scale</strong></td>
+        <td>Serving more users with relatively low marginal cost.</td>
+        <td>Traditional firms may be constrained by human-heavy processes.</td>
+      </tr>
+      <tr>
+        <td><strong>Scope</strong></td>
+        <td>Reusing data, software, and digital infrastructure across adjacent markets.</td>
+        <td>Digital entrants can cross industry boundaries faster than expected.</td>
+      </tr>
+      <tr>
+        <td><strong>Learning</strong></td>
+        <td>Improving through feedback, experimentation, and algorithmic refinement.</td>
+        <td>Firms without feedback loops learn more slowly even if they have strong assets.</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="case">
@@ -401,6 +557,39 @@
             <li>Traditional firms have <em>diminishing returns</em> (it gets harder to scale human-heavy ops).</li>
             <li>Digital firms have <em>increasing returns</em> (scale, scope, and learning effects).</li>
             <li>The digital firm might have lower performance initially, but its growth trajectory is exponential.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          How do scale, scope, and learning create a digital moat?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Scale creates more interactions at low marginal cost.</li>
+            <li>Scope lets the firm reuse data and infrastructure across adjacent activities.</li>
+            <li>Learning improves predictions and processes through feedback loops.</li>
+            <li>Together, they form a self-reinforcing loop that traditional firms struggle to match.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge apply">Apply</span>
+          Why is data not automatically a source of competitive advantage?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Data must be relevant, high quality, and connected to decisions.</li>
+            <li>If competitors can buy or copy similar data, it is not rare.</li>
+            <li>Advantage comes when data is proprietary and embedded in a learning loop that improves products or operations.</li>
           </ul>
         </div>
       </details>

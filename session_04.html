@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 04 — Dynamic Capabilities & Digital Agility</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Session 04 — Dynamic Capabilities &amp; Digital Agility</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=DM+Sans:wght@300;400;500&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0f0e17;
@@ -141,6 +141,38 @@
   .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
   .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
 
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+  }
+  .matrix-table th {
+    background: var(--highlight);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.7rem 0.8rem;
+    border-bottom: 2px solid var(--accent);
+  }
+  .matrix-table td {
+    padding: 0.75rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #2a2a38;
+  }
+  .source-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.6rem;
+  }
+
   .figure-wrap {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -217,14 +249,17 @@
 <header>
   <div class="header-inner">
     <p class="course-tag">IEB · Session 04 · Exam Preparation</p>
-    <h1>Dynamic Capabilities &<br><span>Digital Agility</span></h1>
+    <h1>Dynamic Capabilities &amp;<br><span>Digital Agility</span></h1>
     <p class="subtitle">Understanding how firms achieve new forms of competitive advantage in rapidly changing digital environments.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
+  <a href="index.html">Back to Dashboard</a>
   <a href="#dynamic">Dynamic Capabilities</a>
+  <a href="#ordinary">Ordinary vs Dynamic</a>
   <a href="#organizing">AI as Organizing Capability</a>
+  <a href="#expertise">Abundant Expertise</a>
   <a href="#uncertainty">Uncertainty vs. Risk</a>
   <a href="#case">Novo Nordisk Case</a>
   <a href="#questions">Exam Questions</a>
@@ -235,6 +270,7 @@
 <section id="dynamic">
   <p class="section-label">Theory 01</p>
   <h2>Dynamic Capabilities Framework</h2>
+  <p class="source-note">Origin: Teece, Peteraf &amp; Leih (2016); Session 4 slides</p>
   <p>Teece et al. (2016) define <strong>Dynamic Capabilities</strong> as the firm's ability to integrate, build, and reconfigure internal and external competences to address rapidly changing environments. It's the capacity to remain competitive when "inflection points" emerge.</p>
 
   <div class="concept-grid">
@@ -256,9 +292,54 @@
   </div>
 </section>
 
-<section id="organizing">
+<section id="ordinary">
   <p class="section-label">Theory 02</p>
+  <h2>Ordinary vs. Dynamic Capabilities</h2>
+  <p class="source-note">Origin: Teece, Peteraf &amp; Leih (2016); Session 4 slides</p>
+  <p>Session 4 distinguishes ordinary capabilities from dynamic capabilities. <strong>Ordinary capabilities</strong> help the firm perform current activities efficiently. <strong>Dynamic capabilities</strong> help the firm adapt, innovate, and reconfigure resources when the environment changes.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>Ordinary Capabilities</th>
+        <th>Dynamic Capabilities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Purpose</strong></td>
+        <td>Technical efficiency in existing business functions.</td>
+        <td>Strategic fit and evolutionary fitness over the long run.</td>
+      </tr>
+      <tr>
+        <td><strong>Logic</strong></td>
+        <td>Operational, administrative, and governance routines.</td>
+        <td>Sensing, seizing, shaping, transforming, and asset orchestration.</td>
+      </tr>
+      <tr>
+        <td><strong>Imitability</strong></td>
+        <td>Often easier to benchmark and imitate.</td>
+        <td>Harder to imitate because they depend on managerial judgment, history, culture, and resource orchestration.</td>
+      </tr>
+      <tr>
+        <td><strong>Exam implication</strong></td>
+        <td>Explains how the firm performs today.</td>
+        <td>Explains how the firm survives technological discontinuity.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Agility Is Not Always Good</h3>
+    <p>Teece et al. warn against treating agility as a universal virtue. Agility is costly and can sacrifice efficiency. The managerial task is to calibrate how much agility is needed, based on whether the firm faces ordinary risk or deep uncertainty.</p>
+  </div>
+</section>
+
+<section id="organizing">
+  <p class="section-label">Theory 03</p>
   <h2>AI as an Organizing Capability</h2>
+  <p class="source-note">Origin: Stelmaszak, Joshi &amp; Constantiou (forthcoming/2026); Session 4 slides</p>
   <p>Stelmaszak et al. (2026) propose an ontological shift: AI is not just an "entity" or a "tool". It is an <strong>Organizing Capability</strong> that arises from the relations between human and algorithmic actors.</p>
 
   <div class="figure-wrap">
@@ -296,11 +377,52 @@
       <li><strong>Emergent:</strong> The resulting organizational intelligence is greater than the sum of its parts.</li>
     </ul>
   </div>
+
+  <div class="card accent-left">
+    <h3>Managerial Implication</h3>
+    <p>The wrong question is "How do we adopt AI?" The stronger question is "How do we design the relations that make AI work?" Managers must structure how domain experts, data, algorithms, workflows, accountability, and feedback interact.</p>
+  </div>
+</section>
+
+<section id="expertise">
+  <p class="section-label">Theory 04</p>
+  <h2>Strategy in an Era of Abundant Expertise</h2>
+  <p class="source-note">Origin: Yerramilli-Rao et al. (2025); Session 4 slides</p>
+  <p>Generative AI changes the economics of expertise. Expertise remains a source of competitive advantage, but the cost of accessing some forms of expertise falls when AI copilots, chatbots, and assistants become widely available. This creates a strategic dilemma: firms must decide which expertise remains scarce and which expertise can be augmented or commoditized.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">E</span>
+      <h4>Expertise as Advantage</h4>
+      <p>Deep theoretical knowledge and practical know-how still matter, especially in regulated and complex domains.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">A</span>
+      <h4>Abundant Access</h4>
+      <p>AI tools reduce the cost of accessing generalized knowledge, code, analysis, writing, and decision support.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">J</span>
+      <h4>Judgment Premium</h4>
+      <p>As AI provides more answers, human value shifts toward framing problems, validating outputs, and deciding what matters.</p>
+    </div>
+  </div>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Strategic Questions from the Slides</h3>
+    <ul>
+      <li>Which problems can customers now solve with AI themselves?</li>
+      <li>Which types of expertise must evolve for the firm to remain ahead of AI's capabilities?</li>
+      <li>Which assets can the firm build or augment to stay competitive as AI advances?</li>
+      <li>Where can AI create cost and time savings, and where should saved resources be redeployed?</li>
+    </ul>
+  </div>
 </section>
 
 <section id="uncertainty">
-  <p class="section-label">Theory 03</p>
+  <p class="section-label">Theory 05</p>
   <h2>Uncertainty vs. Risk</h2>
+  <p class="source-note">Origin: Teece, Peteraf &amp; Leih (2016)</p>
   <p>Teece et al. (2016) distinguish between <strong>Risk</strong> (known outcomes with probabilities) and <strong>Deep Uncertainty</strong> (unknown unknowns). Strong dynamic capabilities are essential for addressing the latter.</p>
 
   <div class="concept-grid">
@@ -315,6 +437,33 @@
       <p>Ubiquitous in innovation economies. No clear probabilities. Requires <em>agility</em> and asset orchestration (Teece et al., 2016).</p>
     </div>
   </div>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Environment</th>
+        <th>Management Logic</th>
+        <th>Strategic Tool</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Risk</strong></td>
+        <td>Known outcomes with probabilities. Can often be hedged, insured, contracted, or modeled.</td>
+        <td>Risk management, contracts, financial hedges, buffers, compliance.</td>
+      </tr>
+      <tr>
+        <td><strong>Deep uncertainty</strong></td>
+        <td>Unknown unknowns. Future technologies, markets, and competitors cannot be assigned reliable probabilities.</td>
+        <td>Dynamic capabilities, scenario thinking, experimentation, real options, asset orchestration.</td>
+      </tr>
+      <tr>
+        <td><strong>Inflection point</strong></td>
+        <td>A shift that changes the basis of competition.</td>
+        <td>Sensing early, seizing decisively, transforming without destroying useful assets.</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="case">
@@ -325,7 +474,7 @@
   <div class="card">
     <ul>
       <li><strong>Sensing the AI Inflection:</strong> Novo's partnership with OpenAI is a clear example of <em>Sensing</em> the disruptive potential of LLMs in biotech.</li>
-      <li><strong>Asset Orchestration:</strong> By integrating OpenAI's algorithms with their own bio-data, Novo is <em>Seizing</em> the opportunity and reconfiguring its R&D competence.</li>
+      <li><strong>Asset Orchestration:</strong> By integrating OpenAI's algorithms with their own bio-data, Novo is <em>Seizing</em> the opportunity and reconfiguring its R&amp;D competence.</li>
       <li><strong>Agility vs. Efficiency:</strong> The 9,000 layoffs represent a painful <em>Transformation</em> — sacrificing traditional organizational efficiency (human-centric silos) to build the agility required for an AI-led future.</li>
     </ul>
   </div>
@@ -355,6 +504,22 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
+          What is the difference between ordinary and dynamic capabilities?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Ordinary capabilities support efficiency in current operations.</li>
+            <li>Dynamic capabilities support adaptation through sensing, seizing, and transforming.</li>
+            <li>The exam move is to explain that efficiency is not enough under deep uncertainty; firms need the capacity to reconfigure resources.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
           Why does Stelmaszak et al. (2026) argue that AI is an "Organizing Capability" rather than an entity?
           <span class="q-chevron">▶</span>
         </summary>
@@ -370,8 +535,24 @@
     <li class="q-item">
       <details>
         <summary>
+          <span class="q-badge apply">Apply</span>
+          How does abundant expertise change strategy?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>AI lowers the cost of accessing generalized expertise.</li>
+            <li>Firms must identify which expertise is becoming commoditized and which expertise remains scarce.</li>
+            <li>Competitive advantage shifts toward problem framing, proprietary data, validation, judgment, and the ability to combine human and algorithmic expertise.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
           <span class="q-badge synth">Synthesis</span>
-          How does "Deep Uncertainty" impact the "Make or Buy" decision for AI?
+          How does "deep uncertainty" impact the "make or buy" decision for AI?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
