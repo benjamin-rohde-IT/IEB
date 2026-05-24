@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 10 — Ethics & Responsibility</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Session 10 — Ethics &amp; Responsibility</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=DM+Sans:wght@300;400;500&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0f0e17;
@@ -141,6 +141,39 @@
   .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
   .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
 
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+  }
+  .matrix-table th {
+    background: var(--highlight);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.7rem 0.8rem;
+    border-bottom: 2px solid var(--accent);
+  }
+  .matrix-table td {
+    padding: 0.75rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #2a2a38;
+  }
+
+  .source-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.6rem;
+  }
+
   .q-list { list-style: none; }
   .q-item {
     background: var(--card-bg);
@@ -200,15 +233,19 @@
 <header>
   <div class="header-inner">
     <p class="course-tag">IEB · Session 10 · Exam Preparation</p>
-    <h1>Ethics &<br><span>Responsibility</span></h1>
+    <h1>Ethics &amp;<br><span>Responsibility</span></h1>
     <p class="subtitle">Navigating the moral landscape of AI scale, bias, and the environmental impact of digital transformation.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
+  <a href="index.html">Back to Dashboard</a>
   <a href="#scale-ethics">Ethics of Scale</a>
+  <a href="#five-risks">Five Digital Risks</a>
   <a href="#bias">Algorithmic Bias</a>
-  <a href="#environment">Environment & AI</a>
+  <a href="#genai">GenAI Risks</a>
+  <a href="#labor">Labor &amp; IP</a>
+  <a href="#environment">Environment &amp; AI</a>
   <a href="#responsibility">Firm Responsibility</a>
   <a href="#case">Novo Nordisk Case</a>
   <a href="#questions">Exam Questions</a>
@@ -219,62 +256,231 @@
 <section id="scale-ethics">
   <p class="section-label">Theory 01</p>
   <h2>The Ethics of Scale, Scope, and Learning</h2>
-  <p>Iansiti &amp; Lakhani (2020) argue that the drivers of digital value—<strong>Scale, Scope, and Learning</strong>—also create unique ethical challenges. As digital systems grow, their potential for harm scales proportionally.</p>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020), Chapter 8</p>
+  <p>Iansiti &amp; Lakhani argue that the same mechanisms that make digital firms powerful also make their ethical failures unusually consequential. <strong>Scale</strong> lets a single system affect millions of people. <strong>Scope</strong> lets data and functionality travel across products, partners, and contexts. <strong>Learning</strong> lets algorithms adapt and optimize continuously, sometimes toward objectives managers did not fully anticipate.</p>
+  <p>The theoretical point is not simply that digital firms can do harm. It is that digital operating models change the <strong>magnitude, speed, and distribution</strong> of harm. A biased or insecure process in a traditional firm may affect a local customer base; a biased platform rule, recommender system, or ad-targeting model can restructure opportunities across an entire ecosystem.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">🏢</span>
+      <span class="emoji">▥</span>
       <h4>Market Concentration</h4>
       <p>Digital returns favor giants. This leads to platform monopolies that can stifle competition and choice (Iansiti &amp; Lakhani, 2020).</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">📢</span>
+      <span class="emoji">≫</span>
       <h4>Digital Amplification</h4>
       <p>A single algorithmic error (bias or leak) affects millions instantly due to the speed and scale of the operating model.</p>
     </div>
     <div class="concept-card">
-      <span class="emoji">🛡️</span>
+      <span class="emoji">□</span>
       <h4>Privacy Erosion</h4>
       <p>The "AI Factory" requires massive data. The pressure to feed the machine often conflicts with individual privacy rights.</p>
     </div>
   </div>
 </section>
 
-<section id="bias">
+<section id="five-risks">
   <p class="section-label">Theory 02</p>
-  <h2>Algorithmic Bias & Fairness</h2>
-  <p>AI models inherit human biases present in training data. Session 10 Course Materials highlight that "blindly" following data leads to the replication of social injustices.</p>
+  <h2>Five Ethical Challenges of Digital Business</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020); Session 10 slides</p>
+  <p>The session slides summarize Iansiti &amp; Lakhani's core ethical categories as platform control, cybersecurity, competition fairness and equity, digital amplification, and algorithmic bias. These are not isolated risks. They reinforce one another because platforms collect data, use it to learn, use learning to control ecosystems, and then scale those decisions across networked markets.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Challenge</th>
+        <th>Theoretical Meaning</th>
+        <th>Managerial Question</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Digital amplification</strong></td>
+        <td>Algorithms optimize engagement, reach, or conversion and can intensify misinformation, bias, or harmful content.</td>
+        <td>What objective is the algorithm optimizing, and what harms scale with that objective?</td>
+      </tr>
+      <tr>
+        <td><strong>Algorithmic bias</strong></td>
+        <td>Data, labels, model objectives, and deployment contexts reproduce or intensify unequal treatment.</td>
+        <td>Whose data defines "normal," and who bears the errors?</td>
+      </tr>
+      <tr>
+        <td><strong>Cybersecurity</strong></td>
+        <td>Digital operating models concentrate sensitive data, making breaches more damaging.</td>
+        <td>What data is collected, who can access it, and what happens if the system is compromised?</td>
+      </tr>
+      <tr>
+        <td><strong>Platform control</strong></td>
+        <td>Open interfaces, APIs, and ecosystems create innovation but also loss of control over misuse.</td>
+        <td>How open should the platform be, and who is accountable for third-party behavior?</td>
+      </tr>
+      <tr>
+        <td><strong>Fairness and equity</strong></td>
+        <td>Network effects and learning effects concentrate power in hub firms and reshape value distribution.</td>
+        <td>Does the platform sustain ecosystem health or extract value from dependent complementors?</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="bias">
+  <p class="section-label">Theory 03</p>
+  <h2>Algorithmic Bias &amp; Fairness</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020), Chapter 8; Session 10 slides</p>
+  <p>AI models inherit and transform bias from the social world around them. Iansiti &amp; Lakhani emphasize that bias can appear even when no actor intentionally discriminates. Once embedded in a scalable operating model, small local biases become system-level consequences.</p>
 
   <div class="card accent-left2 highlight-bg2">
     <h3>Key Ethical Risks</h3>
     <ul>
-      <li><strong>Data Bias:</strong> Training models on historically skewed data (e.g., medical trials excluding certain demographics).</li>
-      <li><strong>Feedback Loops:</strong> Biased predictions leading to actions that create more biased data (e.g., predictive policing).</li>
-      <li><strong>Lack of Recourse:</strong> When the "Black Box" makes a mistake, who is held accountable, and how can the victim appeal?</li>
+      <li><strong>Selection bias:</strong> Training data does not represent the relevant population or context, so the model performs unevenly across groups.</li>
+      <li><strong>Labeling bias:</strong> Human labels reflect stereotypes, diagnostic habits, or cultural assumptions, which the model then learns and amplifies.</li>
+      <li><strong>Feedback loops:</strong> Biased predictions shape future data, making the system appear more accurate while reinforcing the original pattern.</li>
+      <li><strong>Lack of recourse:</strong> When a black-box decision is wrong, affected people may not know why it happened or how to challenge it.</li>
     </ul>
+  </div>
+
+  <div class="card accent-left">
+    <h3>Why Bias Cannot Be Fully Removed</h3>
+    <p>No training dataset covers every possible situation, and every model is built for a purpose. Choosing an objective, such as accuracy, engagement, cost reduction, or fairness, is already an ethical choice. The managerial task is therefore not to promise neutrality, but to make the objective, data, trade-offs, and error distribution visible and contestable.</p>
   </div>
 </section>
 
-<section id="environment">
-  <p class="section-label">Theory 03</p>
-  <h2>AI & Environmental Impact</h2>
-  <p>Marabelli &amp; Davison (2025) explore the often-ignored environmental cost of digital transformation. Training and running Large Language Models (LLMs) consumes massive energy and water.</p>
+<section id="genai">
+  <p class="section-label">Theory 04</p>
+  <h2>Generative AI Risks: Hallucination, Opacity, and Accountability</h2>
+  <p class="source-note">Origin: Session 10 slides; Hannigan, McCarthy &amp; Spicer (2024); Koenecke et al. (2024)</p>
+  <p>The Session 10 slides add risks that are especially important for generative AI. LLMs produce plausible sequences of words, not guaranteed truth. The practical risk is <strong>epistemic</strong>: managers, lawyers, doctors, or students may treat confident language as reliable knowledge.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">🌍</span>
-      <h4>Carbon Footprint</h4>
-      <p>Data centers are energy-intensive. Training a single large model can emit as much CO2 as five cars in their lifetime.</p>
+      <span class="emoji">!</span>
+      <h4>Hallucinations</h4>
+      <p>LLMs can produce false claims, fake citations, or fabricated details in polished language. The risk increases when users lack domain expertise.</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">💧</span>
-      <h4>Water Usage</h4>
-      <p>Cooling data centers requires billions of liters of water, often in areas already facing water scarcity (Marabelli &amp; Davison, 2025).</p>
+      <span class="emoji">?</span>
+      <h4>Algorithmic Opacity</h4>
+      <p>Users often cannot inspect training data, model logic, or confidence boundaries. This weakens accountability and informed consent.</p>
     </div>
     <div class="concept-card">
-      <span class="emoji">🌱</span>
+      <span class="emoji">§</span>
+      <h4>Liability</h4>
+      <p>If an autonomous system causes harm, responsibility may be distributed across model provider, deploying firm, user, and regulator.</p>
+    </div>
+  </div>
+
+  <div class="card highlight-bg">
+    <h3>Model Autophagy Disorder and Data Limits</h3>
+    <p>The slides also discuss the risk that future models train increasingly on AI-generated content rather than high-quality human-generated data. If synthetic outputs feed future training loops, model quality can degrade. This connects ethics to knowledge production: organizations need provenance, curation, and quality controls for training data.</p>
+  </div>
+</section>
+
+<section id="labor">
+  <p class="section-label">Theory 05</p>
+  <h2>Labor Displacement, Data Labor, and Intellectual Property</h2>
+  <p class="source-note">Origin: Session 10 slides; Dell'Acqua et al. (2023)</p>
+  <p>AI ethics is also about who gains and who pays. The slides highlight both visible labor displacement and less visible labor exploitation in the AI value chain. Generative AI appears automated, but it often depends on manual data labeling, content moderation, prompt evaluation, and outsourced platform work.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Concept</th>
+        <th>Meaning</th>
+        <th>Exam Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Jagged frontier</strong></td>
+        <td>AI performs some professional tasks extremely well and others surprisingly poorly.</td>
+        <td>Managers should not automate by job title; they should map task-by-task capability and risk.</td>
+      </tr>
+      <tr>
+        <td><strong>Centaurs</strong></td>
+        <td>Professionals divide tasks between human and AI depending on where each is stronger.</td>
+        <td>Useful where human judgment must decide when to rely on AI.</td>
+      </tr>
+      <tr>
+        <td><strong>Cyborgs</strong></td>
+        <td>Professionals integrate AI throughout the workflow, constantly blending human and machine input.</td>
+        <td>Useful for creative and iterative work, but risky when users cannot detect AI errors.</td>
+      </tr>
+      <tr>
+        <td><strong>Data labor exploitation</strong></td>
+        <td>Low-paid workers label data, moderate harmful content, or train systems without sharing much value.</td>
+        <td>Shows that AI's ethical footprint extends beyond the adopting firm.</td>
+      </tr>
+      <tr>
+        <td><strong>Intellectual property</strong></td>
+        <td>Training data may include copyrighted or creator-owned material without clear consent or compensation.</td>
+        <td>Connects AI strategy to legal risk, legitimacy, and stakeholder responsibility.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="environment">
+  <p class="section-label">Theory 06</p>
+  <h2>AI &amp; Environmental Impact</h2>
+  <p class="source-note">Origin: Marabelli &amp; Davison (2025); Session 10 slides</p>
+  <p>Marabelli &amp; Davison argue that AI's environmental impact is a strategic and ethical issue, not merely a technical efficiency problem. Generative AI is resource hungry across its lifecycle: model training, inference, cooling, data-center construction, chip production, and continuous retraining. The harm is also unevenly distributed: intensive users are often wealthy organizations and Global North consumers, while climate consequences often fall hardest on poorer and more climate-vulnerable communities.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">CO2</span>
+      <h4>Carbon Footprint</h4>
+      <p>Data centers require large amounts of electricity. If the grid is fossil-fuel based, AI use increases greenhouse gas emissions.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">H2O</span>
+      <h4>Water Usage</h4>
+      <p>Cooling data centers can require large water withdrawals, creating ethical concerns when facilities are located in water-stressed regions.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">AI</span>
       <h4>Greening via AI</h4>
       <p>Strategic opportunity: Using AI to optimize supply chains and reduce waste, potentially offsetting its own footprint.</p>
+    </div>
+  </div>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Environmental Concepts Missing from the Earlier Page</h3>
+    <ul>
+      <li><strong>Net-zero and greenwashing:</strong> Firms may claim climate responsibility while AI use increases energy and water demand elsewhere.</li>
+      <li><strong>Global North / Global South inequality:</strong> The benefits of GAI are concentrated among rich users, while climate burdens are distributed unevenly.</li>
+      <li><strong>Secondhand environmental effects:</strong> AI-driven nudging can increase consumption, delivery trips, and waste beyond the data-center footprint.</li>
+      <li><strong>Jevons paradox / rebound effect:</strong> Efficiency gains may lower the cost of AI use, increasing total demand and total environmental impact.</li>
+      <li><strong>"Bazooka to kill a fly":</strong> Managers should ask whether a resource-intensive AI solution is proportionate to the problem.</li>
+    </ul>
+  </div>
+
+  <div class="card accent-left">
+    <h3>Strategic Opportunities</h3>
+    <p>Marabelli &amp; Davison also emphasize that AI can be used strategically for environmental benefit: smart-city traffic optimization, smart agriculture, weather and flood forecasting, energy-grid optimization, and waste management. The ethical question is whether these benefits outweigh the direct and indirect environmental costs.</p>
+  </div>
+</section>
+
+<section id="responsibility">
+  <p class="section-label">Theory 07</p>
+  <h2>Firm Responsibility: Keystone Strategy and Information Fiduciaries</h2>
+  <p class="source-note">Origin: Iansiti &amp; Lakhani (2020), Chapter 8; Session 10 slides</p>
+  <p>Iansiti &amp; Lakhani argue that hub firms in digital ecosystems have responsibilities beyond narrow shareholder value because their decisions shape the health of entire networks. A platform can become a de facto governor: it sets rules, controls access, ranks visibility, allocates attention, and defines what behavior is rewarded.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">◆</span>
+      <h4>Keystone Strategy</h4>
+      <p>A hub firm sustains its own long-term performance by sustaining the health of the ecosystem it depends on.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">i</span>
+      <h4>Information Fiduciary</h4>
+      <p>Firms that hold sensitive information should treat users' data in a trustworthy way and avoid using it against their interests.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">⚖</span>
+      <h4>Regulatory Governance</h4>
+      <p>The slides connect responsibility to DSA-style platform transparency and AI Act-style risk classification and obligations.</p>
     </div>
   </div>
 </section>
@@ -286,9 +492,12 @@
 
   <div class="card">
     <ul>
-      <li><strong>The Ethics of Efficiency:</strong> The 9,000 layoffs mentioned in your synopsis are an ethical "Internality" of AI adoption. Does the gain in R&D speed justify the human cost?</li>
+      <li><strong>The Ethics of Efficiency:</strong> The 9,000 layoffs mentioned in your synopsis are an ethical "Internality" of AI adoption. Does the gain in R&amp;D speed justify the human cost?</li>
       <li><strong>Bio-data Privacy:</strong> Partnering with OpenAI means Novo must ensure that sensitive patient data used for training models is rigorously protected and never "leaks" into the public model.</li>
       <li><strong>Healthcare Inequity:</strong> If the AI is trained on data from Western clinical trials, the drugs discovered might be less effective for global populations, creating a <em>global health bias</em>.</li>
+      <li><strong>Hallucination and Scientific Reliability:</strong> Generative AI can produce plausible but false scientific suggestions. Novo needs validation against biological ground truth, not just persuasive outputs.</li>
+      <li><strong>Environmental Proportionality:</strong> If AI is used at large scale in R&amp;D, Novo should ask whether compute, energy, and water use are proportionate to the expected health benefit.</li>
+      <li><strong>Partner Responsibility:</strong> Novo cannot outsource ethics completely to OpenAI. It remains accountable for data governance, bias, auditability, and the effects of AI-generated decisions in its own value chain.</li>
     </ul>
   </div>
 </section>
@@ -307,7 +516,8 @@
         <div class="q-answer">
           <ul>
             <li>Because digital models serve millions of users, any ethical failure is amplified.</li>
-            <li>Concentrated power in platforms requires higher standards of **Transparency** and **Accountability** than traditional, fragmented markets.</li>
+            <li>Concentrated power in platforms requires higher standards of <strong>transparency</strong> and <strong>accountability</strong> than traditional, fragmented markets.</li>
+            <li>Good answers should mention scale, scope, learning, and the five risks: amplification, bias, cybersecurity, platform control, and fairness/equity.</li>
           </ul>
         </div>
       </details>
@@ -321,9 +531,10 @@
         </summary>
         <div class="q-answer">
           <ul>
-            <li>**Cost:** High energy/water usage for LLMs (Marabelli &amp; Davison, 2025).</li>
-            <li>**Benefit:** AI can discover greener chemical processes or more efficient supply routes.</li>
-            <li>**Conclusion:** Firms must implement "Green AI" governance to ensure the net impact is positive.</li>
+            <li><strong>Cost:</strong> High energy and water use for training and running GAI systems (Marabelli &amp; Davison, 2025).</li>
+            <li><strong>Benefit:</strong> AI can optimize trials, supply chains, production, energy use, and waste reduction.</li>
+            <li><strong>Distribution:</strong> The benefits may accrue to firms and wealthy patients while environmental harms may affect vulnerable regions.</li>
+            <li><strong>Conclusion:</strong> Firms need Green AI governance, proportionality tests, and transparent reporting.</li>
           </ul>
         </div>
       </details>
@@ -337,8 +548,41 @@
         </summary>
         <div class="q-answer">
           <ul>
-            <li>Yes, through the concept of **Supply Chain Responsibility**.</li>
-            <li>Just as a firm is responsible for child labor at its clothing suppliers, a modern firm like Novo is increasingly held responsible for the **Bias** or **Privacy** standards of its AI providers.</li>
+            <li>Yes, through supply-chain and ecosystem responsibility.</li>
+            <li>Just as a firm is responsible for labor abuses among suppliers, a modern firm like Novo can be held responsible for the <strong>bias</strong>, <strong>privacy</strong>, <strong>security</strong>, and <strong>environmental</strong> standards of its AI providers.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge apply">Apply</span>
+          How should managers respond to the jagged frontier of AI capabilities?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Do not assume AI is uniformly good or bad across a job. Map capabilities at task level.</li>
+            <li>Use centaur workflows where humans allocate tasks to AI selectively.</li>
+            <li>Use cyborg workflows only where continuous integration of AI does not hide errors or accountability.</li>
+            <li>Add validation for tasks where fluent output can mask false content.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          Compare Iansiti &amp; Lakhani's ethics of scale with Marabelli &amp; Davison's environmental argument.
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Iansiti &amp; Lakhani explain why digital operating models amplify ethical risks through scale, scope, and learning.</li>
+            <li>Marabelli &amp; Davison extend this logic to the environment: AI's resource demands scale too, and the harms are unevenly distributed.</li>
+            <li>Together, they show that digital responsibility includes data, users, ecosystems, labor, and natural resources.</li>
           </ul>
         </div>
       </details>

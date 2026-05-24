@@ -53,3 +53,4 @@ This project contains a responsive HTML dashboard and four focused session pages
 ## Session pages
 
 Each session page has descriptions of the theories and concepts described in the course litterature from the given session. It contains questions which might be asked at the oral exam along with hints for the answers. Each core concepts of the session is thoroughly described. Where relevant illustrations or figures have been made in order to visualize the concepts or models.
+Display clearly from which article each concept originates from.

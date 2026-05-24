@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 09 — Algorithmic Decision-Making & Trust</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Session 09 — Algorithmic Decision-Making &amp; Trust</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=DM+Sans:wght@300;400;500&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0f0e17;
@@ -141,6 +141,39 @@
   .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
   .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
 
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+  }
+  .matrix-table th {
+    background: var(--highlight);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.7rem 0.8rem;
+    border-bottom: 2px solid var(--accent);
+  }
+  .matrix-table td {
+    padding: 0.75rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #2a2a38;
+  }
+
+  .source-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.6rem;
+  }
+
   .figure-wrap {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -217,16 +250,19 @@
 <header>
   <div class="header-inner">
     <p class="course-tag">IEB · Session 09 · Exam Preparation</p>
-    <h1>Algorithmic Decision-Making<br><span>& Trust</span></h1>
+    <h1>Algorithmic Decision-Making<br><span>&amp; Trust</span></h1>
     <p class="subtitle">Exploring how organizations delegate authority to algorithms and the challenges of ensuring alignment, trust, and accountability.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
+  <a href="index.html">Back to Dashboard</a>
   <a href="#pa-theory">Principal-Agent Theory</a>
+  <a href="#agency-mechanics">Agency Problems</a>
   <a href="#trust">Trust Models</a>
   <a href="#opacity">The Opacity Problem</a>
   <a href="#internalities">Algorithmic Internalities</a>
+  <a href="#evaluation">Evaluating Algorithms</a>
   <a href="#case">Novo Nordisk Case</a>
   <a href="#questions">Exam Questions</a>
 </nav>
@@ -236,14 +272,17 @@
 <section id="pa-theory">
   <p class="section-label">Theory 01</p>
   <h2>Principal-Agent Theory in AI</h2>
-  <p>Dowding &amp; Taylor (2024) apply the <strong>Principal-Agent (P-A)</strong> framework to understand the delegatory relationship between humans and algorithms. In this model, the Principal (the firm) delegates tasks to an Agent (the AI).</p>
+  <p class="source-note">Origin: Dowding &amp; Taylor (2024); Eisenhardt (1989) in Session 09 slides</p>
+  <p>Dowding &amp; Taylor (2024) apply the <strong>Principal-Agent (P-A)</strong> framework to algorithmic decision-making (ADM). The key point is that AI is not only a technical tool. Once an organization lets an algorithm recommend, rank, screen, price, diagnose, or decide, it has <strong>delegated decision authority</strong> from a human principal to an algorithmic agent.</p>
+  <p>In ordinary agency theory, the principal hires an agent because the agent has specialized capacity. That same specialization creates a governance problem: if the principal could perfectly observe and evaluate everything the agent does, delegation would be unnecessary. With machine learning, this problem becomes sharper because the agent can process more data than humans, but the reasons for a specific output may be hard or impossible to inspect directly.</p>
 
   <div class="card accent-left">
     <h3>Key Agency Problems (Dowding &amp; Taylor, 2024)</h3>
     <ul>
-      <li><strong>Information Asymmetry:</strong> The Agent (AI) possesses complex decision logic that the Principal cannot easily verify.</li>
-      <li><strong>Misalignment:</strong> The AI might optimize for a different goal (e.g., short-term accuracy) than the Principal's long-term strategic objective.</li>
-      <li><strong>Agency Costs:</strong> The costs of monitoring the AI, creating evaluation benchmarks, and the "residual loss" from imperfect decisions.</li>
+      <li><strong>Information asymmetry:</strong> The algorithmic agent possesses complex decision logic that the principal cannot easily verify.</li>
+      <li><strong>Goal misalignment:</strong> The system may optimize a measurable proxy, such as prediction accuracy, engagement, or cost reduction, while the principal cares about broader strategic, ethical, or scientific objectives.</li>
+      <li><strong>Agency costs:</strong> The costs of monitoring, auditing, validating, benchmarking, and accepting residual loss from imperfect delegation.</li>
+      <li><strong>Residual loss:</strong> Even after governance, some gap remains between the algorithm's behavior and the principal's ideal outcome.</li>
     </ul>
   </div>
 
@@ -267,44 +306,198 @@
   </div>
 </section>
 
-<section id="trust">
+<section id="agency-mechanics">
   <p class="section-label">Theory 02</p>
-  <h2>Trust in Algorithmic Systems</h2>
-  <p>Trust is a prerequisite for delegation. Session 09 Course Materials differentiate between different bases of trust when dealing with opaque algorithmic systems.</p>
+  <h2>Agency Problems: Adverse Selection, Moral Hazard, and Contracts</h2>
+  <p class="source-note">Origin: Session 09 slides; Eisenhardt (1989); Dowding &amp; Taylor (2024)</p>
+  <p>The session slides connect ADM to classic agency theory. The useful exam move is to distinguish <strong>when</strong> the information problem occurs: before choosing the agent, after delegating to the agent, or during evaluation of outcomes.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Concept</th>
+        <th>Classic Agency Theory</th>
+        <th>Algorithmic Decision-Making</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Adverse selection</strong></td>
+        <td>The principal cannot know whether the agent is a "peach" or a "lemon" before contracting.</td>
+        <td>A firm may not know whether a model, vendor, dataset, or benchmark is genuinely suitable before adoption.</td>
+      </tr>
+      <tr>
+        <td><strong>Moral hazard</strong></td>
+        <td>The agent changes behavior after contracting because monitoring is incomplete.</td>
+        <td>A vendor may underinvest in maintenance, data quality, documentation, or safety once the client is locked in.</td>
+      </tr>
+      <tr>
+        <td><strong>Agency cost</strong></td>
+        <td>The cost of reducing information asymmetry and limiting opportunism.</td>
+        <td>Audits, validation studies, red-teaming, explainability work, human review, legal review, and compliance reporting.</td>
+      </tr>
+      <tr>
+        <td><strong>Contract specificity</strong></td>
+        <td>The degree to which success can be measured unambiguously.</td>
+        <td>High for simple classification accuracy; lower for strategic decisions, fairness, safety, scientific novelty, or patient welfare.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Contract Design: Behavior-Based vs. Outcome-Based</h3>
+    <p><strong>Behavior-based contracts</strong> specify processes: documentation, model cards, audit rights, data governance, human review, and validation routines. They are useful when outcomes are uncertain or hard to measure.</p>
+    <p><strong>Outcome-based contracts</strong> specify results: accuracy, uptime, bias thresholds, false positive rates, cost savings, or validated predictions. They are useful when the output can be measured clearly and the supplier has control over the result.</p>
+    <p>The slides list factors influencing this choice: information systems, outcome uncertainty, risk aversion, goal conflict, task programmability, outcome measurability, and relationship length.</p>
+  </div>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">🛡️</span>
-      <h4>Institution-Based Trust</h4>
-      <p>Trusting the system because it's governed by regulations, audits, and professional standards (Dowding &amp; Taylor, 2024).</p>
+      <span class="emoji">◎</span>
+      <h4>Signaling</h4>
+      <p>Agents try to show quality before selection: certifications, audit reports, benchmark performance, transparent documentation, or credible references.</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">🔬</span>
-      <h4>Explainability (XAI)</h4>
-      <p>The technical ability to make the "Black Box" transparent. If we understand the *why*, we can trust the *what*.</p>
+      <span class="emoji">⌕</span>
+      <h4>Screening</h4>
+      <p>Principals actively test alternatives: pilot projects, vendor due diligence, challenge datasets, sandbox trials, and independent model evaluation.</p>
     </div>
     <div class="concept-card">
-      <span class="emoji">🤝</span>
-      <h4>Relational Trust</h4>
-      <p>Trust built over time through consistent, reliable performance of the algorithm in practice.</p>
+      <span class="emoji">⧉</span>
+      <h4>Human Involvement</h4>
+      <p>Dowding &amp; Taylor distinguish humans in the loop, on the loop, and out of the loop. The higher the stakes, the stronger the case for human oversight.</p>
     </div>
   </div>
 </section>
 
-<section id="internalities">
+<section id="trust">
   <p class="section-label">Theory 03</p>
+  <h2>Trust in Algorithmic Systems</h2>
+  <p class="source-note">Origin: Dowding &amp; Taylor (2024); Pavlou &amp; Gefen (2004) via article discussion</p>
+  <p>Trust is a prerequisite for delegation, but Dowding &amp; Taylor's central argument is that algorithmic trust should not rest only on a direct relationship between one user and one model. Since most users cannot inspect deep learning systems themselves, trust must be supported by <strong>institutions that make algorithmic choice meaningful</strong>.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">▣</span>
+      <h4>Institution-Based Trust</h4>
+      <p>Trusting the system because it is embedded in rules, audits, standards, liability regimes, disclosure requirements, and third-party evaluation.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">?</span>
+      <h4>Explainability (XAI)</h4>
+      <p>The technical ability to make model behavior understandable. It helps, but Dowding &amp; Taylor warn that explainability alone cannot solve Type 3 opacity.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">↻</span>
+      <h4>Relational Trust</h4>
+      <p>Trust built over time through consistent, reliable performance of the algorithm in practice.</p>
+    </div>
+  </div>
+
+  <div class="card accent-left">
+    <h3>Why Institutions Matter</h3>
+    <p>Individual users face high monitoring costs. Institutions reduce those costs by producing reusable information: standards, model cards, external audits, public benchmarks, professional norms, regulatory classifications, and reputational signals. This lets users choose among algorithmic alternatives without becoming machine-learning experts themselves.</p>
+  </div>
+</section>
+
+<section id="opacity">
+  <p class="section-label">Theory 04</p>
+  <h2>The Opacity Problem</h2>
+  <p class="source-note">Origin: Burrell (2016) in Dowding &amp; Taylor (2024); Session 09 slides</p>
+  <p>Algorithmic opacity is not a single problem. The slides distinguish three types, and each requires a different response. This matters because managers often treat opacity as if it can always be solved by opening the code or adding an explanation layer.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Type of Opacity</th>
+        <th>Meaning</th>
+        <th>Governance Response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Type 1: Secrecy</strong></td>
+        <td>Firms hide models, data, or processes for commercial or legal reasons.</td>
+        <td>Audit rights, disclosure duties, procurement requirements, and trusted third-party access.</td>
+      </tr>
+      <tr>
+        <td><strong>Type 2: Technical illiteracy</strong></td>
+        <td>Information is available, but users lack the expertise to understand it.</td>
+        <td>Documentation, training, model cards, user-centered explanations, and professional intermediaries.</td>
+      </tr>
+      <tr>
+        <td><strong>Type 3: Intrinsic complexity</strong></td>
+        <td>The model is so complex that even designers cannot straightforwardly explain each internal step.</td>
+        <td>Testing, benchmarking, monitoring outcomes, robust validation, and institutional trust rather than full direct inspection.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card highlight-bg">
+    <h3>Limits of Technical Fixes</h3>
+    <p>Explainability can improve transparency, but it can also create false reassurance, simplify away the real model, or reduce predictive performance. In high-stakes decisions, the exam point is not "always use XAI"; it is to ask whether the decision context requires an interpretable model, a black-box model with strong external validation, or no automation at all.</p>
+  </div>
+</section>
+
+<section id="internalities">
+  <p class="section-label">Theory 05</p>
   <h2>Algorithmic Internalities</h2>
-  <p>Dowding &amp; Taylor (2024) introduce <strong>Algorithmic Internalities</strong>: the harms or suboptimal outcomes borne by the <em>users/principals themselves</em> due to their choice of algorithm.</p>
+  <p class="source-note">Origin: Dowding &amp; Taylor (2024)</p>
+  <p>Dowding &amp; Taylor (2024) introduce <strong>algorithmic internalities</strong>: harms caused by algorithms that are borne by the users or principals who chose to rely on them. This contrasts with <strong>algorithmic externalities</strong>, where harms fall on third parties who did not choose the system.</p>
 
   <div class="card accent-left2 highlight-bg2">
     <h3>Internalities vs. Externalities</h3>
-    <p>While society worries about bias (Externalities), the firm worries about <strong>Internalities</strong>:</p>
+    <p>Many ethical debates focus on externalities, such as biased policing or discrimination against applicants. Dowding &amp; Taylor add that the firm also needs to worry about internalities:</p>
     <ul>
       <li><strong>Loss of Human Capability:</strong> De-skilling of workers who become over-reliant on AI.</li>
       <li><strong>Strategic Narrowing:</strong> The algorithm might optimize for past patterns, missing radical future innovations.</li>
-      <li><strong>Financial Loss:</strong> Bad predictions leading to failed R&D or poor resource allocation.</li>
+      <li><strong>Financial Loss:</strong> Bad predictions leading to failed R&amp;D or poor resource allocation.</li>
+      <li><strong>Preference Misrepresentation:</strong> Recommender systems may infer short-term revealed preferences while ignoring higher-order preferences.</li>
     </ul>
   </div>
+
+  <div class="card accent-left">
+    <h3>Capability Approach</h3>
+    <p>Dowding &amp; Taylor use Sen's capability approach to ask whether ADM expands substantive human freedom. Algorithms can reduce decision costs, help users navigate too many choices, and support better decisions. But they can also reduce autonomy if users lose the ability to evaluate, contest, or override algorithmic choices.</p>
+  </div>
+</section>
+
+<section id="evaluation">
+  <p class="section-label">Exam Framework</p>
+  <h2>How to Evaluate and Choose Among Algorithmic Alternatives</h2>
+  <p class="source-note">Origin: Session 09 learning objective; Dowding &amp; Taylor (2024)</p>
+  <p>The session's learning objective is practical: how should managers evaluate algorithmic alternatives? A strong answer combines agency theory, opacity, and institution-based trust.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>What to Look For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>What decision is delegated?</strong></td>
+        <td>Recommendation, ranking, prediction, diagnosis, resource allocation, or fully autonomous action.</td>
+      </tr>
+      <tr>
+        <td><strong>How high are the stakes?</strong></td>
+        <td>Low-stakes personalization can tolerate more automation; healthcare, hiring, finance, and legal decisions need stronger governance.</td>
+      </tr>
+      <tr>
+        <td><strong>What is the human role?</strong></td>
+        <td>Human in the loop, on the loop, or out of the loop. Oversight should match risk and task complexity.</td>
+      </tr>
+      <tr>
+        <td><strong>How measurable is success?</strong></td>
+        <td>If outcomes are measurable, use outcome contracts and benchmarks. If not, emphasize behavior contracts, audits, and process controls.</td>
+      </tr>
+      <tr>
+        <td><strong>Which institutions support trust?</strong></td>
+        <td>Regulation, audit ecosystems, standards, model cards, third-party evaluations, and disclosure rules such as AI Act or DSA-style transparency obligations.</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="case">
@@ -317,6 +510,8 @@
       <li><strong>Agency Costs at Novo:</strong> The cost isn't just the OpenAI subscription. It's the cost of Novo's scientists <em>verifying</em> every lead the AI generates. If they don't verify, the <em>Agency Risk</em> (bad drug leads) is too high.</li>
       <li><strong>Institutional Trust:</strong> Novo must rely on <em>Institutional Trust</em>. They need clear governance frameworks for how clinical data is used and how AI results are validated against biological ground truth.</li>
       <li><strong>Black Box Risk:</strong> In pharmaceutical research, a "Black Box" prediction isn't enough for the FDA. Novo needs <em>Explainability</em> to transform AI-output into scientific knowledge.</li>
+      <li><strong>Contract Specificity:</strong> A contract can specify data security, audit access, uptime, and documentation more easily than it can specify "scientific discovery." That pushes Novo toward behavior-based governance plus milestone-based validation.</li>
+      <li><strong>Human-in-the-Loop Design:</strong> Drug discovery is high stakes, uncertain, and scientifically complex. Algorithms can prioritize hypotheses, but expert scientists must remain in or on the loop for validation.</li>
     </ul>
   </div>
 </section>
@@ -334,9 +529,9 @@
         </summary>
         <div class="q-answer">
           <ul>
-            <li>It highlights that AI is not just a tool, but a **delegation of authority**.</li>
-            <li>It forces us to look at **Information Asymmetry**: the firm doesn't know *how* the AI makes a choice, creating room for misalignment and errors.</li>
-            <li>It helps quantify the **Agency Costs** of governing AI (monitoring, auditing).</li>
+            <li>It highlights that AI is not just a tool, but a <strong>delegation of authority</strong>.</li>
+            <li>It focuses attention on <strong>information asymmetry</strong>: the firm may observe outputs without understanding the full decision process.</li>
+            <li>It helps identify <strong>agency costs</strong>: monitoring, auditing, validation, contracting, and residual loss.</li>
           </ul>
         </div>
       </details>
@@ -352,6 +547,7 @@
           <ul>
             <li>It's trust based on the "rules of the game" (regulations, external audits).</li>
             <li>Relevant because Novo cannot monitor OpenAI's trillions of parameters directly. They must trust that the <em>institution</em> of the partnership (contracts, data privacy laws) will protect them.</li>
+            <li>A stronger answer adds third-party audits, model documentation, validation protocols, and regulatory compliance as trust-producing institutions.</li>
           </ul>
         </div>
       </details>
@@ -365,9 +561,26 @@
         </summary>
         <div class="q-answer">
           <ul>
-            <li>No. There is always a **Residual Loss**.</li>
+            <li>No. There is always a <strong>residual loss</strong>.</li>
             <li>You can increase monitoring (which costs money) or accept more risk (which can cost money).</li>
-            <li>The goal is to find the **optimal point** where the marginal cost of monitoring equals the marginal benefit of reduced error.</li>
+            <li>The goal is to find the <strong>optimal point</strong> where the marginal cost of monitoring equals the marginal benefit of reduced error.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          How would you evaluate competing AI tools for a high-stakes organizational decision?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Define the delegated decision and the human role: in, on, or out of the loop.</li>
+            <li>Assess adverse selection risk through screening: pilots, benchmark tests, documentation, and vendor due diligence.</li>
+            <li>Choose governance based on measurability: outcome contracts for measurable tasks, behavior contracts for uncertain tasks.</li>
+            <li>Use institution-based trust: audits, model cards, standards, regulatory compliance, and independent validation.</li>
           </ul>
         </div>
       </details>
