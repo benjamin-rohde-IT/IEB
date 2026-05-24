@@ -124,7 +124,8 @@
   /* MAIN CONTENT */
   .main {
     margin-left: 240px;
-    padding: 3.5rem 4rem 6rem;
+    padding: 3.5rem 6rem 6rem;
+    width: calc(100% - 240px);
   }
 
   /* HERO */
@@ -403,13 +404,11 @@
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  @media (max-width: 900px) {
-    .layout { grid-template-columns: 1fr; }
+  .layout { grid-template-columns: 1fr; }
     .sidebar { display: none; }
     .main { margin-left: 0; padding: 2rem 1.5rem 4rem; }
     .card-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 2rem; }
-  }
 </style>
 </head>
 <body>
