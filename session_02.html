@@ -1,248 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IEB Session 2 — Network Effects & Digital Markets</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 02 — Data, Information & Scale</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e17;
+    --paper: #faf9f6;
+    --accent: #c1440e;
+    --accent2: #2563a8;
+    --muted: #6b6b7b;
+    --border: #e2ddd6;
+    --card-bg: #ffffff;
+    --highlight: #fff3ec;
+    --highlight2: #ecf2ff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border: 80px solid rgba(193,68,14,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .header-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .course-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  header h1 span { color: var(--accent); }
+  header p.subtitle {
+    font-size: 1rem;
+    color: rgba(250,249,246,0.65);
+    max-width: 540px;
+  }
+
+  .nav-pills {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-pills a {
+    font-size: 0.8rem; font-weight: 500;
+    text-decoration: none;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all 0.18s;
+  }
+  .nav-pills a:hover { border-color: var(--accent); color: var(--accent); background: var(--highlight); }
+
+  main { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+
+  section { margin-bottom: 3.5rem; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  p { margin-bottom: 0.9rem; color: #2a2a38; }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .card.accent-left { border-left: 4px solid var(--accent); }
+  .card.accent-left2 { border-left: 4px solid var(--accent2); }
+  .card.highlight-bg { background: var(--highlight); }
+  .card.highlight-bg2 { background: var(--highlight2); }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .concept-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    border-top: 3px solid var(--accent);
+  }
+  .concept-card.blue { border-top-color: var(--accent2); }
+  .concept-card .emoji { font-size: 1.6rem; margin-bottom: 0.5rem; display: block; }
+  .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+  .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+  .figure-wrap {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.25rem 0;
+    overflow-x: auto;
+  }
+  .figure-wrap figcaption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+  svg text { font-family: 'DM Sans', sans-serif; }
+
+  .q-list { list-style: none; }
+  .q-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+  .q-item summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    font-weight: 500;
+    font-size: 0.95rem;
+    list-style: none;
+    user-select: none;
+  }
+  .q-item summary::-webkit-details-marker { display: none; }
+  .q-item summary:hover { background: var(--highlight); }
+  .q-badge {
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .q-badge.core { background: #ffece4; color: var(--accent); }
+  .q-badge.apply { background: var(--highlight2); color: var(--accent2); }
+  .q-badge.synth { background: #e9f5e9; color: #256325; }
+  .q-chevron {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 0.75rem; color: var(--muted);
+    transition: transform 0.2s;
+  }
+  details[open] .q-chevron { transform: rotate(90deg); }
+  .q-answer {
+    padding: 0 1.25rem 1.1rem 1.25rem;
+    font-size: 0.88rem;
+    color: #2a2a38;
+    border-top: 1px solid var(--border);
+  }
+  .q-answer ul { margin: 0.5rem 0 0 1rem; }
+  .q-answer ul li { margin-bottom: 0.35rem; }
+  .q-answer strong { color: var(--ink); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  section { animation: fadeUp 0.45s ease both; }
+</style>
 </head>
-<body class="bg-slate-100 text-slate-900 min-h-screen">
+<body>
 
-  <div class="max-w-7xl mx-auto p-8 space-y-8">
-
-    <div class="bg-gradient-to-r from-indigo-700 to-slate-900 text-white rounded-3xl shadow-2xl p-10 relative">
-        <a href="./index.html" class="absolute top-6 right-6 inline-flex items-center justify-center rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20">
-            Back to Dashboard
-        </a>
-        <div class="flex justify-between items-start flex-wrap gap-4">
-        <div>
-          <p class="uppercase tracking-widest text-purple-200 font-semibold mb-3">
-            Information Economics & Business
-          </p>
-
-          <h1 class="text-6xl font-black mb-4 leading-tight">
-            Session 2:<br>
-            Network Effects & Digital Markets
-          </h1>
-
-          <p class="text-xl max-w-4xl text-slate-200 leading-relaxed">
-            Understanding how network effects, platforms, and digital ecosystems
-            create concentrated markets, lock-in effects, and winner-take-all dynamics.
-          </p>
-        </div>
-
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 min-w-[260px]">
-          <p class="text-sm uppercase tracking-wide text-purple-200 mb-2">
-            Core Exam Theme
-          </p>
-
-          <p class="text-lg font-semibold leading-relaxed">
-            Why digital markets often become dominated by a few powerful platform firms.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-      <div class="lg:col-span-2 bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-        <h2 class="text-4xl font-bold mb-6">
-          What This Session Is Really About
-        </h2>
-
-        <div class="space-y-6 text-lg leading-relaxed text-slate-700">
-          <p>
-            Session 2 focuses on the economics of digital markets.
-            Unlike traditional industries, many digital businesses become more valuable
-            as more users join the platform.
-          </p>
-
-          <p>
-            This creates network effects:
-            each additional user increases value for existing users.
-            Strong network effects can produce highly concentrated markets,
-            platform dominance, and winner-take-all outcomes.
-          </p>
-
-          <p>
-            The session also examines why firms increasingly compete through ecosystems
-            rather than isolated products.
-            Platforms such as OpenAI, Google, Amazon, and Apple coordinate entire ecosystems
-            of developers, users, complementors, and data infrastructures.
-          </p>
-
-          <div class="bg-purple-50 border border-purple-100 rounded-2xl p-6">
-            <h3 class="text-2xl font-bold mb-4 text-purple-900">
-              Important Strategic Insight
-            </h3>
-
-            <p class="text-slate-800 leading-relaxed">
-              In digital markets, competitive advantage often comes from ecosystem control,
-              user lock-in, data accumulation, and platform coordination — not merely superior products.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-        <h2 class="text-3xl font-bold mb-6">
-          Core Concepts
-        </h2>
-
-        <div class="space-y-4">
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Network Effects</h3>
-            <p class="text-sm text-slate-700">
-              The value of a product or platform increases as more users join.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Winner-Take-All Markets</h3>
-            <p class="text-sm text-slate-700">
-              Markets where one or a few firms dominate because of scale and network effects.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Platform Ecosystems</h3>
-            <p class="text-sm text-slate-700">
-              Firms create value by coordinating interactions between multiple participant groups.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Lock-In Effects</h3>
-            <p class="text-sm text-slate-700">
-              Users become dependent on a platform because switching becomes costly.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-8">
-        How This Connects to Your Synopsis
-      </h2>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-        <div class="bg-emerald-50 border border-emerald-100 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4 text-emerald-900">
-            OpenAI as a Platform Actor
-          </h3>
-
-          <p class="text-lg leading-relaxed text-slate-800">
-            OpenAI increasingly functions as a platform ecosystem.
-            More users generate more data and feedback,
-            which improves models,
-            which attracts more users and partners.
-          </p>
-        </div>
-
-        <div class="bg-blue-50 border border-blue-100 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4 text-blue-900">
-            Strategic Dependency Risks
-          </h3>
-
-          <p class="text-lg leading-relaxed text-slate-800">
-            Novo Nordisk may gain significant AI capabilities through OpenAI,
-            but the partnership also raises questions about dependence,
-            bargaining power,
-            and long-term control over strategic infrastructure.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-8">
-        Likely Oral Exam Questions
-      </h2>
-
-      <div class="space-y-6">
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            Does OpenAI benefit from network effects?
-          </h3>
-
-          <div class="bg-purple-50 border border-purple-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-purple-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Explain that more users generate more prompts,
-              feedback,
-              and usage data.
-              This improves model quality and strengthens ecosystem attractiveness.
-              Then connect this to competitive advantage and scale.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            Why do digital markets often become concentrated?
-          </h3>
-
-          <div class="bg-purple-50 border border-purple-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-purple-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Discuss network effects,
-              economies of scale,
-              data accumulation,
-              switching costs,
-              and ecosystem coordination.
-              Explain why these mechanisms reinforce dominant firms over time.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            Could pharmaceutical firms become dependent on AI platforms?
-          </h3>
-
-          <div class="bg-purple-50 border border-purple-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-purple-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Yes — especially if core AI infrastructure,
-              models,
-              and data capabilities are externally controlled.
-              Discuss lock-in,
-              bargaining power,
-              strategic dependence,
-              and reduced organizational autonomy.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-gradient-to-r from-slate-900 to-purple-800 text-white rounded-3xl shadow-2xl p-10">
-      <h2 class="text-4xl font-bold mb-5">
-        Important Examiner Advice
-      </h2>
-
-      <p class="text-xl leading-relaxed max-w-5xl text-slate-200">
-        The examiner will likely test whether you understand the mechanisms behind digital dominance.
-        Do not merely define network effects.
-        Explain HOW they shape competition,
-        WHY they create concentrated markets,
-        and WHAT strategic consequences they create for firms like Novo Nordisk.
-      </p>
-    </div>
-
+<header>
+  <div class="header-inner">
+    <p class="course-tag">IEB · Session 02 · Exam Preparation</p>
+    <h1>The Economics of<br><span>Information & Data</span></h1>
+    <p class="subtitle">Exploring the unique properties of information as an economic good and its impact on firm scale and scope.</p>
   </div>
+</header>
+
+<nav class="nav-pills">
+  <a href="#properties">Economic Properties</a>
+  <a href="#value">Information Value Chain</a>
+  <a href="#scale">Scale & Scope</a>
+  <a href="#asymmetry">Information Asymmetry</a>
+  <a href="#case">Novo Nordisk Case</a>
+  <a href="#questions">Exam Questions</a>
+</nav>
+
+<main>
+
+<section id="properties">
+  <p class="section-label">Theory 01</p>
+  <h2>Information as an Economic Good</h2>
+  <p>Information differs from physical goods in fundamental ways. Shapiro &amp; Varian (1998) highlight that information is <strong>expensive to produce but cheap to reproduce</strong> (high fixed costs, low marginal costs).</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">🍎</span>
+      <h4>Non-Rivalrous</h4>
+      <p>Consumption by one person doesn't prevent consumption by another. Thousands can use the same dataset simultaneously.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">🚧</span>
+      <h4>Non-Excludable</h4>
+      <p>Hard to stop others from using it once it's out (unless protected by IP or encryption).</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">🔍</span>
+      <h4>Experience Good</h4>
+      <p>You don't know the value of information until you have consumed it. (e.g., a movie or a research report).</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">📉</span>
+      <h4>Zero Marginal Cost</h4>
+      <p>The 1,000,000th copy of a digital file costs virtually nothing to create.</p>
+    </div>
+  </div>
+</section>
+
+<section id="value">
+  <p class="section-label">Theory 02</p>
+  <h2>The Information Value Chain</h2>
+  <p>Data by itself has no value. Value is created through a transformation process: <strong>Data → Information → Knowledge → Wisdom/Action</strong>.</p>
+
+  <div class="figure-wrap">
+    <figure>
+      <svg viewBox="0 0 520 180" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#c1440e" />
+          </marker>
+        </defs>
+        <rect x="20" y="60" width="80" height="60" rx="8" fill="#f0f0f0" stroke="#ccc"/>
+        <text x="60" y="95" text-anchor="middle" font-size="12" font-weight="700">DATA</text>
+        
+        <line x1="100" y1="90" x2="135" y2="90" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
+        
+        <rect x="145" y="60" width="100" height="60" rx="8" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="195" y="95" text-anchor="middle" font-size="11" font-weight="700">INFORMATION</text>
+        
+        <line x1="245" y1="90" x2="280" y2="90" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <rect x="290" y="60" width="100" height="60" rx="8" fill="#ecf2ff" stroke="#2563a8"/>
+        <text x="340" y="95" text-anchor="middle" font-size="12" font-weight="700">KNOWLEDGE</text>
+        
+        <line x1="390" y1="90" x2="425" y2="90" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <rect x="435" y="60" width="80" height="60" rx="8" fill="#2563a8" stroke="#2563a8"/>
+        <text x="475" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="white">ACTION</text>
+      </svg>
+      <figcaption>Fig. 1 — The DIKW Pyramid (simplified). Raw data is contextualized into information, which is internalized as knowledge, enabling strategic action.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="scale">
+  <p class="section-label">Theory 03</p>
+  <h2>Scale, Scope & Returns</h2>
+  <p>Information economies exhibit <strong>Increasing Returns</strong>. Iansiti &amp; Lakhani (2020) argue that digital operating models allow firms to grow in <em>Scale</em> and <em>Scope</em> without the traditional diminishing returns of human-centric organizations.</p>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Key Definitions</h3>
+    <ul>
+      <li><strong>Scale:</strong> Ability to serve more customers with minimal cost increase. (Fixed costs are spread thin).</li>
+      <li><strong>Scope:</strong> Ability to enter new business lines by reusing existing data/assets.</li>
+      <li><strong>Learning:</strong> The more the system is used, the more data it generates, making the product better for everyone.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="case">
+  <p class="section-label">Case Application</p>
+  <h2>Novo Nordisk — Information Arbitrage?</h2>
+  <p>How information economics applies to the pharmaceutical case:</p>
+
+  <div class="card">
+    <table style="width:100%; border-collapse: collapse;">
+      <tr style="border-bottom: 2px solid var(--border);">
+        <th style="text-align:left; padding: 10px;">Concept</th>
+        <th style="text-align:left; padding: 10px;">Application</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><strong>High Fixed Cost</strong></td>
+        <td style="padding: 10px;">Pharma has massive R&D costs (production of info). Distribution is cheap once the formula is known.</td>
+      </tr>
+      <tr style="background: #f9f8f5;">
+        <td style="padding: 10px;"><strong>Scope Economies</strong></td>
+        <td style="padding: 10px;">Data from one obesity trial can potentially inform research in related cardiovascular or kidney diseases.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><strong>Experience Good</strong></td>
+        <td style="padding: 10px;">Clinical trial results are only "known" after the study is complete — hence the high risk of drug development.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section id="questions">
+  <p class="section-label">Exam Preparation</p>
+  <h2>Likely Oral Exam Questions</h2>
+  <ul class="q-list">
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          Why is information described as "expensive to produce but cheap to reproduce"?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>First-copy costs:</strong> Most of the cost is in the initial creation (R&D, writing code, clinical trials).</li>
+            <li><strong>Marginal costs:</strong> Digital reproduction (copying a file) is nearly zero.</li>
+            <li><strong>Implication:</strong> This creates massive economies of scale and encourages "Winner-Take-All" market dynamics.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          How does the DIKW framework help explain the value of AI in firms?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Firms have lots of **Data** (unstructured clinical logs).</li>
+            <li>AI transforms this into **Information** (patterns of drug response).</li>
+            <li>This builds organizational **Knowledge** (understanding biological pathways).</li>
+            <li>Ultimately, it enables faster/better **Action** (launching the right drug trial).</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          What are the risks of "Increasing Returns" for an incumbent like Novo Nordisk?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Increasing returns favor the leader. If a competitor builds a better "AI Learning Loop", they may become unstoppable.</li>
+            <li>Novo must use its current data advantage to secure its position before a more agile digital-first competitor scales.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+  </ul>
+</section>
+
+</main>
+
+<footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
+  Based on: Shapiro &amp; Varian (1998) · Iansiti &amp; Lakhani (2020) · IEB Session 02 Course Materials
+</footer>
 
 </body>
 </html>

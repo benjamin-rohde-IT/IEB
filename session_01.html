@@ -1,245 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IEB Session 1 — Digitalization, AI & Data</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 01 — Digitalization, AI & Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e17;
+    --paper: #faf9f6;
+    --accent: #c1440e;
+    --accent2: #2563a8;
+    --muted: #6b6b7b;
+    --border: #e2ddd6;
+    --card-bg: #ffffff;
+    --highlight: #fff3ec;
+    --highlight2: #ecf2ff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border: 80px solid rgba(193,68,14,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .header-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .course-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  header h1 span { color: var(--accent); }
+  header p.subtitle {
+    font-size: 1rem;
+    color: rgba(250,249,246,0.65);
+    max-width: 540px;
+  }
+
+  .nav-pills {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-pills a {
+    font-size: 0.8rem; font-weight: 500;
+    text-decoration: none;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all 0.18s;
+  }
+  .nav-pills a:hover { border-color: var(--accent); color: var(--accent); background: var(--highlight); }
+
+  main { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+
+  section { margin-bottom: 3.5rem; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  p { margin-bottom: 0.9rem; color: #2a2a38; }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .card.accent-left { border-left: 4px solid var(--accent); }
+  .card.accent-left2 { border-left: 4px solid var(--accent2); }
+  .card.highlight-bg { background: var(--highlight); }
+  .card.highlight-bg2 { background: var(--highlight2); }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .concept-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    border-top: 3px solid var(--accent);
+  }
+  .concept-card.blue { border-top-color: var(--accent2); }
+  .concept-card .emoji { font-size: 1.6rem; margin-bottom: 0.5rem; display: block; }
+  .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+  .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+  .figure-wrap {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.25rem 0;
+    overflow-x: auto;
+  }
+  .figure-wrap figcaption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+  svg text { font-family: 'DM Sans', sans-serif; }
+
+  .q-list { list-style: none; }
+  .q-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+  .q-item summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    font-weight: 500;
+    font-size: 0.95rem;
+    list-style: none;
+    user-select: none;
+  }
+  .q-item summary::-webkit-details-marker { display: none; }
+  .q-item summary:hover { background: var(--highlight); }
+  .q-badge {
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .q-badge.core { background: #ffece4; color: var(--accent); }
+  .q-badge.apply { background: var(--highlight2); color: var(--accent2); }
+  .q-badge.synth { background: #e9f5e9; color: #256325; }
+  .q-chevron {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 0.75rem; color: var(--muted);
+    transition: transform 0.2s;
+  }
+  details[open] .q-chevron { transform: rotate(90deg); }
+  .q-answer {
+    padding: 0 1.25rem 1.1rem 1.25rem;
+    font-size: 0.88rem;
+    color: #2a2a38;
+    border-top: 1px solid var(--border);
+  }
+  .q-answer ul { margin: 0.5rem 0 0 1rem; }
+  .q-answer ul li { margin-bottom: 0.35rem; }
+  .q-answer strong { color: var(--ink); }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    background: var(--border);
+    color: var(--muted);
+  }
+  .tag.hot { background: #ffece4; color: var(--accent); }
+  .tag.cool { background: var(--highlight2); color: var(--accent2); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  section { animation: fadeUp 0.45s ease both; }
+</style>
 </head>
-<body class="bg-slate-100 text-slate-900 min-h-screen">
+<body>
 
-  <div class="max-w-7xl mx-auto p-8 space-y-8">
-
-    <div class="bg-gradient-to-r from-indigo-700 to-slate-900 text-white rounded-3xl shadow-2xl p-10 relative">
-      <a href="./index.html" class="absolute top-6 right-6 inline-flex items-center justify-center rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20">
-        Back to Dashboard
-      </a>
-      <div class="flex justify-between items-start flex-wrap gap-4">
-        <div>
-          <p class="uppercase tracking-widest text-indigo-200 font-semibold mb-3">
-            Information Economics & Business
-          </p>
-
-          <h1 class="text-6xl font-black mb-4 leading-tight">
-            Session 1:<br>
-            Digitalization, AI & Data
-          </h1>
-
-          <p class="text-xl max-w-4xl text-slate-200 leading-relaxed">
-            Understanding how AI, digitalization, and data reshape competitive advantage,
-            firm strategy, organizational capabilities, and market structures.
-          </p>
-        </div>
-
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 min-w-[260px]">
-          <p class="text-sm uppercase tracking-wide text-indigo-200 mb-2">
-            Core Exam Theme
-          </p>
-
-          <p class="text-lg font-semibold leading-relaxed">
-            How digital technologies fundamentally change competition and strategic management.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-      <div class="lg:col-span-2 bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-        <h2 class="text-4xl font-bold mb-6">
-          What This Session Is Really About
-        </h2>
-
-        <div class="space-y-6 text-lg leading-relaxed text-slate-700">
-          <p>
-            Session 1 establishes the intellectual foundation for the course.
-            The core argument is that digitalization is not simply about adopting technology.
-            It fundamentally changes how firms create value, compete, learn, and organize.
-          </p>
-
-          <p>
-            AI and data-intensive technologies create new forms of competitive advantage.
-            Firms increasingly compete based on prediction capabilities, data access,
-            automation, algorithmic learning, and ecosystem positioning.
-          </p>
-
-          <p>
-            Traditional competitive advantages such as scale economies, physical assets,
-            or operational efficiency are increasingly complemented — and sometimes replaced —
-            by data accumulation, machine learning feedback loops, and digital infrastructures.
-          </p>
-
-          <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6">
-            <h3 class="text-2xl font-bold mb-4 text-indigo-900">
-              Important Strategic Insight
-            </h3>
-
-            <p class="text-slate-800 leading-relaxed">
-              Digitalization changes the economics of information.
-              Information becomes cheaper to collect, process, store, and analyze.
-              This enables firms to coordinate activities differently,
-              improve decision-making, personalize offerings, and automate cognitive work.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-        <h2 class="text-3xl font-bold mb-6">
-          Core Concepts
-        </h2>
-
-        <div class="space-y-4">
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Digitalization</h3>
-            <p class="text-sm text-slate-700">
-              Transformation of business processes, markets, and organizational structures through digital technologies.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">AI as Prediction</h3>
-            <p class="text-sm text-slate-700">
-              AI lowers the cost of prediction and enables automation of decision-making processes.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Data Network Effects</h3>
-            <p class="text-sm text-slate-700">
-              More users generate more data, which improves algorithms and creates stronger products.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Digital Ecosystems</h3>
-            <p class="text-sm text-slate-700">
-              Firms increasingly compete within interconnected platform ecosystems.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-8">
-        How This Connects to Your Synopsis
-      </h2>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-        <div class="bg-emerald-50 border border-emerald-100 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4 text-emerald-900">
-            Novo Nordisk × OpenAI
-          </h3>
-
-          <p class="text-lg leading-relaxed text-slate-800">
-            Your synopsis directly fits the logic introduced in Session 1.
-            Novo Nordisk is responding to the increasing strategic importance of AI,
-            data, and digital capabilities in pharmaceutical innovation.
-          </p>
-        </div>
-
-        <div class="bg-blue-50 border border-blue-100 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4 text-blue-900">
-            Strong Analytical Angle
-          </h3>
-
-          <p class="text-lg leading-relaxed text-slate-800">
-            You should argue that AI is not merely an operational tool.
-            It changes organizational learning, R&D productivity,
-            strategic flexibility, and long-term competitive positioning.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-8">
-        Likely Oral Exam Questions
-      </h2>
-
-      <div class="space-y-6">
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            Why is AI strategically important for incumbent firms?
-          </h3>
-
-          <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-indigo-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Explain that AI improves prediction capabilities,
-              accelerates decision-making, enables automation,
-              and enhances organizational learning.
-              Then connect this to how incumbents risk losing competitiveness
-              if they fail to adapt.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            How does data become a source of competitive advantage?
-          </h3>
-
-          <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-indigo-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Mention feedback loops:
-              more users create more data,
-              which improves algorithms,
-              which improves products,
-              which attracts even more users.
-              Also discuss proprietary datasets and learning advantages.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            How is digital transformation different from traditional IT adoption?
-          </h3>
-
-          <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-indigo-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Traditional IT primarily improves efficiency.
-              Digital transformation changes business models,
-              organizational structures,
-              capabilities,
-              and strategic positioning.
-              Emphasize that digitalization is organizational and strategic — not only technological.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-gradient-to-r from-slate-900 to-slate-700 text-white rounded-3xl shadow-2xl p-10">
-      <h2 class="text-4xl font-bold mb-5">
-        Important Examiner Advice
-      </h2>
-
-      <p class="text-xl leading-relaxed max-w-5xl text-slate-200">
-        The examiner will rarely reward purely descriptive answers.
-        You need to demonstrate analytical understanding.
-        Always explain WHY the theory matters strategically,
-        HOW it changes firm behavior,
-        and HOW it connects to your specific case.
-      </p>
-    </div>
-
+<header>
+  <div class="header-inner">
+    <p class="course-tag">IEB · Session 01 · Exam Preparation</p>
+    <h1>Digitalization, AI &<br><span>Organizational Change</span></h1>
+    <p class="subtitle">Core concepts from Iansiti &amp; Lakhani (2020) and general Information Economics — establishing the strategic foundation.</p>
   </div>
+</header>
+
+<nav class="nav-pills">
+  <a href="#digitalization">Digitalization vs. Digitization</a>
+  <a href="#collision">The Strategic Collision</a>
+  <a href="#prediction">AI as Prediction</a>
+  <a href="#moat">The Digital Moat</a>
+  <a href="#case">Novo Nordisk Case</a>
+  <a href="#questions">Exam Questions</a>
+</nav>
+
+<main>
+
+<section id="digitalization">
+  <p class="section-label">Theory 01</p>
+  <h2>Digitalization: A Strategic Transformation</h2>
+  <p>Iansiti &amp; Lakhani (2020) differentiate between <em>digitization</em> (converting analog info to digital) and <strong>digitalization</strong> (re-architecting the firm around digital logic). Digitalization isn't about adding IT to a traditional firm; it's about ending the reliance on human labor at the core of the operating model.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">💾</span>
+      <h4>Digitization</h4>
+      <p>Converting analog information into digital bits. (e.g., scanning a paper invoice). This is a technical process, not a strategic one.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">🚀</span>
+      <h4>Digitalization</h4>
+      <p>The transformation of business processes and organizational structures. Redesigning value creation around digital scalability.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">🏗️</span>
+      <h4>Operating Model</h4>
+      <p>The set of processes, systems, and people that deliver value. Digital firms replace human bottlenecks with algorithmic "factories".</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">🌐</span>
+      <h4>Datafication</h4>
+      <p>Turning activities into data. If you can't measure it, you can't optimize it. Every interaction becomes a learning signal.</p>
+    </div>
+  </div>
+</section>
+
+<section id="collision">
+  <p class="section-label">Theory 02</p>
+  <h2>The Strategic Collision</h2>
+  <p>A <strong>Collision</strong> occurs when a firm with a <em>digital operating model</em> enters a space traditionally served by conventional firms. Because digital models exhibit increasing returns to scale, scope, and learning, they eventually overwhelm traditional players.</p>
+
+  <div class="figure-wrap">
+    <figure>
+      <svg viewBox="0 0 520 280" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="230" x2="470" y2="230" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="50" y1="230" x2="50" y2="30" stroke="#ccc" stroke-width="1.5"/>
+        <text x="260" y="260" text-anchor="middle" font-size="12" fill="#6b6b7b">Scale / Users →</text>
+        <text x="20" y="130" text-anchor="middle" font-size="12" fill="#6b6b7b" transform="rotate(-90 20 130)">Performance / Value ↑</text>
+        
+        <!-- Traditional line -->
+        <path d="M 50 200 L 450 150" stroke="#888" stroke-width="2" fill="none"/>
+        <text x="400" y="170" font-size="10" fill="#888">Traditional Model (Diminishing Returns)</text>
+        
+        <!-- Digital line -->
+        <path d="M 50 220 Q 200 215 450 50" stroke="#c1440e" stroke-width="3" fill="none" stroke-dasharray="5 2"/>
+        <text x="320" y="80" font-size="10" fill="#c1440e" font-weight="600">Digital Model (Increasing Returns)</text>
+        
+        <circle cx="280" cy="172" r="6" fill="#2563a8"/>
+        <text x="280" y="160" text-anchor="middle" font-size="11" fill="#2563a8" font-weight="900">COLLISION POINT</text>
+      </svg>
+      <figcaption>Fig. 1 — The Collision Framework. Digital firms may start slower but their scalability and learning loops allow them to pass traditional firms at a critical threshold.</figcaption>
+    </figure>
+  </div>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Why Digital Firms Win</h3>
+    <p>According to Iansiti &amp; Lakhani, the advantage comes from three interconnected dynamics:</p>
+    <ul>
+      <li><strong>Scale:</strong> Software can be replicated at near-zero marginal cost.</li>
+      <li><strong>Scope:</strong> Digital data can be reused to enter new categories (e.g., Uber moving from rides to food).</li>
+      <li><strong>Learning:</strong> Algorithms improve automatically with more usage data.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="prediction">
+  <p class="section-label">Theory 03</p>
+  <h2>AI as Prediction</h2>
+  <p>The "Economics of AI" (Agrawal et al., 2018) argues that AI is essentially a <strong>drop in the cost of prediction</strong>. When prediction becomes cheap, it is used more frequently, and the value of human <em>judgment</em> and <em>data</em> increases.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">🔮</span>
+      <h4>Prediction</h4>
+      <p>Filling in missing information. AI uses data to predict outcomes, lowering the cost of uncertainty.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">⚖️</span>
+      <h4>Judgment</h4>
+      <p>Human role of assigning value to outcomes. AI says <em>what will happen</em>; humans decide <em>if we want it</em>.</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">🤖</span>
+      <h4>Automation</h4>
+      <p>When the cost of prediction drops enough, it replaces manual decision-making tasks entirely.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">🔄</span>
+      <h4>Feedback</h4>
+      <p>The output of one decision becomes the input (data) for the next prediction, creating a learning loop.</p>
+    </div>
+  </div>
+</section>
+
+<section id="case">
+  <p class="section-label">Case Application</p>
+  <h2>Novo Nordisk — From Pharma to AI Factory?</h2>
+  <p>Applying Session 01 logic to your synopsis on Novo Nordisk and OpenAI:</p>
+
+  <div class="card">
+    <table style="width:100%; border-collapse: collapse;">
+      <tr style="border-bottom: 2px solid var(--border);">
+        <th style="text-align:left; padding: 10px;">Concept</th>
+        <th style="text-align:left; padding: 10px;">Application</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><strong>Collision</strong></td>
+        <td style="padding: 10px;">Novo is preempting a collision by partnering with OpenAI. They are moving before an "AI-first" biotech disintermediates them.</td>
+      </tr>
+      <tr style="background: #f9f8f5;">
+        <td style="padding: 10px;"><strong>Prediction</strong></td>
+        <td style="padding: 10px;">Drug discovery is a massive prediction task. AI lowers the cost of identifying which molecules will be successful.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><strong>Learning Loop</strong></td>
+        <td style="padding: 10px;">Clinical trial data is Novo's "proprietary moat". By feeding this into OpenAI's models, they create a faster learning loop than rivals.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section id="questions">
+  <p class="section-label">Exam Preparation</p>
+  <h2>Likely Oral Exam Questions</h2>
+  <ul class="q-list">
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          What is the difference between digitization and digitalization according to the course?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>Digitization:</strong> Purely technical. Converting analog to digital. Does not change the business logic.</li>
+            <li><strong>Digitalization:</strong> Strategic. Re-architecting the organization. Changing how value is created and captured using digital logic.</li>
+            <li>Use the Airbnb vs. Marriott example: Marriott <em>digitized</em> (online booking); Airbnb <em>digitalized</em> (platform-based operating model).</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          Explain the "Collision" framework and why digital firms eventually win.
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Collision = Digital model vs. Traditional model.</li>
+            <li>Traditional firms have <em>diminishing returns</em> (it gets harder to scale human-heavy ops).</li>
+            <li>Digital firms have <em>increasing returns</em> (scale, scope, and learning effects).</li>
+            <li>The digital firm might have lower performance initially, but its growth trajectory is exponential.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          How does the "AI as Prediction" theory relate to Novo Nordisk's strategy?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Drug discovery is essentially predicting biological success.</li>
+            <li>By using OpenAI, Novo lowers the cost of these predictions.</li>
+            <li>This shifts the value to Novo's <em>Judgment</em> (deciding which diseases to target) and their <em>Data</em> (proprietary clinical trial results).</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+  </ul>
+</section>
+
+</main>
+
+<footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
+  Based on: Iansiti &amp; Lakhani (2020) · Agrawal et al. (2018) · IEB Session 01 Course Materials
+</footer>
 
 </body>
 </html>

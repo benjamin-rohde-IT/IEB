@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 04 — Dynamic Capabilities & Digital Agility</title>
+<title>Session 10 — Ethics & Responsibility</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -141,23 +141,6 @@
   .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
   .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
 
-  .figure-wrap {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin: 1.25rem 0;
-    overflow-x: auto;
-  }
-  .figure-wrap figcaption {
-    font-size: 0.8rem;
-    color: var(--muted);
-    text-align: center;
-    margin-top: 0.75rem;
-    font-style: italic;
-  }
-  svg text { font-family: 'DM Sans', sans-serif; }
-
   .q-list { list-style: none; }
   .q-item {
     background: var(--card-bg);
@@ -216,117 +199,96 @@
 
 <header>
   <div class="header-inner">
-    <p class="course-tag">IEB · Session 04 · Exam Preparation</p>
-    <h1>Dynamic Capabilities &<br><span>Digital Agility</span></h1>
-    <p class="subtitle">Understanding how firms achieve new forms of competitive advantage in rapidly changing digital environments.</p>
+    <p class="course-tag">IEB · Session 10 · Exam Preparation</p>
+    <h1>Ethics &<br><span>Responsibility</span></h1>
+    <p class="subtitle">Navigating the moral landscape of AI scale, bias, and the environmental impact of digital transformation.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
-  <a href="#dynamic">Dynamic Capabilities</a>
-  <a href="#organizing">AI as Organizing Capability</a>
-  <a href="#uncertainty">Uncertainty vs. Risk</a>
+  <a href="#scale-ethics">Ethics of Scale</a>
+  <a href="#bias">Algorithmic Bias</a>
+  <a href="#environment">Environment & AI</a>
+  <a href="#responsibility">Firm Responsibility</a>
   <a href="#case">Novo Nordisk Case</a>
   <a href="#questions">Exam Questions</a>
 </nav>
 
 <main>
 
-<section id="dynamic">
+<section id="scale-ethics">
   <p class="section-label">Theory 01</p>
-  <h2>Dynamic Capabilities Framework</h2>
-  <p>Teece et al. (2016) define <strong>Dynamic Capabilities</strong> as the firm's ability to integrate, build, and reconfigure internal and external competences to address rapidly changing environments. It's the capacity to remain competitive when "inflection points" emerge.</p>
+  <h2>The Ethics of Scale, Scope, and Learning</h2>
+  <p>Iansiti &amp; Lakhani (2020) argue that the drivers of digital value—<strong>Scale, Scope, and Learning</strong>—also create unique ethical challenges. As digital systems grow, their potential for harm scales proportionally.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">👁️</span>
-      <h4>Sensing</h4>
-      <p>Identifying and assessing opportunities (and threats) in the environment. Scanning the horizon for shifts like AI.</p>
+      <span class="emoji">🏢</span>
+      <h4>Market Concentration</h4>
+      <p>Digital returns favor giants. This leads to platform monopolies that can stifle competition and choice (Iansiti &amp; Lakhani, 2020).</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">⚖️</span>
-      <h4>Seizing</h4>
-      <p>Mobilizing resources to address the opportunity. Making the strategic "bet" and investing in the new path.</p>
+      <span class="emoji">📢</span>
+      <h4>Digital Amplification</h4>
+      <p>A single algorithmic error (bias or leak) affects millions instantly due to the speed and scale of the operating model.</p>
     </div>
     <div class="concept-card">
-      <span class="emoji">🔄</span>
-      <h4>Transforming</h4>
-      <p>Continuous renewal and reconfiguration of assets. Changing organizational structures and culture (Teece et al., 2016).</p>
+      <span class="emoji">🛡️</span>
+      <h4>Privacy Erosion</h4>
+      <p>The "AI Factory" requires massive data. The pressure to feed the machine often conflicts with individual privacy rights.</p>
     </div>
   </div>
 </section>
 
-<section id="organizing">
+<section id="bias">
   <p class="section-label">Theory 02</p>
-  <h2>AI as an Organizing Capability</h2>
-  <p>Stelmaszak et al. (2026) propose an ontological shift: AI is not just an "entity" or a "tool". It is an <strong>Organizing Capability</strong> that arises from the relations between human and algorithmic actors.</p>
-
-  <div class="figure-wrap">
-    <figure>
-      <svg viewBox="0 0 520 220" width="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-            <feOffset dx="2" dy="2" />
-            <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
-            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        
-        <circle cx="120" cy="110" r="45" fill="#f0f0f0" stroke="#888" stroke-width="2"/>
-        <text x="120" y="115" text-anchor="middle" font-size="11" font-weight="700">HUMAN</text>
-        
-        <circle cx="400" cy="110" r="45" fill="#f0f0f0" stroke="#888" stroke-width="2"/>
-        <text x="400" y="115" text-anchor="middle" font-size="11" font-weight="700">ALGORITHM</text>
-        
-        <ellipse cx="260" cy="110" rx="140" ry="75" fill="none" stroke="#c1440e" stroke-width="3" stroke-dasharray="8 4" filter="url(#shadow)"/>
-        <text x="260" y="55" text-anchor="middle" font-size="13" font-weight="900" fill="#c1440e">AI AS ORGANIZING CAPABILITY</text>
-        
-        <text x="260" y="160" text-anchor="middle" font-size="9" fill="#6b6b7b">Connective · Codependent · Emergent</text>
-      </svg>
-      <figcaption>Fig. 1 — AI as a relational capability (based on Stelmaszak et al., 2026). Intelligence is not "planted" in the tech, but produced in the practice of human-algorithm interaction.</figcaption>
-    </figure>
-  </div>
+  <h2>Algorithmic Bias & Fairness</h2>
+  <p>AI models inherit human biases present in training data. Session 10 Course Materials highlight that "blindly" following data leads to the replication of social injustices.</p>
 
   <div class="card accent-left2 highlight-bg2">
-    <h3>Properties of AI Capability (Stelmaszak et al., 2026)</h3>
+    <h3>Key Ethical Risks</h3>
     <ul>
-      <li><strong>Connective:</strong> AI links people, data, and processes across traditional silos.</li>
-      <li><strong>Codependent:</strong> Neither humans nor algorithms can act effectively without the other in complex tasks.</li>
-      <li><strong>Emergent:</strong> The resulting organizational intelligence is greater than the sum of its parts.</li>
+      <li><strong>Data Bias:</strong> Training models on historically skewed data (e.g., medical trials excluding certain demographics).</li>
+      <li><strong>Feedback Loops:</strong> Biased predictions leading to actions that create more biased data (e.g., predictive policing).</li>
+      <li><strong>Lack of Recourse:</strong> When the "Black Box" makes a mistake, who is held accountable, and how can the victim appeal?</li>
     </ul>
   </div>
 </section>
 
-<section id="uncertainty">
+<section id="environment">
   <p class="section-label">Theory 03</p>
-  <h2>Uncertainty vs. Risk</h2>
-  <p>Teece et al. (2016) distinguish between <strong>Risk</strong> (known outcomes with probabilities) and <strong>Deep Uncertainty</strong> (unknown unknowns). Strong dynamic capabilities are essential for addressing the latter.</p>
+  <h2>AI & Environmental Impact</h2>
+  <p>Marabelli &amp; Davison (2025) explore the often-ignored environmental cost of digital transformation. Training and running Large Language Models (LLMs) consumes massive energy and water.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">🎲</span>
-      <h4>Risk</h4>
-      <p>Can be managed with traditional tools (insurance, hedges). Probabilities are calibrated (Teece et al., 2016).</p>
+      <span class="emoji">🌍</span>
+      <h4>Carbon Footprint</h4>
+      <p>Data centers are energy-intensive. Training a single large model can emit as much CO2 as five cars in their lifetime.</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">🌫️</span>
-      <h4>Deep Uncertainty</h4>
-      <p>Ubiquitous in innovation economies. No clear probabilities. Requires <em>agility</em> and asset orchestration (Teece et al., 2016).</p>
+      <span class="emoji">💧</span>
+      <h4>Water Usage</h4>
+      <p>Cooling data centers requires billions of liters of water, often in areas already facing water scarcity (Marabelli &amp; Davison, 2025).</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">🌱</span>
+      <h4>Greening via AI</h4>
+      <p>Strategic opportunity: Using AI to optimize supply chains and reduce waste, potentially offsetting its own footprint.</p>
     </div>
   </div>
 </section>
 
 <section id="case">
   <p class="section-label">Case Application</p>
-  <h2>Novo Nordisk — Dynamic Agility</h2>
-  <p>Applying Session 04 concepts to the synopsis:</p>
+  <h2>Novo Nordisk — Moral Complexity</h2>
+  <p>Ethical synthesis for the pharmaceutical case:</p>
 
   <div class="card">
     <ul>
-      <li><strong>Sensing the AI Inflection:</strong> Novo's partnership with OpenAI is a clear example of <em>Sensing</em> the disruptive potential of LLMs in biotech.</li>
-      <li><strong>Asset Orchestration:</strong> By integrating OpenAI's algorithms with their own bio-data, Novo is <em>Seizing</em> the opportunity and reconfiguring its R&D competence.</li>
-      <li><strong>Agility vs. Efficiency:</strong> The 9,000 layoffs represent a painful <em>Transformation</em> — sacrificing traditional organizational efficiency (human-centric silos) to build the agility required for an AI-led future.</li>
+      <li><strong>The Ethics of Efficiency:</strong> The 9,000 layoffs mentioned in your synopsis are an ethical "Internality" of AI adoption. Does the gain in R&D speed justify the human cost?</li>
+      <li><strong>Bio-data Privacy:</strong> Partnering with OpenAI means Novo must ensure that sensitive patient data used for training models is rigorously protected and never "leaks" into the public model.</li>
+      <li><strong>Healthcare Inequity:</strong> If the AI is trained on data from Western clinical trials, the drugs discovered might be less effective for global populations, creating a <em>global health bias</em>.</li>
     </ul>
   </div>
 </section>
@@ -339,14 +301,13 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          What are the three pillars of Dynamic Capabilities according to Teece?
+          How does the "Scale" of digital firms create new ethical responsibilities?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li><strong>Sensing:</strong> Scanning for opportunities/threats.</li>
-            <li><strong>Seizing:</strong> Mobilizing resources to act.</li>
-            <li><strong>Transforming:</strong> Reconfiguring the organization to sustain the change.</li>
+            <li>Because digital models serve millions of users, any ethical failure is amplified.</li>
+            <li>Concentrated power in platforms requires higher standards of **Transparency** and **Accountability** than traditional, fragmented markets.</li>
           </ul>
         </div>
       </details>
@@ -355,14 +316,14 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          Why does Stelmaszak et al. (2026) argue that AI is an "Organizing Capability" rather than an entity?
+          Discuss the environmental trade-offs of using AI in the pharmaceutical industry.
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>Traditional views see AI as a "tool" or "autonomous agent".</li>
-            <li>Stelmaszak argues that intelligence *emerges* from the relation. Without human data, feedback, and context, the algorithm is useless. Without the algorithm, the human cannot process the scale of data.</li>
-            <li>Strategic implication: Competitive advantage is in the *quality of the relation*, not just buying the best tech.</li>
+            <li>**Cost:** High energy/water usage for LLMs (Marabelli &amp; Davison, 2025).</li>
+            <li>**Benefit:** AI can discover greener chemical processes or more efficient supply routes.</li>
+            <li>**Conclusion:** Firms must implement "Green AI" governance to ensure the net impact is positive.</li>
           </ul>
         </div>
       </details>
@@ -371,14 +332,13 @@
       <details>
         <summary>
           <span class="q-badge synth">Synthesis</span>
-          How does "Deep Uncertainty" impact the "Make or Buy" decision for AI?
+          Is a firm responsible for the ethical lapses of its digital partner (e.g., OpenAI)?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>In conditions of deep uncertainty, building internally (Make) is risky because the tech evolves so fast.</li>
-            <li>Partnering (Buy/Partner) provides <strong>Agility</strong>. It allows a firm like Novo to access cutting-edge tech (OpenAI) without being locked into a soon-to-be-obsolete internal system.</li>
-            <li>However, agility comes at a cost of potential dependency (Session 08/TCT).</li>
+            <li>Yes, through the concept of **Supply Chain Responsibility**.</li>
+            <li>Just as a firm is responsible for child labor at its clothing suppliers, a modern firm like Novo is increasingly held responsible for the **Bias** or **Privacy** standards of its AI providers.</li>
           </ul>
         </div>
       </details>
@@ -389,7 +349,7 @@
 </main>
 
 <footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
-  Based on: Teece et al. (2016) · Stelmaszak et al. (2026) · Iansiti &amp; Lakhani (2020) · IEB Session 04
+  Based on: Iansiti &amp; Lakhani (2020) · Marabelli &amp; Davison (2025) · Session 10 Course Materials
 </footer>
 
 </body>

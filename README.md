@@ -8,6 +8,12 @@ This project contains a responsive HTML dashboard and four focused session pages
 - **Session 2:** Network Effects & Digital Markets
 - **Session 3:** Pricing & Revenue Models
 - **Session 4:** Dynamic Capabilities & Organizational Agility
+- **Session 5:** Strategy Formulation & Managerial Cognition
+- **Session 6:** Smart Data & Digital Strategy
+- **Session 7:** Platforms & Organizing
+- **Session 8:** Transaction Costs & Digital Transactions
+- **Session 9:** Algorithmic Decision-Making & Trust
+- **Session 10:** Ethics & Responsibility
 
 ## Project structure
 
@@ -16,7 +22,13 @@ This project contains a responsive HTML dashboard and four focused session pages
 - `session_02.html` — session 2 overview and key ideas
 - `session_03.html` — session 3 overview and key ideas
 - `session_04.html` — session 4 overview and key ideas
-- `session 03/`, `session 04/` — additional session-related assets or backup files (if present)
+- `session_05.html` — session 5 overview and key ideas
+- `session_06.html` — session 6 overview and key ideas
+- `session_07.html` — session 7 overview and key ideas
+- `session_08.html` — session 8 overview and key ideas
+- `session_09.html` — session 9 overview and key ideas
+- `session_10.html` — session 10 overview and key ideas
+- `session 01/`, `session 02/`,`session 03/`, `session 04/`, `session 05/`, `session 06/`, `session 07/`, `session 08/`, `session 09/`, `session 10/` - contain the related course litterature for a given session. 
 
 ## Features
 
@@ -35,3 +47,9 @@ This project contains a responsive HTML dashboard and four focused session pages
 - The project is static, so no installation or package dependencies are required.
 - Best used as a study reference for exam revision in digital strategy, platforms, pricing, and organizational agility.
 - If you want to extend the dashboard, add new session pages and update `index.html` with new session cards.
+
+
+
+## Session pages
+
+Each session page has descriptions of the theories and concepts described in the course litterature from the given session. It contains questions which might be asked at the oral exam along with hints for the answers. Each core concepts of the session is thoroughly described. Where relevant illustrations or figures have been made in order to visualize the concepts or models.

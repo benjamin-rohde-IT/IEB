@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 04 — Dynamic Capabilities & Digital Agility</title>
+<title>Session 08 — Transaction Costs & Digital Transactions</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -216,117 +216,116 @@
 
 <header>
   <div class="header-inner">
-    <p class="course-tag">IEB · Session 04 · Exam Preparation</p>
-    <h1>Dynamic Capabilities &<br><span>Digital Agility</span></h1>
-    <p class="subtitle">Understanding how firms achieve new forms of competitive advantage in rapidly changing digital environments.</p>
+    <p class="course-tag">IEB · Session 08 · Exam Preparation</p>
+    <h1>Transaction Costs &<br><span>Digital Transactions</span></h1>
+    <p class="subtitle">Analyzing why firms choose between hierarchies and markets, and how digitalization reshapes the boundaries of the firm.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
-  <a href="#dynamic">Dynamic Capabilities</a>
-  <a href="#organizing">AI as Organizing Capability</a>
-  <a href="#uncertainty">Uncertainty vs. Risk</a>
+  <a href="#tct">TCT Fundamentals</a>
+  <a href="#digital">Digitalization & Costs</a>
+  <a href="#risks">Transaction Risks</a>
+  <a href="#market">Electronic Market Hypothesis</a>
   <a href="#case">Novo Nordisk Case</a>
   <a href="#questions">Exam Questions</a>
 </nav>
 
 <main>
 
-<section id="dynamic">
+<section id="tct">
   <p class="section-label">Theory 01</p>
-  <h2>Dynamic Capabilities Framework</h2>
-  <p>Teece et al. (2016) define <strong>Dynamic Capabilities</strong> as the firm's ability to integrate, build, and reconfigure internal and external competences to address rapidly changing environments. It's the capacity to remain competitive when "inflection points" emerge.</p>
+  <h2>Transaction Cost Theory (TCT)</h2>
+  <p>Based on Williamson (1979, 1986), TCT posits that the optimal organizational structure is one that achieves economic efficiency by minimizing the sum of <strong>Production Costs</strong> and <strong>Transaction Costs</strong>.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">👁️</span>
-      <h4>Sensing</h4>
-      <p>Identifying and assessing opportunities (and threats) in the environment. Scanning the horizon for shifts like AI.</p>
+      <span class="emoji">🔎</span>
+      <h4>Search Costs</h4>
+      <p>Costs of finding a suitable partner or supplier in the market (Medaglia, Session 8).</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">⚖️</span>
-      <h4>Seizing</h4>
-      <p>Mobilizing resources to address the opportunity. Making the strategic "bet" and investing in the new path.</p>
+      <span class="emoji">📝</span>
+      <h4>Information Costs</h4>
+      <p>Costs of measuring and identifying the quality of a product or service before transacting.</p>
     </div>
     <div class="concept-card">
-      <span class="emoji">🔄</span>
-      <h4>Transforming</h4>
-      <p>Continuous renewal and reconfiguration of assets. Changing organizational structures and culture (Teece et al., 2016).</p>
+      <span class="emoji">🤝</span>
+      <h4>Bargaining Costs</h4>
+      <p>Costs of negotiating and reaching an acceptable agreement with another party.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">👮</span>
+      <h4>Policing Costs</h4>
+      <p>Costs of monitoring and enforcing the terms of the contract to prevent opportunism.</p>
     </div>
   </div>
 </section>
 
-<section id="organizing">
+<section id="digital">
   <p class="section-label">Theory 02</p>
-  <h2>AI as an Organizing Capability</h2>
-  <p>Stelmaszak et al. (2026) propose an ontological shift: AI is not just an "entity" or a "tool". It is an <strong>Organizing Capability</strong> that arises from the relations between human and algorithmic actors.</p>
+  <h2>Digitalization and Transaction Costs</h2>
+  <p>Malone et al. (1987) and Medaglia (Session 8) argue that digital tools significantly reduce coordination costs, leading to three major shifts in organizational boundaries.</p>
 
   <div class="figure-wrap">
     <figure>
       <svg viewBox="0 0 520 220" width="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-            <feOffset dx="2" dy="2" />
-            <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
-            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
+        <rect x="20" y="30" width="180" height="150" rx="10" fill="#f0f0f0" stroke="#ccc"/>
+        <text x="110" y="55" text-anchor="middle" font-size="11" font-weight="700">HIERARCHY</text>
+        <text x="110" y="75" text-anchor="middle" font-size="9" fill="#6b6b7b">(In-house)</text>
+        <text x="40" y="105" font-size="9" fill="#2a2a38">· Direct control</text>
+        <text x="40" y="125" font-size="9" fill="#2a2a38">· High fixed costs</text>
+        <text x="40" y="145" font-size="9" fill="#2a2a38">· Low flexibility</text>
         
-        <circle cx="120" cy="110" r="45" fill="#f0f0f0" stroke="#888" stroke-width="2"/>
-        <text x="120" y="115" text-anchor="middle" font-size="11" font-weight="700">HUMAN</text>
+        <path d="M 210 105 L 300 105" stroke="#c1440e" stroke-width="2" stroke-dasharray="5 2"/>
+        <text x="255" y="95" text-anchor="middle" font-size="10" fill="#c1440e" font-weight="700">IT SHIFT</text>
         
-        <circle cx="400" cy="110" r="45" fill="#f0f0f0" stroke="#888" stroke-width="2"/>
-        <text x="400" y="115" text-anchor="middle" font-size="11" font-weight="700">ALGORITHM</text>
-        
-        <ellipse cx="260" cy="110" rx="140" ry="75" fill="none" stroke="#c1440e" stroke-width="3" stroke-dasharray="8 4" filter="url(#shadow)"/>
-        <text x="260" y="55" text-anchor="middle" font-size="13" font-weight="900" fill="#c1440e">AI AS ORGANIZING CAPABILITY</text>
-        
-        <text x="260" y="160" text-anchor="middle" font-size="9" fill="#6b6b7b">Connective · Codependent · Emergent</text>
+        <rect x="310" y="30" width="180" height="150" rx="10" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="400" y="55" text-anchor="middle" font-size="11" font-weight="700">MARKET</text>
+        <text x="400" y="75" text-anchor="middle" font-size="9" fill="#c1440e">(Outsource / Partner)</text>
+        <text x="330" y="105" font-size="9" fill="#2a2a38">· Lower production cost</text>
+        <text x="330" y="125" font-size="9" fill="#2a2a38">· High coordination cost</text>
+        <text x="330" y="145" font-size="9" fill="#2a2a38">· Strategic dependency</text>
       </svg>
-      <figcaption>Fig. 1 — AI as a relational capability (based on Stelmaszak et al., 2026). Intelligence is not "planted" in the tech, but produced in the practice of human-algorithm interaction.</figcaption>
+      <figcaption>Fig. 1 — The Make or Buy Decision. Digitalization reduces coordination/market costs, pushing firms toward the "Market" end of the spectrum (Malone's Electronic Market Hypothesis).</figcaption>
     </figure>
-  </div>
-
-  <div class="card accent-left2 highlight-bg2">
-    <h3>Properties of AI Capability (Stelmaszak et al., 2026)</h3>
-    <ul>
-      <li><strong>Connective:</strong> AI links people, data, and processes across traditional silos.</li>
-      <li><strong>Codependent:</strong> Neither humans nor algorithms can act effectively without the other in complex tasks.</li>
-      <li><strong>Emergent:</strong> The resulting organizational intelligence is greater than the sum of its parts.</li>
-    </ul>
   </div>
 </section>
 
-<section id="uncertainty">
+<section id="risks">
   <p class="section-label">Theory 03</p>
-  <h2>Uncertainty vs. Risk</h2>
-  <p>Teece et al. (2016) distinguish between <strong>Risk</strong> (known outcomes with probabilities) and <strong>Deep Uncertainty</strong> (unknown unknowns). Strong dynamic capabilities are essential for addressing the latter.</p>
+  <h2>Transaction Risks in Digital Economies</h2>
+  <p>While digitalization reduces many costs, it introduces new risks (Medaglia, Session 8; Nagle et al., 2025). Organizations must balance efficiency against these potential downsides.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">🎲</span>
-      <h4>Risk</h4>
-      <p>Can be managed with traditional tools (insurance, hedges). Probabilities are calibrated (Teece et al., 2016).</p>
+      <span class="emoji">😈</span>
+      <h4>Opportunism</h4>
+      <p>The risk of a partner acting in their own self-interest at your expense. Highly relevant in "Small Numbers Bargaining" (limited suppliers).</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">🌫️</span>
-      <h4>Deep Uncertainty</h4>
-      <p>Ubiquitous in innovation economies. No clear probabilities. Requires <em>agility</em> and asset orchestration (Teece et al., 2016).</p>
+      <span class="emoji">💤</span>
+      <h4>Shirking</h4>
+      <p>Operation risk where the partner under-performs because their outputs are hard to monitor digitally (Medaglia, Session 8).</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">🔒</span>
+      <h4>Asset Specificity</h4>
+      <p>When an investment (data, custom API) is only valuable within one specific partnership. This leads to <strong>Lock-in</strong>.</p>
     </div>
   </div>
 </section>
 
 <section id="case">
   <p class="section-label">Case Application</p>
-  <h2>Novo Nordisk — Dynamic Agility</h2>
-  <p>Applying Session 04 concepts to the synopsis:</p>
+  <h2>Novo Nordisk — The Outsourcing Logic</h2>
+  <p>Analyzing Novo Nordisk's strategic choices through TCT:</p>
 
   <div class="card">
     <ul>
-      <li><strong>Sensing the AI Inflection:</strong> Novo's partnership with OpenAI is a clear example of <em>Sensing</em> the disruptive potential of LLMs in biotech.</li>
-      <li><strong>Asset Orchestration:</strong> By integrating OpenAI's algorithms with their own bio-data, Novo is <em>Seizing</em> the opportunity and reconfiguring its R&D competence.</li>
-      <li><strong>Agility vs. Efficiency:</strong> The 9,000 layoffs represent a painful <em>Transformation</em> — sacrificing traditional organizational efficiency (human-centric silos) to build the agility required for an AI-led future.</li>
+      <li><strong>Production vs. Transaction Costs:</strong> Building a world-class LLM internally would have prohibitive production costs for Novo. Partnering with OpenAI allows them to access <em>lower production costs</em> via a market transaction.</li>
+      <li><strong>Search Costs:</strong> Digitalization (and OpenAI's fame) reduced the <em>search costs</em> for an AI partner to near-zero.</li>
+      <li><strong>Small Numbers Risk:</strong> There are only a few players who can offer what OpenAI does. This creates a "Small Numbers" bargaining situation, increasing the risk of <em>Opportunism</em> or <em>Lock-in</em> for Novo Nordisk.</li>
     </ul>
   </div>
 </section>
@@ -339,14 +338,13 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          What are the three pillars of Dynamic Capabilities according to Teece?
+          How does TCT explain why firms exist in the first place?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li><strong>Sensing:</strong> Scanning for opportunities/threats.</li>
-            <li><strong>Seizing:</strong> Mobilizing resources to act.</li>
-            <li><strong>Transforming:</strong> Reconfiguring the organization to sustain the change.</li>
+            <li>Firms exist when the cost of coordinating through the **Market** (transaction costs) is higher than the cost of coordinating within a **Hierarchy** (internal management costs).</li>
+            <li>If markets were perfect and costless, every task would be outsourced to the lowest bidder.</li>
           </ul>
         </div>
       </details>
@@ -355,14 +353,14 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          Why does Stelmaszak et al. (2026) argue that AI is an "Organizing Capability" rather than an entity?
+          What is the "Electronic Market Hypothesis" (Malone et al., 1987)?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>Traditional views see AI as a "tool" or "autonomous agent".</li>
-            <li>Stelmaszak argues that intelligence *emerges* from the relation. Without human data, feedback, and context, the algorithm is useless. Without the algorithm, the human cannot process the scale of data.</li>
-            <li>Strategic implication: Competitive advantage is in the *quality of the relation*, not just buying the best tech.</li>
+            <li>Hypothesis that IT reduces coordination costs more than production costs.</li>
+            <li>Because market coordination is generally more efficient at producing goods, a drop in coordination costs will favor **Markets** over Hierarchies.</li>
+            <li>This leads to more outsourcing and more fluid organizational boundaries.</li>
           </ul>
         </div>
       </details>
@@ -371,14 +369,14 @@
       <details>
         <summary>
           <span class="q-badge synth">Synthesis</span>
-          How does "Deep Uncertainty" impact the "Make or Buy" decision for AI?
+          Can digitalization actually INCREASE transaction costs? Explain with an example.
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>In conditions of deep uncertainty, building internally (Make) is risky because the tech evolves so fast.</li>
-            <li>Partnering (Buy/Partner) provides <strong>Agility</strong>. It allows a firm like Novo to access cutting-edge tech (OpenAI) without being locked into a soon-to-be-obsolete internal system.</li>
-            <li>However, agility comes at a cost of potential dependency (Session 08/TCT).</li>
+            <li>Yes. Specifically **Policing/Monitoring costs**.</li>
+            <li>In complex AI partnerships, the "Black Box" nature makes it hard to verify if the partner is performing optimally (Hidden Action).</li>
+            <li>Asymmetric information in digital contracts can lead to higher monitoring costs to prevent **Shirking**.</li>
           </ul>
         </div>
       </details>
@@ -389,7 +387,7 @@
 </main>
 
 <footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
-  Based on: Teece et al. (2016) · Stelmaszak et al. (2026) · Iansiti &amp; Lakhani (2020) · IEB Session 04
+  Based on: Medaglia (Lecture) · Williamson (1986) · Malone et al. (1987) · Nagle et al. (2025) · IEB Session 08
 </footer>
 
 </body>

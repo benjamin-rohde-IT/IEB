@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 04 — Dynamic Capabilities & Digital Agility</title>
+<title>Session 09 — Algorithmic Decision-Making & Trust</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -216,117 +216,107 @@
 
 <header>
   <div class="header-inner">
-    <p class="course-tag">IEB · Session 04 · Exam Preparation</p>
-    <h1>Dynamic Capabilities &<br><span>Digital Agility</span></h1>
-    <p class="subtitle">Understanding how firms achieve new forms of competitive advantage in rapidly changing digital environments.</p>
+    <p class="course-tag">IEB · Session 09 · Exam Preparation</p>
+    <h1>Algorithmic Decision-Making<br><span>& Trust</span></h1>
+    <p class="subtitle">Exploring how organizations delegate authority to algorithms and the challenges of ensuring alignment, trust, and accountability.</p>
   </div>
 </header>
 
 <nav class="nav-pills">
-  <a href="#dynamic">Dynamic Capabilities</a>
-  <a href="#organizing">AI as Organizing Capability</a>
-  <a href="#uncertainty">Uncertainty vs. Risk</a>
+  <a href="#pa-theory">Principal-Agent Theory</a>
+  <a href="#trust">Trust Models</a>
+  <a href="#opacity">The Opacity Problem</a>
+  <a href="#internalities">Algorithmic Internalities</a>
   <a href="#case">Novo Nordisk Case</a>
   <a href="#questions">Exam Questions</a>
 </nav>
 
 <main>
 
-<section id="dynamic">
+<section id="pa-theory">
   <p class="section-label">Theory 01</p>
-  <h2>Dynamic Capabilities Framework</h2>
-  <p>Teece et al. (2016) define <strong>Dynamic Capabilities</strong> as the firm's ability to integrate, build, and reconfigure internal and external competences to address rapidly changing environments. It's the capacity to remain competitive when "inflection points" emerge.</p>
+  <h2>Principal-Agent Theory in AI</h2>
+  <p>Dowding &amp; Taylor (2024) apply the <strong>Principal-Agent (P-A)</strong> framework to understand the delegatory relationship between humans and algorithms. In this model, the Principal (the firm) delegates tasks to an Agent (the AI).</p>
 
-  <div class="concept-grid">
-    <div class="concept-card">
-      <span class="emoji">👁️</span>
-      <h4>Sensing</h4>
-      <p>Identifying and assessing opportunities (and threats) in the environment. Scanning the horizon for shifts like AI.</p>
-    </div>
-    <div class="concept-card blue">
-      <span class="emoji">⚖️</span>
-      <h4>Seizing</h4>
-      <p>Mobilizing resources to address the opportunity. Making the strategic "bet" and investing in the new path.</p>
-    </div>
-    <div class="concept-card">
-      <span class="emoji">🔄</span>
-      <h4>Transforming</h4>
-      <p>Continuous renewal and reconfiguration of assets. Changing organizational structures and culture (Teece et al., 2016).</p>
-    </div>
+  <div class="card accent-left">
+    <h3>Key Agency Problems (Dowding &amp; Taylor, 2024)</h3>
+    <ul>
+      <li><strong>Information Asymmetry:</strong> The Agent (AI) possesses complex decision logic that the Principal cannot easily verify.</li>
+      <li><strong>Misalignment:</strong> The AI might optimize for a different goal (e.g., short-term accuracy) than the Principal's long-term strategic objective.</li>
+      <li><strong>Agency Costs:</strong> The costs of monitoring the AI, creating evaluation benchmarks, and the "residual loss" from imperfect decisions.</li>
+    </ul>
   </div>
-</section>
-
-<section id="organizing">
-  <p class="section-label">Theory 02</p>
-  <h2>AI as an Organizing Capability</h2>
-  <p>Stelmaszak et al. (2026) propose an ontological shift: AI is not just an "entity" or a "tool". It is an <strong>Organizing Capability</strong> that arises from the relations between human and algorithmic actors.</p>
 
   <div class="figure-wrap">
     <figure>
-      <svg viewBox="0 0 520 220" width="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-            <feOffset dx="2" dy="2" />
-            <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
-            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
+      <svg viewBox="0 0 520 180" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="60" width="120" height="60" rx="8" fill="#f0f0f0" stroke="#ccc"/>
+        <text x="80" y="95" text-anchor="middle" font-size="11" font-weight="700">PRINCIPAL</text>
         
-        <circle cx="120" cy="110" r="45" fill="#f0f0f0" stroke="#888" stroke-width="2"/>
-        <text x="120" y="115" text-anchor="middle" font-size="11" font-weight="700">HUMAN</text>
+        <path d="M 140 80 L 360 80" stroke="#c1440e" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="250" y="75" text-anchor="middle" font-size="9" fill="#c1440e">Delegation of Decision Power</text>
         
-        <circle cx="400" cy="110" r="45" fill="#f0f0f0" stroke="#888" stroke-width="2"/>
-        <text x="400" y="115" text-anchor="middle" font-size="11" font-weight="700">ALGORITHM</text>
-        
-        <ellipse cx="260" cy="110" rx="140" ry="75" fill="none" stroke="#c1440e" stroke-width="3" stroke-dasharray="8 4" filter="url(#shadow)"/>
-        <text x="260" y="55" text-anchor="middle" font-size="13" font-weight="900" fill="#c1440e">AI AS ORGANIZING CAPABILITY</text>
-        
-        <text x="260" y="160" text-anchor="middle" font-size="9" fill="#6b6b7b">Connective · Codependent · Emergent</text>
-      </svg>
-      <figcaption>Fig. 1 — AI as a relational capability (based on Stelmaszak et al., 2026). Intelligence is not "planted" in the tech, but produced in the practice of human-algorithm interaction.</figcaption>
-    </figure>
-  </div>
+        <path d="M 360 100 L 140 100" stroke="#2563a8" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="250" y="115" text-anchor="middle" font-size="9" fill="#2563a8">Asymmetric Output/Feedback</text>
 
-  <div class="card accent-left2 highlight-bg2">
-    <h3>Properties of AI Capability (Stelmaszak et al., 2026)</h3>
-    <ul>
-      <li><strong>Connective:</strong> AI links people, data, and processes across traditional silos.</li>
-      <li><strong>Codependent:</strong> Neither humans nor algorithms can act effectively without the other in complex tasks.</li>
-      <li><strong>Emergent:</strong> The resulting organizational intelligence is greater than the sum of its parts.</li>
-    </ul>
+        <rect x="380" y="60" width="120" height="60" rx="8" fill="#fff3ec" stroke="#c1440e"/>
+        <text x="440" y="95" text-anchor="middle" font-size="11" font-weight="700">ALGORITHMIC AGENT</text>
+      </svg>
+      <figcaption>Fig. 1 — The P-A Relationship in AI. The "Black Box" nature of algorithms creates a severe information asymmetry that humans must manage through monitoring (Dowding &amp; Taylor, 2024).</figcaption>
+    </figure>
   </div>
 </section>
 
-<section id="uncertainty">
-  <p class="section-label">Theory 03</p>
-  <h2>Uncertainty vs. Risk</h2>
-  <p>Teece et al. (2016) distinguish between <strong>Risk</strong> (known outcomes with probabilities) and <strong>Deep Uncertainty</strong> (unknown unknowns). Strong dynamic capabilities are essential for addressing the latter.</p>
+<section id="trust">
+  <p class="section-label">Theory 02</p>
+  <h2>Trust in Algorithmic Systems</h2>
+  <p>Trust is a prerequisite for delegation. Session 09 Course Materials differentiate between different bases of trust when dealing with opaque algorithmic systems.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
-      <span class="emoji">🎲</span>
-      <h4>Risk</h4>
-      <p>Can be managed with traditional tools (insurance, hedges). Probabilities are calibrated (Teece et al., 2016).</p>
+      <span class="emoji">🛡️</span>
+      <h4>Institution-Based Trust</h4>
+      <p>Trusting the system because it's governed by regulations, audits, and professional standards (Dowding &amp; Taylor, 2024).</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">🌫️</span>
-      <h4>Deep Uncertainty</h4>
-      <p>Ubiquitous in innovation economies. No clear probabilities. Requires <em>agility</em> and asset orchestration (Teece et al., 2016).</p>
+      <span class="emoji">🔬</span>
+      <h4>Explainability (XAI)</h4>
+      <p>The technical ability to make the "Black Box" transparent. If we understand the *why*, we can trust the *what*.</p>
     </div>
+    <div class="concept-card">
+      <span class="emoji">🤝</span>
+      <h4>Relational Trust</h4>
+      <p>Trust built over time through consistent, reliable performance of the algorithm in practice.</p>
+    </div>
+  </div>
+</section>
+
+<section id="internalities">
+  <p class="section-label">Theory 03</p>
+  <h2>Algorithmic Internalities</h2>
+  <p>Dowding &amp; Taylor (2024) introduce <strong>Algorithmic Internalities</strong>: the harms or suboptimal outcomes borne by the <em>users/principals themselves</em> due to their choice of algorithm.</p>
+
+  <div class="card accent-left2 highlight-bg2">
+    <h3>Internalities vs. Externalities</h3>
+    <p>While society worries about bias (Externalities), the firm worries about <strong>Internalities</strong>:</p>
+    <ul>
+      <li><strong>Loss of Human Capability:</strong> De-skilling of workers who become over-reliant on AI.</li>
+      <li><strong>Strategic Narrowing:</strong> The algorithm might optimize for past patterns, missing radical future innovations.</li>
+      <li><strong>Financial Loss:</strong> Bad predictions leading to failed R&D or poor resource allocation.</li>
+    </ul>
   </div>
 </section>
 
 <section id="case">
   <p class="section-label">Case Application</p>
-  <h2>Novo Nordisk — Dynamic Agility</h2>
-  <p>Applying Session 04 concepts to the synopsis:</p>
+  <h2>Novo Nordisk — Governing the Agent</h2>
+  <p>Applying Session 09 logic to the OpenAI partnership:</p>
 
   <div class="card">
     <ul>
-      <li><strong>Sensing the AI Inflection:</strong> Novo's partnership with OpenAI is a clear example of <em>Sensing</em> the disruptive potential of LLMs in biotech.</li>
-      <li><strong>Asset Orchestration:</strong> By integrating OpenAI's algorithms with their own bio-data, Novo is <em>Seizing</em> the opportunity and reconfiguring its R&D competence.</li>
-      <li><strong>Agility vs. Efficiency:</strong> The 9,000 layoffs represent a painful <em>Transformation</em> — sacrificing traditional organizational efficiency (human-centric silos) to build the agility required for an AI-led future.</li>
+      <li><strong>Agency Costs at Novo:</strong> The cost isn't just the OpenAI subscription. It's the cost of Novo's scientists <em>verifying</em> every lead the AI generates. If they don't verify, the <em>Agency Risk</em> (bad drug leads) is too high.</li>
+      <li><strong>Institutional Trust:</strong> Novo must rely on <em>Institutional Trust</em>. They need clear governance frameworks for how clinical data is used and how AI results are validated against biological ground truth.</li>
+      <li><strong>Black Box Risk:</strong> In pharmaceutical research, a "Black Box" prediction isn't enough for the FDA. Novo needs <em>Explainability</em> to transform AI-output into scientific knowledge.</li>
     </ul>
   </div>
 </section>
@@ -339,14 +329,14 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          What are the three pillars of Dynamic Capabilities according to Teece?
+          Why is the Principal-Agent framework useful for studying AI in organizations?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li><strong>Sensing:</strong> Scanning for opportunities/threats.</li>
-            <li><strong>Seizing:</strong> Mobilizing resources to act.</li>
-            <li><strong>Transforming:</strong> Reconfiguring the organization to sustain the change.</li>
+            <li>It highlights that AI is not just a tool, but a **delegation of authority**.</li>
+            <li>It forces us to look at **Information Asymmetry**: the firm doesn't know *how* the AI makes a choice, creating room for misalignment and errors.</li>
+            <li>It helps quantify the **Agency Costs** of governing AI (monitoring, auditing).</li>
           </ul>
         </div>
       </details>
@@ -354,15 +344,14 @@
     <li class="q-item">
       <details>
         <summary>
-          <span class="q-badge core">Core</span>
-          Why does Stelmaszak et al. (2026) argue that AI is an "Organizing Capability" rather than an entity?
+          <span class="q-badge apply">Apply</span>
+          What is "Institution-Based Trust" and why is it relevant for Novo Nordisk?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>Traditional views see AI as a "tool" or "autonomous agent".</li>
-            <li>Stelmaszak argues that intelligence *emerges* from the relation. Without human data, feedback, and context, the algorithm is useless. Without the algorithm, the human cannot process the scale of data.</li>
-            <li>Strategic implication: Competitive advantage is in the *quality of the relation*, not just buying the best tech.</li>
+            <li>It's trust based on the "rules of the game" (regulations, external audits).</li>
+            <li>Relevant because Novo cannot monitor OpenAI's trillions of parameters directly. They must trust that the <em>institution</em> of the partnership (contracts, data privacy laws) will protect them.</li>
           </ul>
         </div>
       </details>
@@ -371,14 +360,14 @@
       <details>
         <summary>
           <span class="q-badge synth">Synthesis</span>
-          How does "Deep Uncertainty" impact the "Make or Buy" decision for AI?
+          Can a firm ever fully eliminate Agency Costs when using AI?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>In conditions of deep uncertainty, building internally (Make) is risky because the tech evolves so fast.</li>
-            <li>Partnering (Buy/Partner) provides <strong>Agility</strong>. It allows a firm like Novo to access cutting-edge tech (OpenAI) without being locked into a soon-to-be-obsolete internal system.</li>
-            <li>However, agility comes at a cost of potential dependency (Session 08/TCT).</li>
+            <li>No. There is always a **Residual Loss**.</li>
+            <li>You can increase monitoring (which costs money) or accept more risk (which can cost money).</li>
+            <li>The goal is to find the **optimal point** where the marginal cost of monitoring equals the marginal benefit of reduced error.</li>
           </ul>
         </div>
       </details>
@@ -389,7 +378,7 @@
 </main>
 
 <footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
-  Based on: Teece et al. (2016) · Stelmaszak et al. (2026) · Iansiti &amp; Lakhani (2020) · IEB Session 04
+  Based on: Dowding &amp; Taylor (2024) · Session 09 Slides · IEB Session 09 Course Materials
 </footer>
 
 </body>

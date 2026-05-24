@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theory Guide — MSc BAIS Exam Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0f;
+    --surface: #161618;
+    --surface2: #1e1e21;
+    --border: #2a2a2e;
+    --accent: #e8c547;
+    --accent2: #5b9cf6;
+    --accent3: #e05c5c;
+    --text: #d8d8d6;
+    --muted: #7a7a78;
+    --heading: #f0ede6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(14,14,15,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 54px;
+  }
+
+  .topbar-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .topbar a.dashboard-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 5px 14px;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .topbar a.dashboard-link:hover {
+    background: var(--accent);
+    color: #0e0e0f;
+  }
+
+  /* LAYOUT */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+    padding-top: 54px;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: fixed;
+    top: 54px;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 2rem 0 4rem;
+  }
+
+  .sidebar-section {
+    padding: 0.25rem 0 1.25rem;
+  }
+
+  .sidebar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar a {
+    display: block;
+    padding: 0.35rem 1.5rem;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .sidebar a:hover {
+    color: var(--text);
+    border-left-color: var(--accent2);
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    margin-left: 240px;
+    padding: 3.5rem 4rem 6rem;
+    max-width: 900px;
+  }
+
+  /* HERO */
+  .hero {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.8;
+  }
+
+  /* SECTION HEADERS */
+  .section {
+    margin-bottom: 4rem;
+  }
+
+  .section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .section > h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    color: var(--heading);
+    margin-bottom: 0.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.75rem;
+  }
+
+  .source-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+    margin-top: 0.35rem;
+  }
+  .badge-blue { background: rgba(91,156,246,0.12); color: var(--accent2); border: 1px solid rgba(91,156,246,0.25); }
+  .badge-yellow { background: rgba(232,197,71,0.10); color: var(--accent); border: 1px solid rgba(232,197,71,0.22); }
+  .badge-red { background: rgba(224,92,92,0.10); color: var(--accent3); border: 1px solid rgba(224,92,92,0.22); }
+  .badge-green { background: rgba(72,187,120,0.10); color: #48bb78; border: 1px solid rgba(72,187,120,0.22); }
+
+  /* CONCEPT CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0 2rem;
+  }
+
+  .card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+  }
+  .card.blue::before { background: var(--accent2); }
+  .card.yellow::before { background: var(--accent); }
+  .card.red::before { background: var(--accent3); }
+  .card.green::before { background: #48bb78; }
+
+  .card h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--heading);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* THEORY BLOCKS */
+  .theory-block {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    margin: 1.25rem 0;
+  }
+
+  .theory-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--heading);
+    margin-bottom: 0.75rem;
+  }
+
+  .theory-block p {
+    font-size: 14px;
+    margin-bottom: 0.75rem;
+    line-height: 1.75;
+  }
+
+  .theory-block ul {
+    padding-left: 1.25rem;
+    font-size: 14px;
+  }
+
+  .theory-block li {
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+
+  /* HIGHLIGHT QUOTE */
+  .pullquote {
+    border-left: 3px solid var(--accent);
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--heading);
+    background: rgba(232,197,71,0.04);
+  }
+
+  /* EXAM QUESTIONS */
+  .exam-question {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 0.85rem 0;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .exam-question:hover {
+    border-color: var(--accent2);
+  }
+
+  .exam-question .q-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .exam-question p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .exam-question .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border);
+    display: none;
+  }
+
+  .exam-question.open .hint {
+    display: block;
+  }
+
+  .hint-toggle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    cursor: pointer;
+    margin-top: 0.5rem;
+    display: inline-block;
+    letter-spacing: 0.08em;
+  }
+
+  /* MATRIX TABLE */
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 13px;
+  }
+
+  .matrix-table th {
+    background: var(--surface2);
+    color: var(--heading);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .matrix-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .matrix-table tr:hover td {
+    background: var(--surface2);
+  }
+
+  /* LINK CONNECTIONS */
+  .connection-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin: 0.75rem 0;
+    font-size: 13.5px;
+  }
+
+  .connection-line .arrow {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  strong { color: var(--heading); font-weight: 500; }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .main { margin-left: 0; padding: 2rem 1.5rem 4rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="topbar-title">MSc BAIS · Exam Theory Guide</span>
+  <a href="index.html" class="dashboard-link">← Dashboard</a>
+</div>
+
+<!-- SIDEBAR -->
+<div class="layout">
+<nav class="sidebar">
+  <div class="sidebar-section">
+    <div class="sidebar-label">Theories</div>
+    <a href="#sharing-economy">Sharing Economy Models</a>
+    <a href="#ai-firm">Rethinking the Firm</a>
+    <a href="#algorithmic-labor">Algorithmic Labor</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Concepts</div>
+    <a href="#boundary-fluidity">Boundary Fluidity</a>
+    <a href="#operating-model">Operating Model</a>
+    <a href="#information-asymmetry">Info Asymmetry</a>
+    <a href="#algorithmic-mgmt">Algorithmic Mgmt</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Your Synopsis</div>
+    <a href="#synopsis-link">Novo Nordisk Case</a>
+    <a href="#ai-factory">AI Factory</a>
+    <a href="#exam-questions">Exam Questions</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">Exam Preparation · Spring 2026</div>
+    <h1>Theory &amp; Concept<br>Reference Guide</h1>
+    <p>A structured overview of the frameworks, models, and arguments from your four course readings — and how they connect to your synopsis on Novo Nordisk and OpenAI.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ARTICLE 1: FOUR SHARING ECONOMY MODELS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section" id="sharing-economy">
+    <div class="section-tag">Article 1 · Constantiou, Marton &amp; Tuunainen (2017)</div>
+    <h2>Four Models of Sharing Economy Platforms</h2>
+    <span class="source-badge badge-blue">MIS Quarterly Executive</span>
+
+    <p>This article provides a 2×2 typology of sharing economy platforms, classified along two dimensions: <strong>level of control</strong> the platform exerts over participants, and <strong>intensity of rivalry</strong> it fosters among supply-side participants.</p>
+
+    <div class="pullquote">
+      "Sharing economy platforms are not actually revolutionary. They are innovative only in that they use old mechanisms in new and 'platformed' ways."
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif; color:var(--heading); margin:1.5rem 0 0.75rem; font-size:1.1rem;">The 2×2 Framework</h3>
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Control</th>
+          <th>Rivalry</th>
+          <th>Example</th>
+          <th>Value Prop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Franchiser</strong></td>
+          <td>Tight</td>
+          <td>High</td>
+          <td>Uber</td>
+          <td>Low cost &amp; efficiency</td>
+        </tr>
+        <tr>
+          <td><strong>Chaperone</strong></td>
+          <td>Loose</td>
+          <td>High</td>
+          <td>Airbnb</td>
+          <td>Service differentiation</td>
+        </tr>
+        <tr>
+          <td><strong>Principal</strong></td>
+          <td>Tight</td>
+          <td>Low</td>
+          <td>Handy</td>
+          <td>Low cost &amp; risk mitigation</td>
+        </tr>
+        <tr>
+          <td><strong>Gardener</strong></td>
+          <td>Loose</td>
+          <td>Low</td>
+          <td>Couchsurfing</td>
+          <td>Community &amp; self-organisation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card-grid">
+      <div class="card blue">
+        <h3>Organizational Coordination Mechanisms</h3>
+        <p>Mintzberg's six mechanisms: mutual adjustment, direct supervision, standardization of work processes, outputs, skills, and norms. Platforms apply these beyond traditional firm boundaries.</p>
+      </div>
+      <div class="card yellow">
+        <h3>Market Coordination Mechanism</h3>
+        <p>The price system — either dynamic (supply/demand-based) producing high rivalry, or cost-compensatory (stable) producing low rivalry. This drives the rivalry dimension.</p>
+      </div>
+      <div class="card red">
+        <h3>Boundary Fluidity</h3>
+        <p>The strategic asset enabling platforms to coordinate outside formal organizations. Dissolves distinctions between employee/contractor, producer/consumer, and insourcing/outsourcing.</p>
+      </div>
+      <div class="card green">
+        <h3>Multi-Sided Platforms (MSPs)</h3>
+        <p>Platforms serving two or more distinct user groups where each side creates value for the other. Network effects are central: more users on one side attracts more on the other.</p>
+      </div>
+    </div>
+
+    <div class="theory-block" id="boundary-fluidity">
+      <h3>Key Concept: Boundary Fluidity</h3>
+      <p>Traditional organizational boundaries were rigid — strictly separating employees from contractors, insourcing from outsourcing, products from services. Digital platforms exploit the <em>loosening</em> of these distinctions. This fluidity is what allows Uber to treat drivers like quasi-employees (via standardization of outputs) while classifying them legally as independent contractors.</p>
+      <p><strong>Five Lessons for Incumbents:</strong></p>
+      <ul>
+        <li>Understand the strategic intent of sharing economy competitors</li>
+        <li>Complement product portfolios with services (servitization)</li>
+        <li>Access new modes of innovating via open platforms</li>
+        <li>Engage consumers in value creation</li>
+        <li>Ensure strategic fit by optimizing coordination mechanisms</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ARTICLE 2: RETHINKING THE FIRM -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section" id="ai-firm">
+    <div class="section-tag">Article 2 · Iansiti &amp; Lakhani (2021)</div>
+    <h2>Rethinking the Firm: The Digital Operating Model</h2>
+    <span class="source-badge badge-yellow">Competing in the Age of AI — Chapter 2</span>
+
+    <p>This chapter argues that digital firms (Ant Financial, Ocado, Peloton) represent a fundamentally new template for value creation and delivery — one where software, data, and AI replace labor as the primary operational bottleneck, enabling near-zero marginal cost scaling.</p>
+
+    <div class="theory-block" id="operating-model">
+      <h3>Business Model vs. Operating Model</h3>
+      <p><strong>Business Model</strong> = How a firm creates and captures value (the theory / strategy).<br>
+      <strong>Operating Model</strong> = How a firm delivers that value (the practice / execution).</p>
+      <p>The value of a firm is constrained by its operating model. Traditional firms hit bottlenecks at scale, scope, and learning — the three operating challenges. Digital firms remove these bottlenecks by replacing human labor on the critical path with software and algorithms.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card yellow">
+        <h3>Scale</h3>
+        <p>Delivering value to as many customers as possible at lowest cost. Digital operating models achieve near-zero marginal cost per additional user — the critical advantage over traditional firms.</p>
+      </div>
+      <div class="card blue">
+        <h3>Scope</h3>
+        <p>The range of activities and services a firm offers. AI platforms achieve economies of scope by repurposing data across multiple product lines simultaneously (e.g., Ant Financial → payments → loans → insurance).</p>
+      </div>
+      <div class="card green">
+        <h3>Learning</h3>
+        <p>Continuous improvement through data feedback loops. AI systems improve with every interaction, enabling constant innovation without proportional increases in headcount.</p>
+      </div>
+      <div class="card red">
+        <h3>Removing the Human Bottleneck</h3>
+        <p>When algorithms replace labor on the critical path, the firm decouples growth from headcount. Ant Financial's 3-1-0 loan system: 3-minute application, 1-second approval, zero human interaction.</p>
+      </div>
+    </div>
+
+    <div class="theory-block">
+      <h3>The Three Case Examples</h3>
+      <ul>
+        <li><strong>Ant Financial:</strong> AI-driven financial services at massive scale. Data platform aggregates behavioral data across billions of transactions to power fraud detection, credit scoring, and loan qualification. Demonstrates extreme scale and scope.</li>
+        <li><strong>Ocado:</strong> Online grocery delivery using AI, robotics, and algorithmic routing. Demonstrates how AI can remove human bottlenecks from a physically intensive business. Their algorithm runs thousands of routing calculations per second.</li>
+        <li><strong>Peloton:</strong> Combines physical hardware with digital content and community networks. Demonstrates scope expansion and learning through data — fitness classes → nutrition → health services.</li>
+      </ul>
+    </div>
+
+    <div class="pullquote">
+      "In a digital operating model, the employees do not deliver the product or service; instead, they design and oversee a software-automated, algorithm-driven digital 'organization' that actually delivers the goods."
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ARTICLE 3: ALGORITHMIC LABOR -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section" id="algorithmic-labor">
+    <div class="section-tag">Article 3 · Rosenblat &amp; Stark (2016)</div>
+    <h2>Algorithmic Labor &amp; Information Asymmetries</h2>
+    <span class="source-badge badge-red">International Journal of Communication</span>
+
+    <p>Through a nine-month empirical study of Uber drivers, this paper reveals how algorithmic management, combined with systematic information asymmetries, creates structures of soft control over workers — while the platform publicly frames the relationship as one of entrepreneurship and freedom.</p>
+
+    <div class="theory-block" id="information-asymmetry">
+      <h3>Information Asymmetry as Power</h3>
+      <p>Uber holds far more information than its drivers — about surge pricing accuracy, fare calculations, deactivation thresholds, and hourly guarantee eligibility criteria. Drivers receive selective, often opaque data through the app. This asymmetry is structural and intentional: it enables Uber to coordinate worker behavior without assuming the legal obligations of an employer.</p>
+      <p>Key manifestations:</p>
+      <ul>
+        <li><strong>Blind passenger acceptance:</strong> Drivers accept rides before seeing destination or fare, taking on financial risk without information.</li>
+        <li><strong>Surge pricing opacity:</strong> Drivers cannot distinguish between real-time demand signals and predictive (often inaccurate) demand forecasts.</li>
+        <li><strong>Unilateral rate changes:</strong> Uber changes fares and commissions without driver negotiation or consent.</li>
+      </ul>
+    </div>
+
+    <div class="theory-block" id="algorithmic-mgmt">
+      <h3>Algorithmic Management</h3>
+      <p>The term coined by Lee et al. (2015) and extended here: management functions are automated and delegated to software systems rather than human managers. This includes:</p>
+      <ul>
+        <li><strong>Nudging:</strong> Push notifications citing "high demand" to prevent drivers logging off — framed as information, functioning as instruction.</li>
+        <li><strong>Rating systems:</strong> Passengers act as de facto middle managers, with their ratings directly affecting driver deactivation eligibility. Drivers need 4.6/5 to remain active.</li>
+        <li><strong>Gamification:</strong> Surge pricing maps create lottery-like emotional engagement, driving continued platform participation.</li>
+        <li><strong>Performance metrics:</strong> Weekly reports comparing individual drivers to "top drivers" on acceptance rate, hours online, fares/hour.</li>
+      </ul>
+    </div>
+
+    <div class="card-grid">
+      <div class="card red">
+        <h3>Soft Control</h3>
+        <p>Indirect behavioral shaping through design choices, information filtering, and algorithmic nudges — without formal managerial directives. Workers feel they have freedom but operate within highly constrained choice architectures.</p>
+      </div>
+      <div class="card blue">
+        <h3>Emotional Labor</h3>
+        <p>Drivers suppress their own emotional responses to perform hospitality for passengers in exchange for high ratings — substituting for tips that Uber's design discourages. Service work managed through peer surveillance.</p>
+      </div>
+      <div class="card yellow">
+        <h3>The Entrepreneurship Rhetoric</h3>
+        <p>Uber frames drivers as "entrepreneur-partners" with "freedom and flexibility." Rosenblat & Stark show this rhetoric obscures a managed workforce, deflecting regulatory scrutiny and employment law obligations.</p>
+      </div>
+      <div class="card green">
+        <h3>Platform Disintermediation</h3>
+        <p>The platform replaces traditional middle management with automated systems, while displacing accountability from the firm to individual workers. Workers bear risk but lack negotiating power.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SYNOPSIS CONNECTIONS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section" id="synopsis-link">
+    <div class="section-tag">Your Exam Synopsis</div>
+    <h2>Connecting Theories to Novo Nordisk × OpenAI</h2>
+    <span class="source-badge badge-green">Benjamin Rohde · MSc BAIS · May 2026</span>
+
+    <p>Your synopsis analyzes the April 2026 partnership between Novo Nordisk and OpenAI through multiple theoretical lenses. Here is how each reading maps onto your argument:</p>
+
+    <div class="connection-line" id="ai-factory">
+      <span class="arrow">→</span>
+      <div>
+        <strong>Iansiti &amp; Lakhani → AI Factory &amp; Operating Model Transformation</strong><br>
+        Your synopsis directly applies the AI factory concept (data pipeline, algorithm development, experimentation platform, software infrastructure) to Novo Nordisk's drug discovery process. The 3-1-0 MYbank analogy connects to your argument about removing the human bottleneck from clinical trial analysis and manufacturing. The five principles for becoming an AI company (strategic clarity, architectural clarity, agile organization, capability foundations, governance) provide your roadmap section.
+      </div>
+    </div>
+
+    <div class="connection-line">
+      <span class="arrow">→</span>
+      <div>
+        <strong>Constantiou et al. → Boundary Fluidity in Pharma</strong><br>
+        Your synopsis notes the dissolution of the R&D/IT silo. This is a direct application of boundary fluidity — when technology becomes integral to the product (drug discovery algorithms), the traditional organizational boundary between R&D and IT collapses. Novo Nordisk must now co-design processes across these formerly separate functions.
+      </div>
+    </div>
+
+    <div class="connection-line">
+      <span class="arrow">→</span>
+      <div>
+        <strong>Rosenblat &amp; Stark → Power Asymmetries &amp; Governance Risk</strong><br>
+        Your ethical considerations section (algorithmic bias, data security, accountability) echoes the power and information asymmetry concerns in Rosenblat &amp; Stark — but in a different context. Here, the asymmetry is between Novo Nordisk and OpenAI (asset specificity, switching costs, data sovereignty) and between the AI system and patient populations who may be underrepresented in training data.
+      </div>
+    </div>
+
+    <div class="connection-line">
+      <span class="arrow">→</span>
+      <div>
+        <strong>Stelmaszak et al. (2026) → AI as Organizing Capability</strong><br>
+        Your section on connectivity, codependence, and emergence applies directly. The OpenAI upskilling initiative reflects codependence — the AI's value is contingent on the workforce's ability to engage with it. Emergence acknowledges that AI may surface unexpected therapeutic patterns or supply chain insights that human analysts would never find.
+      </div>
+    </div>
+
+    <div class="connection-line">
+      <span class="arrow">→</span>
+      <div>
+        <strong>Gavetti &amp; Rivkin → Evolutionary vs. Positioning Strategy</strong><br>
+        Your analysis correctly identifies the dual nature of the partnership: it is primarily evolutionary (doing existing processes faster and cheaper) but has latent positioning potential. If Novo Nordisk achieves genuinely faster drug-to-patient timelines, competitors relying on traditional research pipelines cannot match this — constituting a different competitive activity, not merely better execution.
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- EXAM QUESTIONS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section" id="exam-questions">
+    <div class="section-tag">Exam Preparation</div>
+    <h2>Likely Exam Questions</h2>
+
+    <p style="margin-bottom:1.5rem; color:var(--muted);">Click any question to reveal a hint on which theories to draw from and how to structure your answer.</p>
+
+    <div class="exam-question" onclick="this.classList.toggle('open')">
+      <div class="q-label">Sharing Economy · Theory Application</div>
+      <p>Using Constantiou et al.'s four models, classify Uber as a platform. How does its specific combination of coordination mechanisms enable its competitive advantage, and what ethical tensions does this create?</p>
+      <div class="hint">
+        <strong>Draw on:</strong> Franchiser model (tight control + high rivalry), standardization of outputs as primary mechanism, dynamic pricing as market mechanism. Connect to Rosenblat &amp; Stark for the ethical layer — boundary fluidity allows Uber to claim driver independence while exerting quasi-employment control. Structure: Define the model → explain each dimension → link to value proposition → introduce tension via information asymmetry.
+      </div>
+      <span class="hint-toggle">▾ Show hint</span>
+    </div>
+
+    <div class="exam-question" onclick="this.classList.toggle('open')">
+      <div class="q-label">Digital Firm · Operating Model</div>
+      <p>Iansiti &amp; Lakhani argue that digital firms remove the "human bottleneck" from value delivery. What does this mean, and what are the implications for traditional firms in established industries?</p>
+      <div class="hint">
+        <strong>Draw on:</strong> Scale, scope, and learning dimensions of the operating model. The marginal cost argument (near-zero cost to serve additional users). Ant Financial's 3-1-0 system as an extreme example. Use Ocado as an example of a "physical" industry being digitized. Implications: workforce restructuring, new governance needs, competitive pressure on incumbents who cannot achieve same scalability.
+      </div>
+      <span class="hint-toggle">▾ Show hint</span>
+    </div>
+
+    <div class="exam-question" onclick="this.classList.toggle('open')">
+      <div class="q-label">Algorithmic Labor · Power Dynamics</div>
+      <p>Rosenblat &amp; Stark describe Uber's management of drivers as exhibiting "soft control." What mechanisms produce this, and why is the concept of information asymmetry central to understanding gig economy labor relations?</p>
+      <div class="hint">
+        <strong>Draw on:</strong> The specific mechanisms — blind passenger acceptance, surge pricing opacity, rating systems as delegated managerial surveillance, nudging via push notifications. Define soft control (Boltanski &amp; Chiapello). Information asymmetry: Uber holds data that drivers need to make informed decisions, but withholds or obscures it. Connect to the entrepreneurship rhetoric as ideological cover.
+      </div>
+      <span class="hint-toggle">▾ Show hint</span>
+    </div>
+
+    <div class="exam-question" onclick="this.classList.toggle('open')">
+      <div class="q-label">Synopsis · Integration Question</div>
+      <p>Apply the concept of the "AI factory" to Novo Nordisk's partnership with OpenAI. What are the strategic opportunities and what risks does your analysis identify?</p>
+      <div class="hint">
+        <strong>Draw on:</strong> Iansiti &amp; Lakhani's four components of the AI factory. Your case: data pipeline (clinical trials, genomics, manufacturing metrics), algorithm development, experimentation platform, software infrastructure. Opportunities: scalability of drug discovery, removing human bottlenecks from routine analysis. Risks from your synopsis: algorithmic bias in underrepresented patient populations, data sovereignty with a third-party AI provider, asset specificity creating dependency on OpenAI.
+      </div>
+      <span class="hint-toggle">▾ Show hint</span>
+    </div>
+
+    <div class="exam-question" onclick="this.classList.toggle('open')">
+      <div class="q-label">Strategic Management · Comparative</div>
+      <p>Both Uber and Novo Nordisk use algorithmic systems to coordinate work. Using the course readings, compare how algorithms shape the relationship between the firm and its workers/partners differently in each case.</p>
+      <div class="hint">
+        <strong>Draw on:</strong> Rosenblat &amp; Stark for Uber — algorithmic management of a precarious, disaggregated workforce using information asymmetry. Iansiti &amp; Lakhani for Novo Nordisk — algorithms on the critical path of product delivery, with humans moving into design and oversight roles. Key difference: in Uber, workers are kept in the dark to maintain soft control; in Novo Nordisk's envisioned model, upskilling means workers must understand and collaborate with AI (Stelmaszak's codependence). Also bring in boundary fluidity — both involve dissolving traditional organizational distinctions.
+      </div>
+      <span class="hint-toggle">▾ Show hint</span>
+    </div>
+
+    <div class="exam-question" onclick="this.classList.toggle('open')">
+      <div class="q-label">Platform Economics · Network Effects</div>
+      <p>What is the role of network effects in sharing economy platforms? How do direct and indirect network effects differ, and why are they strategically central to platforms like Airbnb and Uber?</p>
+      <div class="hint">
+        <strong>Draw on:</strong> The MSP (multi-sided platform) section from Constantiou et al. Direct network effects: same-side (more drivers → more value for drivers competing for riders). Indirect/cross-side: more drivers → more value for passengers, more passengers → more value for drivers. The self-reinforcing loop. Connect to competitive moats — once a platform achieves critical mass, the network effects create enormous switching costs. Link also to Iansiti &amp; Lakhani's N*E*M formula (users × engagement × monetization).
+      </div>
+      <span class="hint-toggle">▾ Show hint</span>
+    </div>
+
+    <div class="exam-question" onclick="this.classList.toggle('open')">
+      <div class="q-label">Ethics &amp; Governance</div>
+      <p>What ethical challenges arise when algorithms are used to manage human labor or influence clinical decisions? How should organizations govern these systems?</p>
+      <div class="hint">
+        <strong>Draw on:</strong> Rosenblat &amp; Stark for labor: power asymmetry, lack of accountability, emotional labor externalization, deactivation without due process. Your synopsis for clinical: algorithmic bias from unrepresentative training data, data security with third-party providers, accountability when AI de-prioritizes a drug compound that would have succeeded. Governance responses: transparency in algorithmic decision-making, worker/patient representation in system design, regulatory frameworks, multidisciplinary oversight.
+      </div>
+      <span class="hint-toggle">▾ Show hint</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div style="margin-top:4rem; padding-top:1.5rem; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); display:flex; justify-content:space-between;">
+    <span>MSc Business Administration &amp; Information Systems</span>
+    <span>Copenhagen Business School · 2026</span>
+  </div>
+
+</main>
+</div>
+
+<script>
+  // Smooth scroll + active sidebar
+  const links = document.querySelectorAll('.sidebar a');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      links.forEach(l => l.style.borderLeftColor = 'transparent');
+      this.style.borderLeftColor = 'var(--accent)';
+    });
+  });
+
+  // Hint toggle text update
+  document.querySelectorAll('.exam-question').forEach(q => {
+    q.addEventListener('click', function() {
+      const toggle = this.querySelector('.hint-toggle');
+      if (toggle) {
+        toggle.textContent = this.classList.contains('open') ? '▴ Hide hint' : '▾ Show hint';
+      }
+    });
+  });
+</script>
+</body>
+</html>

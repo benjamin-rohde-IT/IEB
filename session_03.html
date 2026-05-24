@@ -1,311 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IEB Session 3 — Pricing & Revenue Models</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 03 — Digital Products & Network Effects</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e17;
+    --paper: #faf9f6;
+    --accent: #c1440e;
+    --accent2: #2563a8;
+    --muted: #6b6b7b;
+    --border: #e2ddd6;
+    --card-bg: #ffffff;
+    --highlight: #fff3ec;
+    --highlight2: #ecf2ff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border: 80px solid rgba(193,68,14,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .header-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .course-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  header h1 span { color: var(--accent); }
+  header p.subtitle {
+    font-size: 1rem;
+    color: rgba(250,249,246,0.65);
+    max-width: 540px;
+  }
+
+  .nav-pills {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-pills a {
+    font-size: 0.8rem; font-weight: 500;
+    text-decoration: none;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all 0.18s;
+  }
+  .nav-pills a:hover { border-color: var(--accent); color: var(--accent); background: var(--highlight); }
+
+  main { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+
+  section { margin-bottom: 3.5rem; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  p { margin-bottom: 0.9rem; color: #2a2a38; }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .card.accent-left { border-left: 4px solid var(--accent); }
+  .card.accent-left2 { border-left: 4px solid var(--accent2); }
+  .card.highlight-bg { background: var(--highlight); }
+  .card.highlight-bg2 { background: var(--highlight2); }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .concept-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    border-top: 3px solid var(--accent);
+  }
+  .concept-card.blue { border-top-color: var(--accent2); }
+  .concept-card .emoji { font-size: 1.6rem; margin-bottom: 0.5rem; display: block; }
+  .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+  .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+  .figure-wrap {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.25rem 0;
+    overflow-x: auto;
+  }
+  .figure-wrap figcaption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+  svg text { font-family: 'DM Sans', sans-serif; }
+
+  .q-list { list-style: none; }
+  .q-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+  .q-item summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    font-weight: 500;
+    font-size: 0.95rem;
+    list-style: none;
+    user-select: none;
+  }
+  .q-item summary::-webkit-details-marker { display: none; }
+  .q-item summary:hover { background: var(--highlight); }
+  .q-badge {
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .q-badge.core { background: #ffece4; color: var(--accent); }
+  .q-badge.apply { background: var(--highlight2); color: var(--accent2); }
+  .q-badge.synth { background: #e9f5e9; color: #256325; }
+  .q-chevron {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 0.75rem; color: var(--muted);
+    transition: transform 0.2s;
+  }
+  details[open] .q-chevron { transform: rotate(90deg); }
+  .q-answer {
+    padding: 0 1.25rem 1.1rem 1.25rem;
+    font-size: 0.88rem;
+    color: #2a2a38;
+    border-top: 1px solid var(--border);
+  }
+  .q-answer ul { margin: 0.5rem 0 0 1rem; }
+  .q-answer ul li { margin-bottom: 0.35rem; }
+  .q-answer strong { color: var(--ink); }
+
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 0;
+  }
+  .compare-table th {
+    background: var(--ink); color: var(--paper);
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .compare-table td {
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  section { animation: fadeUp 0.45s ease both; }
+</style>
 </head>
-<body class="bg-slate-100 text-slate-900 min-h-screen">
+<body>
 
-  <div class="max-w-7xl mx-auto p-8 space-y-8">
-
-    <div class="bg-gradient-to-r from-amber-700 to-slate-900 text-white rounded-3xl shadow-2xl p-10 relative">
-      <a href="./index.html" class="absolute top-6 right-6 inline-flex items-center justify-center rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20">
-        Back to Dashboard
-      </a>
-      <div class="flex justify-between items-start flex-wrap gap-4">
-        <div>
-          <p class="uppercase tracking-widest text-amber-200 font-semibold mb-3">
-            Information Economics & Business
-          </p>
-
-          <h1 class="text-6xl font-black mb-4 leading-tight">
-            Session 3:<br>
-            Pricing & Revenue Models
-          </h1>
-
-          <p class="text-xl max-w-4xl text-slate-200 leading-relaxed">
-            Understanding how digital firms monetize products and services through pricing strategies,
-            versioning, bundling, price discrimination, and platform-based business models.
-          </p>
-        </div>
-
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 min-w-[260px]">
-          <p class="text-sm uppercase tracking-wide text-amber-200 mb-2">
-            Core Exam Theme
-          </p>
-
-          <p class="text-lg font-semibold leading-relaxed">
-            How firms design pricing and monetization strategies to capture value in digital markets.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-      <div class="lg:col-span-2 bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-        <h2 class="text-4xl font-bold mb-6">
-          What This Session Is Really About
-        </h2>
-
-        <div class="space-y-6 text-lg leading-relaxed text-slate-700">
-          <p>
-            Session 3 addresses a fundamental challenge for digital firms:
-            how to monetize products and services when marginal costs approach zero.
-            Traditional pricing strategies based on cost-plus markup fail in this environment.
-          </p>
-
-          <p>
-            Digital firms must design sophisticated pricing and revenue models.
-            These include versioning strategies (offering multiple quality tiers),
-            bundling (combining products to increase value capture),
-            price discrimination (charging different prices to different customer segments),
-            and freemium models (free basic service + premium paid features).
-          </p>
-
-          <p>
-            The session also explores how platform business models differ from traditional pricing.
-            Platforms often use pricing to balance multiple participant groups:
-            subsidizing one side to attract participants,
-            while monetizing through another side.
-          </p>
-
-          <div class="bg-amber-50 border border-amber-100 rounded-2xl p-6">
-            <h3 class="text-2xl font-bold mb-4 text-amber-900">
-              Important Strategic Insight
-            </h3>
-
-            <p class="text-slate-800 leading-relaxed">
-              In digital markets, pricing is not just about covering costs and making profit.
-              It is a strategic tool for market positioning, customer segmentation, value extraction,
-              and managing competitive dynamics.
-              Poor pricing can destroy value even in a successful business.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-        <h2 class="text-3xl font-bold mb-6">
-          Core Concepts
-        </h2>
-
-        <div class="space-y-4">
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Versioning</h3>
-            <p class="text-sm text-slate-700">
-              Offering multiple product versions (basic, premium, enterprise) to capture value from different customer segments.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Bundling</h3>
-            <p class="text-sm text-slate-700">
-              Combining multiple products or services into a single offering to increase willingness to pay.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Price Discrimination</h3>
-            <p class="text-sm text-slate-700">
-              Charging different customers different prices based on their willingness to pay or use patterns.
-            </p>
-          </div>
-
-          <div class="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-            <h3 class="font-bold text-lg mb-2">Freemium Models</h3>
-            <p class="text-sm text-slate-700">
-              Providing free base service to attract users, then monetizing premium features or power users.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-6">
-        Session 3 Core Concepts: Digital Products, Pricing, and Network Effects
-      </h2>
-
-      <div class="space-y-8 text-slate-700 leading-relaxed text-lg">
-        <div>
-          <h3 class="text-2xl font-bold mb-3">1. Classifying Digital Products</h3>
-          <p>
-            Digital products can be grouped by type and by their built-in characteristics.
-            This matters because different types need different monetization strategies.
-          </p>
-          <ul class="list-disc list-inside mt-4 space-y-2">
-            <li><strong>Content-based products</strong> (ebooks, reports, music): information is the core value, trialability is low, and sellers often rely on reputation or trusted reviews.</li>
-            <li><strong>Tools and utilities</strong> (software, apps): users can often trial versions, making freemium and time-limited trials effective.</li>
-            <li><strong>Online services</strong> (search, subscription services): value is delivered continuously, and pricing can be usage-based or subscription-based.</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold mb-3">2. Pricing and Revenue Models</h3>
-          <p>
-            In digital markets, pricing is more strategic than transactional. The slides highlight four core approaches.
-          </p>
-          <ul class="list-disc list-inside mt-4 space-y-2">
-            <li><strong>Personalized pricing</strong>: charge each customer the highest price they are willing to pay.</li>
-            <li><strong>Versioning</strong>: offer basic, premium, and enterprise versions to let customers self-select.</li>
-            <li><strong>Group pricing</strong>: set different prices for different customer groups based on sensitivity or loyalty.</li>
-            <li><strong>Bundling</strong>: combine products or services to increase total willingness to pay and reduce price dispersion.</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold mb-3">3. Digital Operating Model Collisions</h3>
-          <p>
-            A digital operating model competes differently from a traditional business model.
-            The key example is a collision between firms like Airbnb and traditional hotel chains.
-          </p>
-          <p class="mt-4">
-            Traditional firms own assets and coordinate operations internally. Digital firms orchestrate data, algorithms, and networks around external partners.
-            That makes digital firms far better at scaling, learning, and adapting quickly.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold mb-3">4. Network Effects and Launch Strategy</h3>
-          <p>
-            Network effects mean a product becomes more valuable as more people use it.
-            Launch strategy is therefore about building the network first, not just selling a product.
-          </p>
-          <div class="bg-slate-100 rounded-3xl p-6 border border-slate-200 mt-4">
-            <p class="font-semibold mb-3">Self-reinforcing loop:</p>
-            <p class="whitespace-pre-wrap font-mono text-slate-800">More users → More data → Better algorithms → Better service → More users</p>
-          </div>
-          <p class="mt-4">
-            For network-effect products, early incentives, pricing, and product design should focus on reaching critical mass and encouraging participation.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-8">
-        How This Connects to Your Synopsis
-      </h2>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-        <div class="bg-emerald-50 border border-emerald-100 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4 text-emerald-900">
-            OpenAI's Monetization Strategy
-          </h3>
-
-          <p class="text-lg leading-relaxed text-slate-800">
-            OpenAI employs multiple revenue models:
-            ChatGPT Plus (subscription for power users),
-            API access (pay-per-token for developers),
-            and enterprise licensing.
-            This is sophisticated price discrimination and versioning.
-          </p>
-        </div>
-
-        <div class="bg-blue-50 border border-blue-100 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4 text-blue-900">
-            Novo Nordisk's Strategic Advantage
-          </h3>
-
-          <p class="text-lg leading-relaxed text-slate-800">
-            By partnering with OpenAI, Novo gains access to AI capabilities
-            without the burden of monetization strategy development.
-            This allows Novo to integrate AI into pharmaceutical R&D
-            and potential customer offerings.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-      <h2 class="text-4xl font-bold mb-8">
-        Likely Oral Exam Questions
-      </h2>
-
-      <div class="space-y-6">
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            How do AI firms monetize their products?
-          </h3>
-
-          <div class="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-amber-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Explain multiple strategies:
-              subscription models (ChatGPT Plus),
-              API pricing (pay-per-use),
-              enterprise licensing,
-              freemium approaches (free access with limits).
-              Discuss why each strategy targets different customer segments.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            Why do AI firms use freemium models?
-          </h3>
-
-          <div class="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-amber-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Freemium models serve multiple purposes:
-              attracting users and building network effects,
-              generating data to improve products,
-              creating a funnel to convert power users to paid tiers,
-              maintaining competitive positioning against free alternatives.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7">
-          <h3 class="text-2xl font-bold mb-4">
-            What role does bundling play in digital markets?
-          </h3>
-
-          <div class="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-            <h4 class="font-bold mb-3 text-amber-900">
-              How you should answer
-            </h4>
-
-            <p class="leading-relaxed text-slate-800">
-              Bundling increases customer willingness to pay
-              by creating the perception of higher value.
-              It also improves customer lock-in and reduces churn.
-              Bundles can segment customers:
-              charging premium prices to customers with high valuations
-              while still capturing price-sensitive users.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-gradient-to-r from-slate-900 to-amber-800 text-white rounded-3xl shadow-2xl p-10">
-      <h2 class="text-4xl font-bold mb-5">
-        Important Examiner Advice
-      </h2>
-
-      <p class="text-xl leading-relaxed max-w-5xl text-slate-200">
-        The examiner will test whether you understand pricing as a strategic tool, not just a revenue mechanism.
-        Avoid simplistic answers about "profit maximization."
-        Instead, explain HOW pricing strategies align with competitive positioning,
-        market structure, and customer value creation in your specific case analysis.
-      </p>
-    </div>
-
+<header>
+  <div class="header-inner">
+    <p class="course-tag">IEB · Session 03 · Exam Preparation</p>
+    <h1>Digital Products &<br><span>Network Effects</span></h1>
+    <p class="subtitle">Classifying digital offerings and understanding the demand-side economies of scale that drive market dominance.</p>
   </div>
+</header>
+
+<nav class="nav-pills">
+  <a href="#classification">Product Classification</a>
+  <a href="#network">Network Effects</a>
+  <a href="#pricing">Digital Pricing</a>
+  <a href="#dynamics">Scale & Scope</a>
+  <a href="#case">Novo Nordisk Case</a>
+  <a href="#questions">Exam Questions</a>
+</nav>
+
+<main>
+
+<section id="classification">
+  <p class="section-label">Theory 01</p>
+  <h2>Classifying Digital Products</h2>
+  <p>Hui &amp; Chau (2002) propose a framework for classifying digital products based on their inherent characteristics. Understanding these attributes is critical for devising appropriate marketing and pricing strategies.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">🛠️</span>
+      <h4>Tools & Utilities</h4>
+      <p>Downloadable software with specific functions (e.g., anti-virus). Generally low granularity and high trialability (Hui &amp; Chau, 2002).</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">📰</span>
+      <h4>Content-Based</h4>
+      <p>Information goods like news, music, or e-books. High granularity (divisibility), allowing for flexible packaging and pricing (Hui &amp; Chau, 2002).</p>
+    </div>
+    <div class="concept-card">
+      <span class="emoji">💬</span>
+      <h4>Online Services</h4>
+      <p>Interactive, real-time solutions (e.g., online therapy). Medium granularity and often charged by usage time or subscription (Hui &amp; Chau, 2002).</p>
+    </div>
+  </div>
+
+  <div class="card accent-left">
+    <h3>Intrinsic Characteristics (Hui &amp; Chau, 2002)</h3>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Delivery Mode</strong></td>
+          <td>Downloadable (full product transfer) vs. Interactive (continual basis).</td>
+        </tr>
+        <tr>
+          <td><strong>Granularity</strong></td>
+          <td>Divisibility of the product. High granularity allows for vertical differentiation (e.g., selling chapters of a book).</td>
+        </tr>
+        <tr>
+          <td><strong>Trialability</strong></td>
+          <td>Ease of providing "free samples" without disrupting the core profit model.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="network">
+  <p class="section-label">Theory 02</p>
+  <h2>Network Effects (Demand-Side Economies)</h2>
+  <p>Iansiti &amp; Lakhani (2020) and Lee &amp; O'Connor (2003) emphasize that digital value is often <strong>extrinsic</strong> — the value to a user depends on how many <em>other</em> people use the product.</p>
+
+  <div class="figure-wrap">
+    <figure>
+      <svg viewBox="0 0 520 220" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="110" r="40" fill="#fff3ec" stroke="#c1440e" stroke-width="2"/>
+        <text x="100" y="115" text-anchor="middle" font-size="10" font-weight="700">USER A</text>
+        
+        <circle cx="420" cy="110" r="40" fill="#fff3ec" stroke="#c1440e" stroke-width="2"/>
+        <text x="420" y="115" text-anchor="middle" font-size="10" font-weight="700">USER B</text>
+        
+        <path d="M 140 110 L 380 110" stroke="#c1440e" stroke-width="2" stroke-dasharray="4 2"/>
+        <text x="260" y="100" text-anchor="middle" font-size="9" fill="#c1440e">Direct Network Effect</text>
+
+        <rect x="210" y="20" width="100" height="40" rx="6" fill="#ecf2ff" stroke="#2563a8" stroke-width="1"/>
+        <text x="260" y="45" text-anchor="middle" font-size="9" font-weight="700">COMPLEMENTS</text>
+        
+        <path d="M 110 70 Q 150 40 210 40" stroke="#2563a8" stroke-width="1" fill="none"/>
+        <path d="M 410 70 Q 370 40 310 40" stroke="#2563a8" stroke-width="1" fill="none"/>
+        <text x="260" y="140" text-anchor="middle" font-size="9" fill="#2563a8">Indirect Network Effect</text>
+      </svg>
+      <figcaption>Fig. 1 — Network Effects. Direct effects arise from user-to-user interaction. Indirect effects arise when more users attract more third-party complements (e.g., apps for a phone).</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">📈</span>
+      <h4>Metcalfe's Law</h4>
+      <p>The value of a network is proportional to the square of the number of users (n²). Growth becomes self-reinforcing.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">🔗</span>
+      <h4>Lock-in</h4>
+      <p>High switching costs created by network size. Users stay because "everyone else is there".</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <p class="section-label">Theory 03</p>
+  <h2>Digital Revenue Models</h2>
+  <p>The low marginal cost and high granularity of digital products enable novel pricing strategies (IEB Session 3 Slides).</p>
+
+  <div class="steps">
+    <div class="step" style="display:flex; gap:1rem; margin-bottom: 1rem;">
+      <div style="background:var(--accent); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">1</div>
+      <div><strong>Versioning:</strong> Offering different quality levels (e.g., Basic vs. Pro) to induce self-selection.</div>
+    </div>
+    <div class="step" style="display:flex; gap:1rem; margin-bottom: 1rem;">
+      <div style="background:var(--accent); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
+      <div><strong>Bundling:</strong> Selling multiple products together at a single price to reduce dispersion in willingness to pay.</div>
+    </div>
+    <div class="step" style="display:flex; gap:1rem;">
+      <div style="background:var(--accent); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div><strong>Penetration Pricing:</strong> Low entry price to quickly build a network and trigger positive feedback loops.</div>
+    </div>
+  </div>
+</section>
+
+<section id="case">
+  <p class="section-label">Case Application</p>
+  <h2>Novo Nordisk — The AI "Product" Strategy</h2>
+  <p>Analyzing Novo's digital moves through Session 03 lens:</p>
+
+  <div class="card">
+    <ul>
+      <li><strong>Data as a Network Asset:</strong> In the OpenAI partnership, Novo's massive clinical datasets act as the "network base". As they add more data, the AI models improve, creating a <em>learning network effect</em>.</li>
+      <li><strong>Complementary Innovations:</strong> By using OpenAI as a platform, Novo can develop a <em>bundle</em> of AI-driven tools (research aids, supply chain bots) that reuse the same data backbone (Scope Economies).</li>
+      <li><strong>Lock-in:</strong> If Novo's proprietary research processes become deeply integrated with OpenAI's specific model architecture, they risk <em>technical lock-in</em>.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="questions">
+  <p class="section-label">Exam Preparation</p>
+  <h2>Likely Oral Exam Questions</h2>
+  <ul class="q-list">
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          How does Hui &amp; Chau (2002) classify digital products, and why is "granularity" important?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li>Classification: 1) Tools/Utilities, 2) Content-based, 3) Online Services.</li>
+            <li><strong>Granularity:</strong> Refers to divisibility. Content (like a newspaper) is highly granular — you can sell a single article. Tools (like anti-virus) are low granularity — you need the whole thing to work.</li>
+            <li>Strategic importance: High granularity allows for versioning and capturing more consumer surplus by tailoring "slices" of the product to different segments.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge apply">Apply</span>
+          What is the difference between direct and indirect network effects? Give an example of each.
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>Direct:</strong> Value increases with the number of similar users (e.g., WhatsApp — more friends to message).</li>
+            <li><strong>Indirect:</strong> Value increases with the availability of complementary goods (e.g., Android — more users attract more app developers, which makes the phone better).</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge synth">Synthesis</span>
+          Should a firm with network effects use "skimming" or "penetration" pricing at launch?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <ul>
+            <li><strong>Penetration Pricing:</strong> Usually superior. You need to hit "critical mass" quickly to trigger the network effect. If you price too high (skimming), you may never build the necessary user base to make the product valuable.</li>
+            <li>Connect this to the "Winner-Take-All" dynamic: being first to scale is often more important than immediate profit.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+  </ul>
+</section>
+
+</main>
+
+<footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
+  Based on: Hui &amp; Chau (2002) · Iansiti &amp; Lakhani (2020) · Lee &amp; O'Connor (2003) · IEB Session 03
+</footer>
 
 </body>
 </html>
