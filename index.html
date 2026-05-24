@@ -6,103 +6,104 @@
   <title>IEB Oral Exam Preparation Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=DM+Sans:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f4f2ee;
-      --surface: #ffffff;
-      --border: #e2ded6;
-      --text: #1a1a1a;
-      --muted: #6b6660;
-      --accent-blue: #2a4a8f;
-      --accent-blue-light: #e8edf8;
-      --accent-green: #1a6645;
-      --accent-green-light: #e6f3ec;
-      --accent-amber: #8f5a00;
-      --accent-amber-light: #fdf3e0;
-      --accent-red: #8f1f1f;
-      --accent-red-light: #fdf0f0;
-      --ink: #0f1923;
+      --ink: #0f0e17;
+      --paper: #faf9f6;
+      --accent: #c1440e;
+      --accent2: #2563a8;
+      --muted: #6b6b7b;
+      --border: #e2ddd6;
+      --card-bg: #ffffff;
+      --highlight: #fff3ec;
+      --highlight2: #ecf2ff;
+      --text: #2a2a38;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
+      background: var(--paper);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
     }
 
     .wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 24px;
+      width: 100%;
+      margin: 0;
+      padding: 0 0 4rem;
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 0;
     }
 
     /* ── HERO ── */
     .hero {
       background: var(--ink);
-      color: #fff;
-      border-radius: 20px;
-      padding: 52px 52px 44px;
+      color: var(--paper);
+      border-radius: 0;
+      padding: 3rem 2rem 2.5rem;
       position: relative;
       overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 80% 0%, rgba(42,74,143,0.45) 0%, transparent 60%),
-                  radial-gradient(ellipse at 10% 100%, rgba(26,102,69,0.3) 0%, transparent 55%);
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      border: 80px solid rgba(193,68,14,0.15);
+      border-radius: 50%;
       pointer-events: none;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      margin: 0 auto 0.75rem;
       position: relative;
+      max-width: 900px;
     }
+    .hero h1 span { color: var(--accent); }
     .hero p {
       font-size: 1rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.72);
+      color: rgba(250,249,246,0.65);
       max-width: 620px;
+      margin: 0 auto;
       position: relative;
     }
     .hero-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 36px;
+      gap: 1rem;
+      margin: 2rem auto 0;
+      max-width: 900px;
       position: relative;
     }
     .hero-card {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 14px;
+      background: rgba(250,249,246,0.06);
+      border: 1px solid rgba(250,249,246,0.14);
+      border-radius: 8px;
       padding: 18px 20px;
-      backdrop-filter: blur(6px);
     }
     .hero-card h2 {
+      font-family: 'DM Mono', monospace;
       font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: var(--accent);
       margin-bottom: 8px;
     }
     .hero-card p {
       font-size: 0.95rem;
       font-weight: 500;
-      color: #fff;
+      color: var(--paper);
     }
 
     /* ── SECTION TITLES ── */
@@ -110,16 +111,20 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
       margin-bottom: 28px;
+      color: var(--ink);
     }
 
     /* ── CARD SHELL ── */
     .card {
-      background: var(--surface);
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px;
+      border-radius: 8px;
+      padding: 2rem;
+      max-width: 1100px;
+      width: calc(100% - 4rem);
+      margin: 2rem auto 0;
     }
 
     /* ── SESSIONS ── */
@@ -133,9 +138,14 @@
 
     .session-item {
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 8px;
       overflow: hidden;
-      background: #fafaf8;
+      background: var(--card-bg);
+      transition: border-color 0.18s, transform 0.18s;
+    }
+    .session-list a:hover .session-item {
+      border-color: var(--accent);
+      transform: translateY(-1px);
     }
     .session-header {
       display: flex;
@@ -149,7 +159,8 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
+      color: var(--ink);
     }
     .session-header p {
       font-size: 0.87rem;
@@ -157,14 +168,14 @@
       margin-top: 4px;
     }
     .session-badge {
-      background: var(--accent-blue-light);
-      color: var(--accent-blue);
+      background: var(--highlight);
+      color: var(--accent);
       font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 5px 12px;
-      border-radius: 20px;
+      border-radius: 4px;
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -176,13 +187,14 @@
       border-top: 1px solid var(--border);
     }
     .session-col {
-      background: var(--surface);
+      background: var(--card-bg);
       padding: 18px 22px;
     }
     .session-col h4 {
+      font-family: 'DM Mono', monospace;
       font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 12px;
@@ -195,8 +207,9 @@
     }
     .session-col p { font-size: 0.85rem; line-height: 1.65; }
     .q-pill {
-      background: #f4f2ee;
-      border-radius: 8px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 6px;
       padding: 7px 11px;
       font-size: 0.82rem;
       margin-bottom: 7px;
@@ -209,13 +222,21 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 28px;
+      max-width: 1100px;
+      width: calc(100% - 4rem);
+      margin: 2rem auto 0;
+    }
+    .two-col .card {
+      width: 100%;
+      max-width: none;
+      margin: 0;
     }
 
     /* ── WEAKNESS ITEMS ── */
     .weakness-item {
-      border-left: 4px solid var(--accent-red);
-      background: var(--accent-red-light);
-      border-radius: 0 10px 10px 0;
+      border-left: 4px solid var(--accent);
+      background: var(--highlight);
+      border-radius: 0 8px 8px 0;
       padding: 16px 18px;
       margin-bottom: 14px;
     }
@@ -229,9 +250,9 @@
 
     /* ── STRONG ANSWERS ── */
     .answer-item {
-      background: var(--accent-green-light);
-      border: 1px solid #bde0cc;
-      border-radius: 12px;
+      background: var(--highlight2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
       padding: 18px 20px;
       margin-bottom: 14px;
     }
@@ -240,7 +261,7 @@
       font-size: 0.9rem;
       font-weight: 600;
       margin-bottom: 8px;
-      color: var(--accent-green);
+      color: var(--accent2);
     }
     .answer-item p { font-size: 0.85rem; line-height: 1.7; }
 
@@ -251,9 +272,9 @@
       gap: 20px;
     }
     .rapid-col {
-      background: #fafaf8;
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 8px;
       padding: 22px;
     }
     .rapid-col h3 {
@@ -263,9 +284,9 @@
       margin-bottom: 16px;
     }
     .rapid-q {
-      background: var(--surface);
+      background: var(--paper);
       border: 1px solid var(--border);
-      border-radius: 9px;
+      border-radius: 6px;
       padding: 10px 13px;
       font-size: 0.84rem;
       margin-bottom: 9px;
@@ -276,23 +297,27 @@
     /* ── ADVICE BOX ── */
     .advice-box {
       background: var(--ink);
-      color: #fff;
-      border-radius: 20px;
+      color: var(--paper);
+      border-radius: 8px;
       padding: 44px 48px;
+      max-width: 1100px;
+      width: calc(100% - 4rem);
+      margin: 2rem auto 0;
       position: relative;
       overflow: hidden;
     }
     .advice-box::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 90% 90%, rgba(26,102,69,0.3) 0%, transparent 50%),
-                  radial-gradient(ellipse at 5% 5%, rgba(42,74,143,0.3) 0%, transparent 50%);
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border: 70px solid rgba(193,68,14,0.12);
+      border-radius: 50%;
       pointer-events: none;
     }
     .advice-box .section-title {
       position: relative;
-      color: #fff;
+      color: var(--paper);
     }
     .advice-grid {
       display: grid;
@@ -305,13 +330,13 @@
     .advice-item h3 {
       font-size: 0.95rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.9);
+      color: rgba(250,249,246,0.9);
       margin-bottom: 8px;
     }
     .advice-item p {
       font-size: 0.87rem;
       line-height: 1.7;
-      color: rgba(255,255,255,0.65);
+      color: rgba(250,249,246,0.65);
     }
 
     /* ── RESPONSIVE ── */
@@ -323,8 +348,9 @@
     }
     @media (max-width: 600px) {
       .hero { padding: 32px 24px; }
-      .card { padding: 24px 20px; }
-      .advice-box { padding: 28px 22px; }
+      .card { width: calc(100% - 2rem); padding: 24px 20px; }
+      .two-col { width: calc(100% - 2rem); }
+      .advice-box { width: calc(100% - 2rem); padding: 28px 22px; }
     }
   </style>
 </head>
@@ -333,20 +359,20 @@
 
   <!-- HERO -->
   <div class="hero">
-    <h1>IEB Oral Exam<br>Preparation Dashboard</h1>
+    <h1>IEB Oral Exam<br><span>Preparation Dashboard</span></h1>
     <p>Focused on your synopsis about the partnership between Novo Nordisk and OpenAI, while preparing you for broader questions across the full Information Economics &amp; Business curriculum.</p>
     <div class="hero-cards">
       <div class="hero-card">
-        <h2>Main Theory</h2>
-        <p>Dynamic Capabilities</p>
+        <h2>Core Lens</h2>
+        <p>Digital strategy, platforms, AI governance</p>
       </div>
       <div class="hero-card">
         <h2>Main Case</h2>
-        <p>Novo Nordisk × OpenAI</p>
+        <p>Novo Nordisk x OpenAI</p>
       </div>
       <div class="hero-card">
-        <h2>Biggest Risk</h2>
-        <p>Being too descriptive instead of analytical</p>
+        <h2>Exam Focus</h2>
+        <p>Theory depth and case synthesis</p>
       </div>
     </div>
   </div>
@@ -362,24 +388,24 @@
             <div class="session-header">
             <div>
                 <h3>Session 1: Digitalization, AI &amp; Data</h3>
-                <p>How does digitalization influence business performance and competitive advantage?</p>
+                <p>How do digital operating models, data, and AI change competitive advantage?</p>
             </div>
             <span class="session-badge">Oral relevance: High</span>
             </div>
             <div class="session-cols">
             <div class="session-col">
                 <h4>Core Concepts</h4>
-                <ul><li>Digital mindset</li><li>AI-driven firms</li><li>Data as strategic asset</li><li>Prediction &amp; feedback loops</li></ul>
+                <ul><li>Digitization vs. digitalization</li><li>AI as prediction</li><li>Data as strategic asset</li><li>Scale, scope &amp; learning moats</li></ul>
             </div>
             <div class="session-col">
                 <h4>Connection to Your Synopsis</h4>
-                <p>Foundation for arguing why Novo Nordisk partners with OpenAI and why AI changes firm strategy.</p>
+                <p>Explains why Novo uses AI to lower prediction costs in drug discovery and build faster data-driven learning loops.</p>
             </div>
             <div class="session-col">
                 <h4>Examiner-Style Questions</h4>
-                <div class="q-pill">Why is AI strategically important for incumbent firms?</div>
-                <div class="q-pill">How does data become a source of competitive advantage?</div>
-                <div class="q-pill">What distinguishes digital transformation from traditional IT implementation?</div>
+                <div class="q-pill">What distinguishes digitization from digitalization?</div>
+                <div class="q-pill">Why is data not automatically a source of advantage?</div>
+                <div class="q-pill">How do scale, scope, and learning create a digital moat?</div>
             </div>
             </div>
         </div>
@@ -391,24 +417,24 @@
                 <div class="session-header">
                 <div>
                     <h3>Session 2: Network Effects &amp; Digital Markets</h3>
-                    <p>How can firms compete in newly vulnerable markets?</p>
+                    <p>How do network effects, platforms, and positive feedback reshape digital competition?</p>
                 </div>
                 <span class="session-badge">Oral relevance: High</span>
                 </div>
                 <div class="session-cols">
                 <div class="session-col">
                     <h4>Core Concepts</h4>
-                    <ul><li>Network effects</li><li>Winner-take-all dynamics</li><li>Platforms</li><li>Positive feedback loops</li></ul>
+                    <ul><li>Direct, indirect &amp; data network effects</li><li>Critical mass</li><li>Platform governance</li><li>Winner-take-all dynamics</li></ul>
                 </div>
                 <div class="session-col">
                     <h4>Connection to Your Synopsis</h4>
-                    <p>Useful if examiner asks whether AI ecosystems create dependency on dominant firms like OpenAI.</p>
+                    <p>Useful for assessing whether OpenAI's ecosystem creates platform dependency and switching costs for Novo.</p>
                 </div>
                 <div class="session-col">
                     <h4>Examiner-Style Questions</h4>
-                    <div class="q-pill">Does OpenAI benefit from network effects?</div>
-                    <div class="q-pill">Could pharma become dependent on AI platforms?</div>
-                    <div class="q-pill">Are AI markets winner-take-all?</div>
+                    <div class="q-pill">What is the difference between direct and indirect network effects?</div>
+                    <div class="q-pill">Why do digital markets tip?</div>
+                    <div class="q-pill">Could OpenAI become a strategic dependency for Novo?</div>
                 </div>
                 </div>
             </div>
@@ -420,24 +446,24 @@
             <div class="session-header">
             <div>
                 <h3>Session 3: Pricing &amp; Revenue Models</h3>
-                <p>How can firms price digital products and services?</p>
+                <p>How should firms capture value from digital products, services, and platforms?</p>
             </div>
             <span class="session-badge">Oral relevance: High</span>
             </div>
             <div class="session-cols">
             <div class="session-col">
                 <h4>Core Concepts</h4>
-                <ul><li>Versioning</li><li>Bundling</li><li>Price discrimination</li><li>Platform pricing</li></ul>
+                <ul><li>Digital product classification</li><li>Price discrimination</li><li>Versioning &amp; bundling</li><li>Platform launch pricing</li></ul>
             </div>
             <div class="session-col">
                 <h4>Connection to Your Synopsis</h4>
-                <p>Less central to your synopsis but useful for broader course discussion.</p>
+                <p>Useful for discussing how AI vendors monetize enterprise services and how lock-in can create future pricing power.</p>
             </div>
             <div class="session-col">
                 <h4>Examiner-Style Questions</h4>
-                <div class="q-pill">How do AI firms monetize their products?</div>
-                <div class="q-pill">Why do AI firms use freemium models?</div>
-                <div class="q-pill">How does bundling work in digital markets?</div>
+                <div class="q-pill">Why is granularity important for digital pricing?</div>
+                <div class="q-pill">How does versioning create self-selection?</div>
+                <div class="q-pill">When should a digital firm use penetration pricing?</div>
             </div>
             </div>
         </div>
@@ -448,25 +474,25 @@
         <div class="session-item">
           <div class="session-header">
             <div>
-              <h3>Session 4: Dynamic Capabilities</h3>
-              <p>How does digitalization influence dynamic capabilities?</p>
+              <h3>Session 4: Dynamic Capabilities &amp; Digital Agility</h3>
+              <p>How do firms reconfigure resources under AI-driven uncertainty?</p>
             </div>
             <span class="session-badge">Oral relevance: High</span>
           </div>
           <div class="session-cols">
             <div class="session-col">
               <h4>Core Concepts</h4>
-              <ul><li>Sensing</li><li>Seizing</li><li>Transforming</li><li>Asset orchestration</li></ul>
+              <ul><li>Ordinary vs. dynamic capabilities</li><li>Sensing, seizing, transforming</li><li>Agility vs. efficiency</li><li>AI as organizing capability</li></ul>
             </div>
             <div class="session-col">
               <h4>Connection to Your Synopsis</h4>
-              <p>Probably the single most important theory for your synopsis.</p>
+              <p>Central lens for explaining Novo's OpenAI partnership as sensing, seizing, and transforming under deep uncertainty.</p>
             </div>
             <div class="session-col">
               <h4>Examiner-Style Questions</h4>
-              <div class="q-pill">How does the Novo–OpenAI partnership reflect sensing capabilities?</div>
-              <div class="q-pill">What resources must Novo reconfigure to exploit AI?</div>
-              <div class="q-pill">Why are dynamic capabilities more relevant than traditional RBV here?</div>
+              <div class="q-pill">How is a dynamic capability different from an ordinary capability?</div>
+              <div class="q-pill">Why is agility costly?</div>
+              <div class="q-pill">Why is AI an organizing capability, not just a tool?</div>
             </div>
           </div>
         </div>
@@ -485,17 +511,17 @@
           <div class="session-cols">
             <div class="session-col">
               <h4>Core Concepts</h4>
-              <ul><li>Mental models</li><li>Search mechanisms</li><li>Strategic cognition</li><li>Environmental uncertainty</li></ul>
+              <ul><li>Strategic search</li><li>Managerial cognition</li><li>Digital enactment systems</li><li>AI decision redistribution</li></ul>
             </div>
             <div class="session-col">
               <h4>Connection to Your Synopsis</h4>
-              <p>Strong connection to whether incumbents can recognize AI disruption early enough.</p>
+              <p>Explains how managers search, interpret AI disruption, and redistribute decisions between humans and algorithms.</p>
             </div>
             <div class="session-col">
               <h4>Examiner-Style Questions</h4>
-              <div class="q-pill">Why do incumbents struggle with AI transformation?</div>
-              <div class="q-pill">How can managerial cognition become a barrier?</div>
-              <div class="q-pill">How does uncertainty affect strategic decision-making?</div>
+              <div class="q-pill">How do search mechanisms shape strategy?</div>
+              <div class="q-pill">How can digital enactment replace human decision processes?</div>
+              <div class="q-pill">What happens when AI redistributes decision rights?</div>
             </div>
           </div>
         </div>
@@ -514,17 +540,17 @@
           <div class="session-cols">
             <div class="session-col">
               <h4>Core Concepts</h4>
-              <ul><li>AI economics</li><li>Smart data</li><li>Data-driven competition</li><li>Connected products</li></ul>
+              <ul><li>AI factory</li><li>Smart connected products</li><li>Datafication</li><li>Value-chain transformation</li></ul>
             </div>
             <div class="session-col">
               <h4>Connection to Your Synopsis</h4>
-              <p>Useful for discussing AI-driven pharma R&amp;D and operational optimization.</p>
+              <p>Useful for discussing AI-enabled R&amp;D, smart data, and how digital operating models transform the pharma value chain.</p>
             </div>
             <div class="session-col">
               <h4>Examiner-Style Questions</h4>
-              <div class="q-pill">How does AI alter competition in pharma?</div>
-              <div class="q-pill">Can AI lower entry barriers?</div>
-              <div class="q-pill">Why is data strategically valuable in drug discovery?</div>
+              <div class="q-pill">What is the AI factory?</div>
+              <div class="q-pill">How do connected products reshape competition?</div>
+              <div class="q-pill">How should incumbents respond to AI collision?</div>
             </div>
           </div>
         </div>
@@ -536,24 +562,24 @@
           <div class="session-header">
             <div>
               <h3>Session 7: Platforms &amp; Organizing</h3>
-              <p>How does data provide value in multi-sided platforms?</p>
+              <p>How do platforms coordinate work, ecosystems, and market participants?</p>
             </div>
             <span class="session-badge">Oral relevance: High</span>
           </div>
           <div class="session-cols">
             <div class="session-col">
               <h4>Core Concepts</h4>
-              <ul><li>Transaction platforms</li><li>Innovation platforms</li><li>Ecosystems</li><li>Governance</li></ul>
+              <ul><li>Sharing economy models</li><li>Boundary fluidity</li><li>Digital operating models</li><li>Algorithmic labor</li></ul>
             </div>
             <div class="session-col">
               <h4>Connection to Your Synopsis</h4>
-              <p>Very useful for analyzing OpenAI as an innovation platform.</p>
+              <p>Useful for analyzing OpenAI as part of an ecosystem and for discussing algorithmic management in digital work.</p>
             </div>
             <div class="session-col">
               <h4>Examiner-Style Questions</h4>
-              <div class="q-pill">Is OpenAI an innovation platform?</div>
-              <div class="q-pill">What governance challenges emerge in AI ecosystems?</div>
-              <div class="q-pill">How do platforms create value differently from traditional firms?</div>
+              <div class="q-pill">How do sharing platforms coordinate outside firm boundaries?</div>
+              <div class="q-pill">What is boundary fluidity?</div>
+              <div class="q-pill">How does algorithmic management create information asymmetry?</div>
             </div>
           </div>
         </div>
@@ -565,24 +591,24 @@
           <div class="session-header">
             <div>
               <h3>Session 8: Transaction Costs &amp; Digital Transactions</h3>
-              <p>How do digital transactions influence transaction costs?</p>
+              <p>How does digitalization change make-or-buy decisions and transaction costs?</p>
             </div>
             <span class="session-badge">Oral relevance: High</span>
           </div>
           <div class="session-cols">
             <div class="session-col">
               <h4>Core Concepts</h4>
-              <ul><li>Transaction cost theory</li><li>Search costs</li><li>Monitoring costs</li><li>Outsourcing</li></ul>
+              <ul><li>Williamson's TCT</li><li>Asset specificity</li><li>Move to the middle</li><li>Electronic market hypothesis</li></ul>
             </div>
             <div class="session-col">
               <h4>Connection to Your Synopsis</h4>
-              <p>Excellent for discussing why Novo partners externally instead of building everything internally.</p>
+              <p>Explains why Novo may partner with OpenAI rather than fully internalize AI development, while still facing lock-in and monitoring costs.</p>
             </div>
             <div class="session-col">
               <h4>Examiner-Style Questions</h4>
-              <div class="q-pill">Why partner with OpenAI rather than develop internally?</div>
-              <div class="q-pill">How can AI reduce transaction costs?</div>
-              <div class="q-pill">Can digitalization also increase transaction costs?</div>
+              <div class="q-pill">How does asset specificity affect the make-or-buy decision?</div>
+              <div class="q-pill">Why did electronic markets not replace firms?</div>
+              <div class="q-pill">Why might hybrid governance fit Novo and OpenAI?</div>
             </div>
           </div>
         </div>
@@ -601,17 +627,17 @@
           <div class="session-cols">
             <div class="session-col">
               <h4>Core Concepts</h4>
-              <ul><li>Trust</li><li>Algorithmic opacity</li><li>Black box AI</li><li>Explainability</li></ul>
+              <ul><li>Principal-agent theory</li><li>Adverse selection &amp; moral hazard</li><li>Algorithmic opacity</li><li>Institution-based trust</li></ul>
             </div>
             <div class="session-col">
               <h4>Connection to Your Synopsis</h4>
-              <p>Highly relevant for healthcare and pharma where explainability matters.</p>
+              <p>Highly relevant for evaluating AI vendors, validating model outputs, and governing black-box systems in pharma.</p>
             </div>
             <div class="session-col">
               <h4>Examiner-Style Questions</h4>
-              <div class="q-pill">Can pharmaceutical firms trust black-box AI systems?</div>
-              <div class="q-pill">What risks emerge from algorithmic opacity?</div>
-              <div class="q-pill">How should firms govern AI decision-making?</div>
+              <div class="q-pill">Why is AI delegation a principal-agent problem?</div>
+              <div class="q-pill">What are the three types of algorithmic opacity?</div>
+              <div class="q-pill">How should managers evaluate algorithmic alternatives?</div>
             </div>
           </div>
         </div>
@@ -623,24 +649,24 @@
           <div class="session-header">
             <div>
               <h3>Session 10: Ethics &amp; Responsibility</h3>
-              <p>What are the ethical implications of digitalization?</p>
+              <p>What responsibilities arise from digital scale, AI bias, labor effects, and environmental costs?</p>
             </div>
             <span class="session-badge">Oral relevance: High</span>
           </div>
           <div class="session-cols">
             <div class="session-col">
               <h4>Core Concepts</h4>
-              <ul><li>Algorithmic bias</li><li>AI ethics</li><li>Environmental costs</li><li>Fairness</li></ul>
+              <ul><li>Ethics of scale, scope &amp; learning</li><li>Algorithmic bias</li><li>GenAI hallucinations</li><li>AI environment, labor &amp; responsibility</li></ul>
             </div>
             <div class="session-col">
               <h4>Connection to Your Synopsis</h4>
-              <p>You should absolutely expect at least one ethics-related question.</p>
+              <p>Important for discussing patient data, biased clinical evidence, hallucinated scientific claims, labor effects, and AI's resource footprint.</p>
             </div>
             <div class="session-col">
               <h4>Examiner-Style Questions</h4>
-              <div class="q-pill">What ethical risks emerge when using AI in healthcare?</div>
-              <div class="q-pill">Should firms be responsible for environmental costs of AI?</div>
-              <div class="q-pill">How can AI create social injustice?</div>
+              <div class="q-pill">How does digital scale create new ethical responsibilities?</div>
+              <div class="q-pill">How should managers respond to the jagged frontier?</div>
+              <div class="q-pill">Should Novo be responsible for its AI partner's ethics?</div>
             </div>
           </div>
         </div>
