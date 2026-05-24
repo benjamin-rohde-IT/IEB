@@ -44,7 +44,7 @@
     border-radius: 50%;
     pointer-events: none;
   }
-  .header-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
   .course-tag {
     font-family: 'DM Mono', monospace;
     font-size: 0.72rem;
@@ -69,7 +69,7 @@
 
   .nav-pills {
     display: flex; gap: 0.5rem; flex-wrap: wrap;
-    max-width: 900px; margin: 0 auto;
+    max-width: 1200px; margin: 0 auto;
     padding: 1.25rem 2rem;
     border-bottom: 1px solid var(--border);
   }
@@ -84,9 +84,9 @@
   }
   .nav-pills a:hover { border-color: var(--accent); color: var(--accent); background: var(--highlight); }
 
-  main { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+  main { max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
 
-  section { margin-bottom: 3.5rem; }
+  section { margin-bottom: 4rem; }
   .section-label {
     font-family: 'DM Mono', monospace;
     font-size: 0.68rem;
@@ -97,63 +97,111 @@
   }
   h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     line-height: 1.25;
   }
   h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin: 1.5rem 0 0.75rem;
     color: var(--ink);
   }
-  p { margin-bottom: 0.9rem; color: #2a2a38; }
+  p { margin-bottom: 1rem; color: #2a2a38; line-height: 1.75; }
 
   .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 1.5rem 1.75rem;
-    margin-bottom: 1.25rem;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
     position: relative;
   }
   .card.accent-left { border-left: 4px solid var(--accent); }
   .card.accent-left2 { border-left: 4px solid var(--accent2); }
   .card.highlight-bg { background: var(--highlight); }
   .card.highlight-bg2 { background: var(--highlight2); }
+  .card ul { margin-left: 1.25rem; }
+  .card li { margin-bottom: 0.6rem; }
 
   .concept-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
   }
   .concept-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 1.25rem 1.4rem;
-    border-top: 3px solid var(--accent);
+    padding: 1.5rem 1.6rem;
+    border-top: 4px solid var(--accent);
   }
   .concept-card.blue { border-top-color: var(--accent2); }
-  .concept-card .emoji { font-size: 1.6rem; margin-bottom: 0.5rem; display: block; }
-  .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
-  .concept-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+  .concept-card .emoji { font-size: 1.8rem; margin-bottom: 0.75rem; display: block; }
+  .concept-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.6rem; font-weight: 700; }
+  .concept-card p { font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.65; }
+
+  .theory-block {
+    background: var(--highlight);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.75rem 2rem;
+    margin: 1.75rem 0;
+  }
+  .theory-block.alt {
+    background: var(--highlight2);
+    border-left-color: var(--accent2);
+  }
+  .theory-block h3 {
+    margin-top: 0;
+  }
+  .theory-block p { margin-bottom: 0.8rem; }
+  .theory-block ul { margin: 1rem 0 0 1.5rem; }
+  .theory-block li { margin-bottom: 0.5rem; }
+
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  .matrix-table th {
+    background: var(--accent);
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+  .matrix-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: #2a2a38;
+  }
+  .matrix-table tr:hover td {
+    background: var(--highlight);
+  }
 
   .figure-wrap {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 1.5rem;
-    margin: 1.25rem 0;
+    padding: 2rem 1.5rem;
+    margin: 1.5rem 0;
     overflow-x: auto;
   }
   .figure-wrap figcaption {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--muted);
     text-align: center;
-    margin-top: 0.75rem;
+    margin-top: 1rem;
     font-style: italic;
   }
   svg text { font-family: 'DM Sans', sans-serif; }
@@ -163,15 +211,15 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 8px;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
     overflow: hidden;
   }
   .q-item summary {
-    padding: 1rem 1.25rem;
+    padding: 1.1rem 1.4rem;
     cursor: pointer;
     display: flex; gap: 0.75rem; align-items: flex-start;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     list-style: none;
     user-select: none;
   }
@@ -182,7 +230,7 @@
     font-family: 'DM Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.1em;
-    padding: 0.2rem 0.55rem;
+    padding: 0.25rem 0.6rem;
     border-radius: 4px;
     text-transform: uppercase;
   }
@@ -196,13 +244,13 @@
   }
   details[open] .q-chevron { transform: rotate(90deg); }
   .q-answer {
-    padding: 0 1.25rem 1.1rem 1.25rem;
-    font-size: 0.88rem;
+    padding: 0 1.4rem 1.25rem 1.4rem;
+    font-size: 0.92rem;
     color: #2a2a38;
     border-top: 1px solid var(--border);
   }
-  .q-answer ul { margin: 0.5rem 0 0 1rem; }
-  .q-answer ul li { margin-bottom: 0.35rem; }
+  .q-answer ul { margin: 0.6rem 0 0 1.5rem; }
+  .q-answer ul li { margin-bottom: 0.4rem; line-height: 1.6; }
   .q-answer strong { color: var(--ink); }
 
   @keyframes fadeUp {
@@ -224,110 +272,340 @@
 
 <nav class="nav-pills">
   <a href="#tct">TCT Fundamentals</a>
-  <a href="#digital">Digitalization & Costs</a>
-  <a href="#risks">Transaction Risks</a>
-  <a href="#market">Electronic Market Hypothesis</a>
-  <a href="#case">Novo Nordisk Case</a>
+  <a href="#costs">Transaction Costs</a>
+  <a href="#total">Total Cost Approach</a>
+  <a href="#middle">Move to the Middle</a>
+  <a href="#emh">Electronic Market</a>
+  <a href="#risks">Digital Risks</a>
+  <a href="#case">Novo Nordisk</a>
   <a href="#questions">Exam Questions</a>
 </nav>
 
 <main>
 
 <section id="tct">
-  <p class="section-label">Theory 01</p>
-  <h2>Transaction Cost Theory (TCT)</h2>
-  <p>Based on Williamson (1979, 1986), TCT posits that the optimal organizational structure is one that achieves economic efficiency by minimizing the sum of <strong>Production Costs</strong> and <strong>Transaction Costs</strong>.</p>
+  <p class="section-label">Foundational Theory</p>
+  <h2>Transaction Cost Theory (TCT) — Williamson (1979, 1986)</h2>
+  <p>Transaction Cost Theory provides a fundamental explanation for why firms exist and how they choose between hierarchical integration and market transactions. At its core, TCT argues that <strong>the firm is a governance structure</strong> designed to minimize the combined costs of production and coordination.</p>
+
+  <div class="theory-block">
+    <h3>The Core Insight</h3>
+    <p>Organizations choose between <strong>Make (Hierarchy)</strong>, <strong>Buy (Market)</strong>, and <strong>Partner (Hybrid)</strong> based on which structure minimizes total costs:</p>
+    <ul>
+      <li><strong>Production Costs:</strong> The costs of actually manufacturing or delivering a good/service</li>
+      <li><strong>Transaction Costs:</strong> The costs of coordinating, monitoring, and governing exchanges</li>
+    </ul>
+    <p style="margin-top: 1rem;"><em>The firm exists because markets are imperfect. If all information were free and contracts were costless to enforce, everything would be outsourced to the cheapest provider.</em></p>
+  </div>
+
+  <h3>Williamson's Behavioral Assumptions</h3>
+  <p>Williamson identified two key human behaviors that make transaction costs non-trivial:</p>
+  
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">🧠</span>
+      <h4>Bounded Rationality</h4>
+      <p>People are not perfectly rational. They have limited cognitive capacity and cannot anticipate all contingencies when writing contracts or making decisions.</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">😈</span>
+      <h4>Opportunism</h4>
+      <p>People act in their own self-interest, sometimes with guile. Without proper monitoring and incentives, partners will exploit information asymmetries or breach agreements when beneficial.</p>
+    </div>
+  </div>
+
+  <h3>Williamson's Three Critical Dimensions</h3>
+  <p>These factors determine which governance form (Hierarchy, Market, or Hybrid) is most efficient:</p>
+  
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>Definition</th>
+        <th>Implication for Structure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Asset Specificity</strong></td>
+        <td>The degree to which an investment is specialized to a particular relationship (e.g., custom software, proprietary data). Low specificity = easily redeployed; high specificity = "locked in" to one partner.</td>
+        <td><strong>High specificity → Hierarchy:</strong> Firms internalize to protect their investments from opportunism. Low specificity → Market: Can easily switch suppliers.</td>
+      </tr>
+      <tr>
+        <td><strong>Uncertainty</strong></td>
+        <td>The degree to which the future environment is unpredictable (market volatility, technological change, behavioral ambiguity). Hard to write complete contracts when outcomes are uncertain.</td>
+        <td><strong>High uncertainty → Hierarchy:</strong> Easier to adapt by internal reorganization. Low uncertainty → Market: Can write detailed fixed-price contracts.</td>
+      </tr>
+      <tr>
+        <td><strong>Frequency</strong></td>
+        <td>How often the transaction occurs. One-time transactions vs. ongoing relationships.</td>
+        <td><strong>High frequency → Hierarchy or stable Hybrid:</strong> Justifies investment in monitoring systems. Low frequency → Spot market: Not worth investing in governance.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+<section id="costs">
+  <p class="section-label">Core Concept</p>
+  <h2>Types of Transaction Costs</h2>
+  <p>Transaction costs arise at different stages of an exchange. Medaglia (Session 8) identifies four main categories:</p>
 
   <div class="concept-grid">
     <div class="concept-card">
       <span class="emoji">🔎</span>
       <h4>Search Costs</h4>
-      <p>Costs of finding a suitable partner or supplier in the market (Medaglia, Session 8).</p>
+      <p>The cost of finding a suitable supplier or partner in the market. Includes advertising, travel, information gathering, and due diligence. Digitalization dramatically reduces these.</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">📝</span>
+      <span class="emoji">📋</span>
       <h4>Information Costs</h4>
-      <p>Costs of measuring and identifying the quality of a product or service before transacting.</p>
+      <p>The cost of measuring quality and verifying product/service specifications <em>before</em> the transaction. Includes testing, inspections, third-party certifications, and assessments.</p>
     </div>
     <div class="concept-card">
       <span class="emoji">🤝</span>
-      <h4>Bargaining Costs</h4>
-      <p>Costs of negotiating and reaching an acceptable agreement with another party.</p>
+      <h4>Bargaining & Contracting Costs</h4>
+      <p>The cost of negotiating terms, drafting contracts, and reaching an agreement. Includes legal fees, time spent in negotiations, and insurance requirements.</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">👮</span>
-      <h4>Policing Costs</h4>
-      <p>Costs of monitoring and enforcing the terms of the contract to prevent opportunism.</p>
+      <span class="emoji">🔒</span>
+      <h4>Policing & Monitoring Costs</h4>
+      <p>The cost of ensuring the partner performs as agreed, preventing shirking or deviation from contract terms. Includes audits, performance tracking, and enforcement actions.</p>
     </div>
   </div>
+
+  <div class="theory-block alt">
+    <h3>Post-Transaction vs. Pre-Transaction Costs</h3>
+    <p><strong>Medaglia emphasizes:</strong> Digitalization primarily reduces <strong>ex-ante</strong> (pre-transaction) costs like search and information gathering. However, it may <em>increase</em> <strong>ex-post</strong> (post-transaction) policing costs in complex relationships due to difficulty in measuring digital outputs.</p>
+  </div>
+
 </section>
 
-<section id="digital">
-  <p class="section-label">Theory 02</p>
-  <h2>Digitalization and Transaction Costs</h2>
-  <p>Malone et al. (1987) and Medaglia (Session 8) argue that digital tools significantly reduce coordination costs, leading to three major shifts in organizational boundaries.</p>
+<section id="total">
+  <p class="section-label">Strategic Framework</p>
+  <h2>The Total Cost Approach</h2>
+  <p>The fundamental insight of TCT is that the optimal organizational form minimizes the <strong>sum</strong> of production costs and transaction costs. This creates a trade-off:</p>
+
+  <div class="theory-block">
+    <h3>The Make-or-Buy Trade-off</h3>
+    <ul>
+      <li><strong>MAKE (Hierarchy):</strong> Lower transaction costs (direct control, no opportunism risk), but potentially higher production costs (in-house often less efficient than specialists).</li>
+      <li><strong>BUY (Market):</strong> Lower production costs (specialists are more efficient), but higher transaction costs (search, monitoring, risk of opportunism).</li>
+      <li><strong>PARTNER (Hybrid/Networks):</strong> A middle ground attempting to capture benefits of both while minimizing downsides.</li>
+    </ul>
+  </div>
 
   <div class="figure-wrap">
     <figure>
-      <svg viewBox="0 0 520 220" width="100%" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20" y="30" width="180" height="150" rx="10" fill="#f0f0f0" stroke="#ccc"/>
-        <text x="110" y="55" text-anchor="middle" font-size="11" font-weight="700">HIERARCHY</text>
-        <text x="110" y="75" text-anchor="middle" font-size="9" fill="#6b6b7b">(In-house)</text>
-        <text x="40" y="105" font-size="9" fill="#2a2a38">· Direct control</text>
-        <text x="40" y="125" font-size="9" fill="#2a2a38">· High fixed costs</text>
-        <text x="40" y="145" font-size="9" fill="#2a2a38">· Low flexibility</text>
+      <svg viewBox="0 0 600 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <!-- Axes -->
+        <line x1="60" y1="250" x2="550" y2="250" stroke="#2a2a38" stroke-width="2"/>
+        <line x1="60" y1="20" x2="60" y2="250" stroke="#2a2a38" stroke-width="2"/>
+        <text x="570" y="255" font-size="11" font-weight="600">Integration Level →</text>
+        <text x="20" y="100" font-size="11" font-weight="600" transform="rotate(-90 20 100)">Cost</text>
         
-        <path d="M 210 105 L 300 105" stroke="#c1440e" stroke-width="2" stroke-dasharray="5 2"/>
-        <text x="255" y="95" text-anchor="middle" font-size="10" fill="#c1440e" font-weight="700">IT SHIFT</text>
+        <!-- Left side label -->
+        <text x="100" y="275" font-size="10" font-weight="600" fill="#6b6b7b">MARKET</text>
+        <!-- Right side label -->
+        <text x="480" y="275" font-size="10" font-weight="600" fill="#6b6b7b">HIERARCHY</text>
         
-        <rect x="310" y="30" width="180" height="150" rx="10" fill="#fff3ec" stroke="#c1440e"/>
-        <text x="400" y="55" text-anchor="middle" font-size="11" font-weight="700">MARKET</text>
-        <text x="400" y="75" text-anchor="middle" font-size="9" fill="#c1440e">(Outsource / Partner)</text>
-        <text x="330" y="105" font-size="9" fill="#2a2a38">· Lower production cost</text>
-        <text x="330" y="125" font-size="9" fill="#2a2a38">· High coordination cost</text>
-        <text x="330" y="145" font-size="9" fill="#2a2a38">· Strategic dependency</text>
+        <!-- Production Cost curve (declining) -->
+        <path d="M 80 100 Q 300 80 520 120" stroke="#2563a8" stroke-width="3" fill="none"/>
+        <text x="530" y="110" font-size="10" fill="#2563a8" font-weight="600">Production Cost</text>
+        
+        <!-- Transaction Cost curve (rising) -->
+        <path d="M 80 200 Q 300 150 520 80" stroke="#c1440e" stroke-width="3" fill="none"/>
+        <text x="380" y="70" font-size="10" fill="#c1440e" font-weight="600">Transaction Cost</text>
+        
+        <!-- Total Cost curve (sum, U-shaped) -->
+        <path d="M 80 100 Q 220 110 300 70 Q 380 110 520 200" stroke="#6b6b7b" stroke-width="3" fill="none" stroke-dasharray="5 3"/>
+        <text x="320" y="30" font-size="10" fill="#6b6b7b" font-weight="600">Total Cost</text>
+        
+        <!-- Optimal point -->
+        <circle cx="300" cy="70" r="4" fill="#c1440e"/>
+        <line x1="300" y1="70" x2="300" y2="250" stroke="#c1440e" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="310" y="220" font-size="9" fill="#c1440e" font-weight="600">Optimal<br/>Form</text>
       </svg>
-      <figcaption>Fig. 1 — The Make or Buy Decision. Digitalization reduces coordination/market costs, pushing firms toward the "Market" end of the spectrum (Malone's Electronic Market Hypothesis).</figcaption>
+      <figcaption>Fig. 1 — The Total Cost Minimization Framework. The optimal organizational form sits at the intersection of rising transaction costs and declining production costs. It's rarely at pure extremes.</figcaption>
     </figure>
   </div>
+
+  <div class="card accent-left2">
+    <h3>Why Organizations Rarely Exist at Pure Extremes</h3>
+    <p>Perfect hierarchies (complete integration) lead to bureaucratic inefficiency and rising production costs. Perfect markets leave firms vulnerable to opportunism and high monitoring costs. Most firms are positioned somewhere in the middle, using hybrid forms like joint ventures, strategic alliances, franchising, and platform ecosystems to balance the trade-off.</p>
+  </div>
+
+</section>
+
+<section id="middle">
+  <p class="section-label">Key Prediction</p>
+  <h2>Move to the Middle</h2>
+  <p>A critical prediction of TCT is that most organizations will gravitate toward <strong>hybrid or intermediate forms</strong> rather than pure hierarchies or pure markets. This is because the total cost curve (shown above) has its minimum in the middle, not at the extremes.</p>
+
+  <div class="theory-block">
+    <h3>What Does "Middle" Mean?</h3>
+    <p>The "middle" encompasses a spectrum of hybrid organizational forms that blend market and hierarchy characteristics:</p>
+    <ul>
+      <li><strong>Strategic Alliances & Joint Ventures:</strong> Shared control between independent firms, with contractual governance.</li>
+      <li><strong>Networks & Ecosystems:</strong> Multiple interconnected firms with relational (trust-based) rather than purely contractual governance.</li>
+      <li><strong>Franchising & Licensing:</strong> Partial integration where the franchisor retains control over brand and standards while franchisees retain operational autonomy.</li>
+      <li><strong>Platform Ecosystems:</strong> Firms like Uber or Airbnb sit between markets (they don't employ drivers/hosts) and hierarchies (they exert significant control).</li>
+      <li><strong>Supply Chain Partnerships:</strong> Long-term relationships with preferred suppliers rather than spot-market transactions.</li>
+    </ul>
+  </div>
+
+  <h3>Evidence of Moving to the Middle</h3>
+  <p><strong>Historically:</strong> Historically, firms were either heavily vertically integrated (GM made its own steel) or used pure spot markets. Today:</p>
+  
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="emoji">🏭</span>
+      <h4>De-Integration of Large Firms</h4>
+      <p>Many conglomerates broke up in the 1980s-2000s, moving away from full hierarchy toward hybrid forms and partnerships (e.g., Toyota's supplier networks).</p>
+    </div>
+    <div class="concept-card blue">
+      <span class="emoji">🌐</span>
+      <h4>Rise of Platform Economies</h4>
+      <p>Digital platforms (Uber, Airbnb, Spotify) are quintessentially "middle" — neither pure hierarchies nor pure markets, but hybrid governance.</p>
+    </div>
+  </div>
+
+  <div class="card highlight-bg">
+    <h3>Why Digitalization Reinforces Move to the Middle</h3>
+    <p>Digital tools make hybrid forms <em>feasible</em> because they enable:</p>
+    <ul>
+      <li><strong>Real-time monitoring:</strong> Firms can now monitor performance of partners without owning them (e.g., Uber tracking driver locations and ratings).</li>
+      <li><strong>Rapid communication:</strong> Coordination across firm boundaries becomes nearly as fast as internal hierarchical coordination.</li>
+      <li><strong>Automated contracting:</strong> Smart contracts and APIs can encode many terms automatically, reducing bargaining costs.</li>
+      <li><strong>Transparency:</strong> Data sharing between firms becomes easier (supply chain visibility, API integrations).</li>
+    </ul>
+  </div>
+
+</section>
+
+<section id="emh">
+  <p class="section-label">Digital Transformation</p>
+  <h2>The Electronic Market Hypothesis (EMH)</h2>
+  <p>Malone et al. (1987) proposed that information technology would fundamentally reshape organizational boundaries by reducing <strong>coordination costs</strong> more than <strong>production costs</strong>.</p>
+
+  <div class="theory-block alt">
+    <h3>The EMH Prediction</h3>
+    <p>Because markets are generally more efficient at resource allocation than hierarchies (firms have to support idle capacity; hierarchies create bureaucratic overhead), a decline in coordination costs would shift the optimal trade-off curve downward, favoring markets over hierarchies.</p>
+    <p style="margin-top: 1rem;"><strong>Expected outcome:</strong> More outsourcing, shorter supply chains, smaller firm size, and greater use of spot markets. This would lead to "electronic markets" replacing internal departments.</p>
+  </div>
+
+  <h3>What Actually Happened?</h3>
+  <p>The EMH predicted a wholesale shift toward markets and de-integration. However, reality has been more nuanced:</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Prediction (EMH)</th>
+        <th>Actual Outcome</th>
+        <th>Why the Difference?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Firms shrink; outsource everything</td>
+        <td>Firms grew in some industries (tech), outsourced in others (manufacturing)</td>
+        <td>IT creates winner-take-all dynamics and platform economies, increasing firm size in software/cloud sectors.</td>
+      </tr>
+      <tr>
+        <td>Spot markets dominate</td>
+        <td>Strategic alliances and platform ecosystems emerged instead</td>
+        <td>Hidden action (agency) and asset specificity remain high in digital partnerships, requiring hybrid governance.</td>
+      </tr>
+      <tr>
+        <td>Supplier switching is frictionless</td>
+        <td>Lock-in increased due to data and API switching costs</td>
+        <td>Digitalization created <strong>new</strong> forms of asset specificity (proprietary data, custom integrations).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card accent-left">
+    <h3>The Irony of Digital Platforms</h3>
+    <p>Malone predicted electronic <em>markets</em> would dominate. Instead, we got digital <em>platforms</em> (e.g., Uber, Amazon, Meta) — essentially new forms of hierarchy dressed up as markets. These platforms are intermediaries that exert substantial control over third-party suppliers, contradicting EMH's prediction of decentralized spot markets.</p>
+  </div>
+
 </section>
 
 <section id="risks">
-  <p class="section-label">Theory 03</p>
+  <p class="section-label">Digital Challenges</p>
   <h2>Transaction Risks in Digital Economies</h2>
-  <p>While digitalization reduces many costs, it introduces new risks (Medaglia, Session 8; Nagle et al., 2025). Organizations must balance efficiency against these potential downsides.</p>
+  <p>While digitalization reduces many transaction costs, it introduces or amplifies new risks. Organizations must balance efficiency gains against these emerging vulnerabilities.</p>
 
   <div class="concept-grid">
     <div class="concept-card">
       <span class="emoji">😈</span>
-      <h4>Opportunism</h4>
-      <p>The risk of a partner acting in their own self-interest at your expense. Highly relevant in "Small Numbers Bargaining" (limited suppliers).</p>
+      <h4>Opportunism & Holdup</h4>
+      <p>A partner can threaten to terminate or degrade service once you've invested heavily (asset specificity). In digital contracts, this manifests as API deprecation or pricing increases post-lock-in.</p>
     </div>
     <div class="concept-card blue">
-      <span class="emoji">💤</span>
-      <h4>Shirking</h4>
-      <p>Operation risk where the partner under-performs because their outputs are hard to monitor digitally (Medaglia, Session 8).</p>
+      <span class="emoji">👁️</span>
+      <h4>Hidden Action (Shirking)</h4>
+      <p>The partner under-delivers because outputs are hard to measure digitally (e.g., "Is the AI model truly optimized for our use case?"). Black-box models exacerbate this.</p>
     </div>
     <div class="concept-card">
+      <span class="emoji">🔐</span>
+      <h4>Data Asymmetry</h4>
+      <p>In digital partnerships, one party may have vastly more information about usage patterns, performance, or competitive activity. Difficult to verify partner honesty.</p>
+    </div>
+    <div class="concept-card blue">
       <span class="emoji">🔒</span>
-      <h4>Asset Specificity</h4>
-      <p>When an investment (data, custom API) is only valuable within one specific partnership. This leads to <strong>Lock-in</strong>.</p>
+      <h4>Lock-in via Switching Costs</h4>
+      <p>Proprietary data formats, custom APIs, and trained models create massive switching costs. Firms become dependent on partners, increasing vulnerability to renegotiation.</p>
     </div>
   </div>
+
 </section>
 
 <section id="case">
-  <p class="section-label">Case Application</p>
-  <h2>Novo Nordisk — The Outsourcing Logic</h2>
-  <p>Analyzing Novo Nordisk's strategic choices through TCT:</p>
+  <p class="section-label">Real-World Application</p>
+  <h2>Novo Nordisk & OpenAI: A TCT Analysis</h2>
+  <p>How can we apply Transaction Cost Theory to Novo Nordisk's decision to partner with OpenAI for drug discovery?</p>
 
-  <div class="card">
+  <div class="theory-block">
+    <h3>The Make-or-Buy Decision</h3>
+    
+    <h4 style="margin-top: 1.2rem; margin-bottom: 0.5rem;">Option 1: MAKE (Build in-house LLM)</h4>
     <ul>
-      <li><strong>Production vs. Transaction Costs:</strong> Building a world-class LLM internally would have prohibitive production costs for Novo. Partnering with OpenAI allows them to access <em>lower production costs</em> via a market transaction.</li>
-      <li><strong>Search Costs:</strong> Digitalization (and OpenAI's fame) reduced the <em>search costs</em> for an AI partner to near-zero.</li>
-      <li><strong>Small Numbers Risk:</strong> There are only a few players who can offer what OpenAI does. This creates a "Small Numbers" bargaining situation, increasing the risk of <em>Opportunism</em> or <em>Lock-in</em> for Novo Nordisk.</li>
+      <li><strong>Production Costs:</strong> $50M+ investment in AI research, talent acquisition, ongoing R&D. Massive.</li>
+      <li><strong>Transaction Costs:</strong> Minimal (internal control, no external coordination).</li>
+      <li><strong>Total:</strong> Prohibitively expensive. Novo lacks expertise in LLM training; opportunity cost is high.</li>
+    </ul>
+    
+    <h4 style="margin-top: 1.2rem; margin-bottom: 0.5rem;">Option 2: BUY (Use OpenAI's API)</h4>
+    <ul>
+      <li><strong>Production Costs:</strong> Low. Pay-per-use or subscription to OpenAI's model. Leverage their R&D.</li>
+      <li><strong>Transaction Costs:</strong> Search costs near-zero (OpenAI is famous); information costs low (benchmarked models); bargaining straightforward (standard contracts); but policing costs are <strong>high</strong> — hard to verify if GPT is truly optimized for drug discovery.</li>
+      <li><strong>Total:</strong> Lower than MAKE, but exposed to risks below.</li>
     </ul>
   </div>
+
+  <div class="card accent-left2">
+    <h3>The Transaction Cost Challenges</h3>
+    <ul>
+      <li><strong>Asset Specificity (HIGH):</strong> Novo's investment in OpenAI integration, prompt engineering, and data pipelines becomes specific to OpenAI's API. Switching to Google Gemini or Claude would require rework.</li>
+      <li><strong>Uncertainty (VERY HIGH):</strong> The AI landscape is rapidly evolving. OpenAI could change pricing, features, or terms. Drug discovery outcomes are unpredictable.</li>
+      <li><strong>Frequency (HIGH):</strong> Novo will use the API repeatedly for continuous drug discovery, justifying investment in governance.</li>
+      <li><strong>Opportunism Risk (CRITICAL):</strong> OpenAI could raise prices once Novo is locked in, knowing switching costs are high. This is "Small Numbers Bargaining" — only a few LLM providers can offer what OpenAI does.</li>
+      <li><strong>Hidden Action (CRITICAL):</strong> Novo cannot easily verify that OpenAI's model is performing optimally for drug discovery, or that OpenAI isn't allocating compute resources away from Novo's requests during peak usage.</li>
+    </ul>
+  </div>
+
+  <div class="theory-block alt">
+    <h3>Why a Hybrid Form Might Emerge</h3>
+    <p>Given these risks, we might expect Novo Nordisk to:</p>
+    <ul>
+      <li><strong>Negotiate a long-term contract</strong> with price caps and service-level agreements (SLAs) to mitigate opportunism risk.</li>
+      <li><strong>Maintain internal AI capabilities</strong> as a "shadow option" to reduce lock-in and verify OpenAI's performance.</li>
+      <li><strong>Diversify</strong> — use OpenAI for some tasks but also explore Google, Anthropic, or open-source models.</li>
+      <li><strong>Invest in integration</strong> — create proprietary layers (fine-tuning, domain-specific adaptations) that increase switching costs in Novo's favor.</li>
+    </ul>
+  </div>
+
 </section>
 
 <section id="questions">
@@ -338,13 +616,15 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          How does TCT explain why firms exist in the first place?
+          Explain the fundamental insight of Transaction Cost Theory. Why do firms exist?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
+          <p>Firms exist because <strong>markets are not frictionless</strong>. Markets have transaction costs (search, information gathering, monitoring, enforcement). When the cost of market coordination exceeds the cost of hierarchical coordination, it becomes economical to integrate activities inside the firm.</p>
           <ul>
-            <li>Firms exist when the cost of coordinating through the **Market** (transaction costs) is higher than the cost of coordinating within a **Hierarchy** (internal management costs).</li>
-            <li>If markets were perfect and costless, every task would be outsourced to the lowest bidder.</li>
+            <li>If all information were free and contracts were costless to enforce, everything would be outsourced.</li>
+            <li>Bounded rationality and opportunism make it impossible to write complete contracts.</li>
+            <li>The firm is a governance structure that minimizes the sum of production costs and transaction costs.</li>
           </ul>
         </div>
       </details>
@@ -353,14 +633,89 @@
       <details>
         <summary>
           <span class="q-badge core">Core</span>
-          What is the "Electronic Market Hypothesis" (Malone et al., 1987)?
+          What are Williamson's three critical dimensions that determine optimal organizational form?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>Hypothesis that IT reduces coordination costs more than production costs.</li>
-            <li>Because market coordination is generally more efficient at producing goods, a drop in coordination costs will favor **Markets** over Hierarchies.</li>
-            <li>This leads to more outsourcing and more fluid organizational boundaries.</li>
+            <li><strong>Asset Specificity:</strong> How tied is an investment to one specific relationship? High specificity favors hierarchy (internal control reduces opportunism risk).</li>
+            <li><strong>Uncertainty:</strong> How unpredictable is the future? High uncertainty favors hierarchy (easier to adapt internally). Low uncertainty allows detailed contracts with external partners.</li>
+            <li><strong>Frequency:</strong> How often does the transaction occur? High frequency justifies investment in monitoring systems; low frequency suits spot markets.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          Explain the "Total Cost Approach" and why firms rarely exist at pure extremes (100% hierarchy or 100% market).
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <p>The Total Cost Approach states that the optimal organizational form minimizes: <strong>Production Costs + Transaction Costs</strong>.</p>
+          <ul>
+            <li>In-house (Hierarchy): Low transaction costs, but often higher production costs (less efficient than specialists).</li>
+            <li>Outsource (Market): Lower production costs (specialists), but higher transaction costs (search, monitoring, risk).</li>
+            <li>Hybrid: The optimum is usually in the middle, balancing both.</li>
+          </ul>
+          <p style="margin-top: 0.6rem;">Perfect hierarchies suffer from bureaucratic inefficiency; pure markets suffer from high monitoring costs and opportunism risk. Most successful firms are "in the middle" — using alliances, networks, or platform models.</p>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge apply">Apply</span>
+          What is the "Move to the Middle" prediction? Give examples of hybrid organizational forms that prove this.
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <p><strong>Move to the Middle:</strong> TCT predicts that organizations will gravitate toward hybrid forms rather than pure hierarchies or markets, because the total cost curve has its minimum in the middle.</p>
+          <p><strong>Examples:</strong></p>
+          <ul>
+            <li>Strategic alliances and joint ventures (Sony-Ericsson)</li>
+            <li>Franchising (McDonald's operates via franchisees, not employees)</li>
+            <li>Supply chain partnerships (Toyota's supplier network)</li>
+            <li>Platform ecosystems (Uber, Airbnb — neither fully integrated nor pure markets)</li>
+            <li>Open-source communities (Linux combines volunteers with corporate sponsors)</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge core">Core</span>
+          What was the "Electronic Market Hypothesis" and did it come true?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <p><strong>EMH (Malone et al., 1987):</strong> IT reduces coordination costs more than production costs. Because markets are more efficient at allocation, lower coordination costs should favor markets over hierarchies. Prediction: electronic markets would dominate; firms shrink; spot markets replace internal departments.</p>
+          <p><strong>Did it happen?</strong> Partially. What actually emerged:</p>
+          <ul>
+            <li>Digital platforms (Uber, Amazon) — not decentralized markets, but new forms of hierarchy/intermediaries.</li>
+            <li>Strategic alliances and hybrid ecosystems, not pure outsourcing.</li>
+            <li>Winner-take-all dynamics in software/cloud (firms grew larger, not smaller).</li>
+            <li>New asset specificity (data, APIs, integrations) created lock-in despite lower search costs.</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li class="q-item">
+      <details>
+        <summary>
+          <span class="q-badge apply">Apply</span>
+          How can digitalization <strong>increase</strong> transaction costs, even though it reduces search and information costs?
+          <span class="q-chevron">▶</span>
+        </summary>
+        <div class="q-answer">
+          <p>Digitalization reduces <strong>ex-ante</strong> (pre-transaction) costs but can increase <strong>ex-post</strong> (post-transaction) costs:</p>
+          <ul>
+            <li><strong>Monitoring costs rise:</strong> In complex AI partnerships, it's hard to verify if the model is performing optimally (Black Box problem).</li>
+            <li><strong>Hidden action:</strong> Partner under-delivers in ways that are hard to detect digitally.</li>
+            <li><strong>New asset specificity:</strong> Custom APIs, proprietary data formats, trained models create switching costs (e.g., Novo Nordisk locked into OpenAI).</li>
+            <li><strong>Lock-in risk:</strong> Once integrated, partner can raise prices or degrade service (opportunism).</li>
           </ul>
         </div>
       </details>
@@ -369,14 +724,17 @@
       <details>
         <summary>
           <span class="q-badge synth">Synthesis</span>
-          Can digitalization actually INCREASE transaction costs? Explain with an example.
+          Apply TCT to Novo Nordisk's partnership with OpenAI. What transaction costs or risks should Novo be concerned about?
           <span class="q-chevron">▶</span>
         </summary>
         <div class="q-answer">
           <ul>
-            <li>Yes. Specifically **Policing/Monitoring costs**.</li>
-            <li>In complex AI partnerships, the "Black Box" nature makes it hard to verify if the partner is performing optimally (Hidden Action).</li>
-            <li>Asymmetric information in digital contracts can lead to higher monitoring costs to prevent **Shirking**.</li>
+            <li><strong>Asset Specificity (HIGH):</strong> Novo invests in prompt engineering, fine-tuning, and API integration specific to OpenAI. Switching to Google or Anthropic incurs rework.</li>
+            <li><strong>Uncertainty (VERY HIGH):</strong> AI landscape evolving; OpenAI could change pricing, terms, or capabilities.</li>
+            <li><strong>Small Numbers Bargaining:</strong> Only a few LLM providers can deliver; OpenAI has bargaining power.</li>
+            <li><strong>Opportunism Risk:</strong> Once Novo is locked in, OpenAI could raise prices or degrade service priority.</li>
+            <li><strong>Hidden Action:</strong> Hard to verify if OpenAI's model is truly optimized for Novo's drug discovery use case.</li>
+            <li><strong>Mitigation strategies:</strong> Long-term contracts with SLAs; maintain internal AI capabilities as backup; diversify across multiple LLM providers.</li>
           </ul>
         </div>
       </details>
@@ -386,8 +744,8 @@
 
 </main>
 
-<footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.78rem;color:var(--muted);max-width:900px;margin:0 auto">
-  Based on: Medaglia (Lecture) · Williamson (1986) · Malone et al. (1987) · Nagle et al. (2025) · IEB Session 08
+<footer style="border-top:1px solid var(--border);padding:2rem 2rem;text-align:center;font-size:0.8rem;color:var(--muted);max-width:1200px;margin:0 auto">
+  Based on: Williamson (1979, 1986) · Malone et al. (1987) · Medaglia (IEB Session 08) · Nagle et al. (2025) · MSc BAIS Exam Preparation
 </footer>
 
 </body>
